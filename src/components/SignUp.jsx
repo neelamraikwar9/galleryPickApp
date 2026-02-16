@@ -1,11 +1,26 @@
-import React from "react";
-import { useState } from 'react'; 
+import './signup.css'
+import axios from "axios";
+import { useState } from "react";
+
 
 
 const SignUp = () => {
-  const [name, setName] = useState(""); 
-  const [email, setEmail] = useState(""); 
-  const [password, setPassword] = useState(""); 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  console.log(name, email, password, "data"); 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    const response = await axios.post("http://localhost:4000/signup", {name, email, password}, {
+      headers: {
+        "Content-Type": "application/json"}, 
+    }); 
+
+    console.log(response, "response")
+  }
+
+
   return (
     <div>
       <div>
@@ -14,18 +29,54 @@ const SignUp = () => {
           <i>Sign up to start storing your photos and memories</i>
         </p>
       </div>
-      <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name" className="lable">
+            Name:{" "}
+          </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <br />
+        <div>
+          <label htmlFor="email" className="lable">
+            Email:{" "}
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-        <label>Name: </label>
-        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
-        <br/>
-        <label>Email: </label>
-        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <br/>
-        <label>Password: </label>
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <br/>
-      </div>
+        <br />
+        <div>
+          <label htmlFor="password" className="lable">
+            Password:{" "}
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Your Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <br />
+        <div>
+          <button type="submit">Sign Up</button>
+          <p>---- Or sign up with ----</p>
+           <img src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="Google" className="googleAuth" onClick/>
+          <p><i>Already have account? Sign In.</i></p>
+        </div>
+      </form>
     </div>
   );
 };
