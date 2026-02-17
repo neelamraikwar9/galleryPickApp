@@ -1,6 +1,7 @@
 import './signup.css'
 import axios from "axios";
 import { useState } from "react";
+import { Link } from 'react-router-dom'; 
 
 
 
@@ -72,9 +73,9 @@ const SignUp = () => {
         <br />
         <div>
           <button type="submit">Sign Up</button>
-          <p>---- Or sign up with ----</p>
+          <p>---- Or Sign Up with ----</p>
            <img src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="Google" className="googleAuth" onClick/>
-          <p><i>Already have account? Sign In.</i></p>
+          <Link to="/SignIn"><p><i>Already have an account? Sign In.</i></p></Link>
         </div>
       </form>
     </div>
