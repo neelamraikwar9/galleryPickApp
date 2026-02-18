@@ -3,7 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import { AuthProvider } from "./context/AuthContext";
-import LandingPage from './pages/LandingPage'; 
+import GalleryPick from "./pages/Gallery Pick";
+import { ToastContainer } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -13,8 +15,11 @@ function App() {
           <Routes>
             <Route path="/" element={<SignUp />}></Route>
             <Route path="/SignIn" element={<SignIn />}></Route>
-            <Route path="/landingPage" element={<LandingPage/>}></Route>
+            <Route path="/galleryPick" element={<GalleryPick />}></Route>
+            <Route path="/uploadImg" element={<GalleryPick />}></Route>
+            <Route path="/createAlbum" element={<GalleryPick />}></Route>
           </Routes>
+          <ToastContainer />
         </AuthProvider>
       </div>
     </>

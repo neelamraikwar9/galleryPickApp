@@ -29,7 +29,7 @@ const SignUp = () => {
     console.log(response, "response");
 
     if (response.status === 201) {
-      navigate("/landingPage");
+      navigate("/galleryPick");
       toast.success("Account created successfully!");
     } else {
       setError(
@@ -60,6 +60,7 @@ const SignUp = () => {
             placeholder="Your Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
         <br />
@@ -73,6 +74,7 @@ const SignUp = () => {
             placeholder="Your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
 
@@ -87,6 +89,7 @@ const SignUp = () => {
             placeholder="Your Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <br />

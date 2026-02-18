@@ -1,11 +1,17 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { useAuth } from '../context/AuthContext'; 
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth(); 
+  const navigate = useNavigate(); 
+  console.log(email, password, "Data"); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,18 +29,18 @@ const SignIn = () => {
 
     console.log(response, "response");
 
-    const data = response.data(); 
+    const data = await response.data; 
     console.log(data, "data"); 
 
     if(data.token){
       login(data.token); 
-      navigate("/landingPage");
+      navigate("/galleryPick");
       toast.success("You are logged in successfully."); 
     } else{
       toast.error("Invalid Email and Password."); 
     }
   } catch(error){
-    toast.error(error.response?.date?.message || "Login faild"); 
+    toast.error(error.response?.data?.message || "Login failed"); 
   }
   };
 
@@ -57,6 +63,7 @@ const SignIn = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <br />
@@ -69,6 +76,7 @@ const SignIn = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <br />
