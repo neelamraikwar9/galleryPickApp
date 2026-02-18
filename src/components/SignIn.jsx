@@ -9,7 +9,8 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+    try{
     const response = await axios.post(
       "http://localhost:4000/login",
       { email, password },
@@ -22,7 +23,7 @@ const SignIn = () => {
 
     console.log(response, "response");
 
-    const data = await response.json(); 
+    const data = response.data(); 
     console.log(data, "data"); 
 
     if(data.token){
@@ -32,6 +33,9 @@ const SignIn = () => {
     } else{
       toast.error("Invalid Email and Password."); 
     }
+  } catch(error){
+    toast.error(error.response?.date?.message || "Login faild"); 
+  }
   };
 
   return (
