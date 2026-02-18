@@ -1,26 +1,45 @@
-import './signup.css'
+import "./signup.css";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from 'react-router-dom'; 
-
-
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(name, email, password, "data"); 
+  const [error, setError] = useState();
+  const navigate = useNavigate(); 
+  console.log(name, email, password, "data");
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
-    const response = await axios.post("http://localhost:4000/signup", {name, email, password}, {
-      headers: {
-        "Content-Type": "application/json"}, 
-    }); 
+    e.preventDefault();
+    const response = await axios.post(
+      "http://localhost:4000/signup",
+      { name, email, password },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
 
-    console.log(response, "response")
-  }
+    console.log(response, "response");
 
+    if (response.status === 201) {
+      navigate("/landingPage");
+      toast.success("Account created successfully!");
+    } else {
+      setError(
+        error.response?.data?.error ||
+          error.response?.data?.message ||
+          "Network error",
+      );
+      toast.error(errorMsg);
+    }
+  };
 
   return (
     <div>
@@ -74,8 +93,17 @@ const SignUp = () => {
         <div>
           <button type="submit">Sign Up</button>
           <p>---- Or Sign Up with ----</p>
-           <img src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="Google" className="googleAuth" onClick/>
-          <Link to="/SignIn"><p><i>Already have an account? Sign In.</i></p></Link>
+          <img
+            src="https://cdn-teams-slug.flaticon.com/google.jpg"
+            alt="Google"
+            className="googleAuth"
+            onClick
+          />
+          <Link to="/SignIn">
+            <p>
+              <i>Already have an account? Sign In.</i>
+            </p>
+          </Link>
         </div>
       </form>
     </div>
