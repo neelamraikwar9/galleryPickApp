@@ -4,44 +4,44 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import { useAuth } from '../context/AuthContext'; 
+import { useAuth } from "../context/AuthContext";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth(); 
-  const navigate = useNavigate(); 
-  console.log(email, password, "Data"); 
+  const { login, handleGoogleSignIn } = useAuth();
+  const navigate = useNavigate();
+  console.log(email, password, "Data");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
-    const response = await axios.post(
-      "http://localhost:4000/login",
-      { email, password },
-      {
-        headers: {
-          "Content-Type": "application/json",
+
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/login",
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      },
-    );
+      );
 
-    console.log(response, "response");
+      console.log(response, "response");
 
-    const data = await response.data; 
-    console.log(data, "data"); 
+      const data = await response.data;
+      console.log(data, "data");
 
-    if(data.token){
-      login(data.token); 
-      navigate("/galleryPick");
-      toast.success("You are logged in successfully."); 
-    } else{
-      toast.error("Invalid Email and Password."); 
+      if (data.token) {
+        login(data.token);
+        navigate("/galleryPick");
+        toast.success("You are logged in successfully.");
+      } else {
+        toast.error("Invalid Email and Password.");
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Login failed");
     }
-  } catch(error){
-    toast.error(error.response?.data?.message || "Login failed"); 
-  }
   };
 
   return (
@@ -80,22 +80,23 @@ const SignIn = () => {
           />
         </div>
         <br />
-        <div>
-          <button type="submit">Sign In</button>
-          <p>---- Or Sign In with ----</p>
+        <button type="submit">Sign In</button>
+      </form>
+      <div>
+        <p>---- Or Sign In with ----</p>
+        <button onClick={handleGoogleSignIn}>
           <img
             src="https://cdn-teams-slug.flaticon.com/google.jpg"
             alt="Google"
             className="googleAuth"
-            onClick
           />
-          <Link to="/">
-            <p>
-              <i>Don't have an account? Create a new Account!</i>
-            </p>
-          </Link>
-        </div>
-      </form>
+        </button>
+        <Link to="/">
+          <p>
+            <i>Don't have an account? Create a new Account!</i>
+          </p>
+        </Link>
+      </div>
     </div>
   );
 };

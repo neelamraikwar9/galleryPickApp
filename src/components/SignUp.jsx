@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { handleGoogleSignIn } = useAuth();
   console.log(name, email, password, "data");
 
   const handleSubmit = async (e) => {
@@ -93,22 +95,23 @@ const SignUp = () => {
           />
         </div>
         <br />
-        <div>
-          <button type="submit">Sign Up</button>
-          <p>---- Or Sign Up with ----</p>
+        <button type="submit">Sign Up</button>
+      </form>
+      <div>
+        <p>---- Or Sign Up with ----</p>
+        <button onClick={handleGoogleSignIn}>
           <img
             src="https://cdn-teams-slug.flaticon.com/google.jpg"
             alt="Google"
             className="googleAuth"
-            onClick
           />
-          <Link to="/SignIn">
-            <p>
-              <i>Already have an account? Sign In.</i>
-            </p>
-          </Link>
-        </div>
-      </form>
+        </button>
+        <Link to="/SignIn">
+          <p>
+            <i>Already have an account? Sign In.</i>
+          </p>
+        </Link>
+      </div>
     </div>
   );
 };

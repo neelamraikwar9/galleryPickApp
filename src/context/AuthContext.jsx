@@ -17,8 +17,15 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+  const handleGoogleSignIn = () => {
+      // Redirect to YOUR backend's Google auth endpoint
+  window.location.href = 'http://localhost:4000/auth/google';
+  }; 
+
+
+
   return (
-    <AuthContext.Provider value={{ token, login, logout }}>
+    <AuthContext.Provider value={{ token, login, logout,  handleGoogleSignIn}}>
       {children}
     </AuthContext.Provider>
   );
