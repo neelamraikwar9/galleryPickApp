@@ -10,15 +10,17 @@ import ProtectedLayout from "./components/ProtectedLayout";
 import UploadImg from "./pages/UploadImg";
 import CreateAlbum from "./pages/CreateAlbum";
 import PageNoteFound from "./pages/PageNoteFound";
+// import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
+
   return (
     <>
       <div>
         <AuthProvider>
           <Routes>
             <Route path="/" element={<SignUp />}></Route>
-            <Route path="/SignIn" element={<SignIn />}></Route>
+            <Route path="/signIn" element={<SignIn />}></Route>
             {/* <Route path="/" element={<Navigate to="/SignIn"/>}/> */}
             <Route element={<ProtectedRoute />}>
               <Route element={<ProtectedLayout />}>

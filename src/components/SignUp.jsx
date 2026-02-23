@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -13,34 +14,11 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
   const navigate = useNavigate();
-  const { handleGoogleSignIn } = useAuth();
+  // const { handleGoogleSignIn } = useAuth();
   console.log(name, email, password, "data");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "http://localhost:4000/signup",
-      { name, email, password },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-    );
-
-    console.log(response, "response");
-
-    if (response.status === 201) {
-      navigate("/galleryPick");
-      toast.success("Account created successfully!");
-    } else {
-      setError(
-        error.response?.data?.error ||
-          error.response?.data?.message ||
-          "Network error",
-      );
-      toast.error(errorMsg);
-    }
   };
 
   return (
@@ -99,7 +77,8 @@ const SignUp = () => {
       </form>
       <div>
         <p>---- Or Sign Up with ----</p>
-        <button onClick={handleGoogleSignIn}>
+        {/* <button onClick={handleGoogleSignIn}> */}
+        <button onClick={() => GoogleSignUp()}>
           <img
             src="https://cdn-teams-slug.flaticon.com/google.jpg"
             alt="Google"
