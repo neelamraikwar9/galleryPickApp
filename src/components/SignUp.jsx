@@ -78,7 +78,7 @@ const SignUp = () => {
       <div>
         <p>---- Or Sign Up with ----</p>
         {/* <button onClick={handleGoogleSignIn}> */}
-        <button onClick={() => GoogleSignUp()}>
+        <button onClick={() => window.open("http://localhost:4000/auth/google", "_self")}>
           <img
             src="https://cdn-teams-slug.flaticon.com/google.jpg"
             alt="Google"
