@@ -29,6 +29,10 @@ const SignIn = () => {
 
       console.log(response, "response");
 
+      // ✅ STORE TOKEN & USER DATA
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
       const data = await response.data;
       console.log(data, "data");
 
@@ -38,9 +42,14 @@ const SignIn = () => {
         toast.success("You are logged in successfully.");
       } else {
         toast.error("Invalid Email and Password.");
-      }   
+      }
     } catch (error) {
-      toast.error(error.response?.data?.message || "Login failed");
+      console.error("Login error:", error.response?.data);
+      if (error.response?.status === 401) {
+        toast.error("Invalid credentials.");
+      } else {
+        toast.error(error.response?.data?.message || "Login failed!");
+      }
     }
   };
 
