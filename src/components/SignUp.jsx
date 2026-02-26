@@ -13,12 +13,41 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
+ 
   const navigate = useNavigate();
   // const { handleGoogleSignIn } = useAuth();
   console.log(name, email, password, "data");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/signup",
+        { name, email, password },
+        {
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+
+      // ✅ STORE TOKEN & USER DATA
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      console.log(response, "response");
+      toast.success("Account created successful!");
+      navigate("/galleryPick");
+    } catch (error) {
+      console.error("Error:", error.response?.data);
+
+    if (error.response?.status === 401) {
+      toast.error("User already exists! Please login instead.");
+    } else if (error.response?.status === 400) {
+      toast.error("Please check your input data!");
+    } else {
+      toast.error(error.response?.data?.message || "Signup failed!");
+    }
+  }
   };
 
   return (
@@ -78,7 +107,11 @@ const SignUp = () => {
       <div>
         <p>---- Or Sign Up with ----</p>
         {/* <button onClick={handleGoogleSignIn}> */}
-        <button onClick={() => window.open("http://localhost:4000/auth/google", "_self")}>
+        <button
+          onClick={() =>
+            window.open("http://localhost:4000/auth/google", "_self")
+          }
+        >
           <img
             src="https://cdn-teams-slug.flaticon.com/google.jpg"
             alt="Google"
