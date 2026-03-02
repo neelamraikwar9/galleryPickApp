@@ -13,42 +13,103 @@ const SignIn = () => {
   const navigate = useNavigate();
   console.log(email, password, "Data");
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:4000/login",
+  //       { email, password },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       },
+  //     );
+
+  //     // const { token, user } = response.data;
+  //     // if{ token, }
+
+  //     console.log(response, "response");
+
+  //     // ✅ STORE TOKEN & USER DATA
+  //     localStorage.setItem("token", response.data.token);
+  //     localStorage.setItem("user", JSON.stringify(response.data.user));
+
+  //     const data = await response.data;
+  //     console.log(data, "data");
+
+  //     if (data.token) {
+  //       login(data.token);
+  //       navigate("/galleryPick");
+  //       toast.success("You are logged in successfully.");
+  //     } else {
+  //       toast.error("Invalid Email and Password.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Login error:", error.response?.data);
+  //     if (error.response?.status === 401) {
+  //       toast.error("Invalid credentials.");
+  //     } else {
+  //       toast.error(error.response?.data?.message || "Login failed!");
+  //     }
+  //   }
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:4000/login",
+  //       { email, password },
+  //       { headers: { "Content-Type": "application/json" } },
+  //     );
+
+  //     console.log(response.data, "response data"); // Check this!
+
+  //     // ✅ DESTRUCTURE DIRECTLY - NO AWAIT!
+  //     const { token, user } = response.data;
+
+  //     if (token && user) {
+  //       // ✅ PASS BOTH user AND token to context
+  //       login(user, token); // Context handles localStorage
+  //       navigate("/galleryPick");
+  //       toast.success(`Welcome back, ${user.name}!`);
+  //     } else {
+  //       toast.error("Invalid response from server.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Login error:", error.response?.data);
+  //     if (error.response?.status === 401) {
+  //       toast.error("Invalid credentials.");
+  //       return; // ✅ Stop execution
+  //     }
+  //     toast.error(error.response?.data?.message || "Login failed!");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/login",
+        "http://localhost:4000/auth/login",
         { email, password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
+        { headers: { "Content-Type": "application/json" } },
       );
 
-      console.log(response, "response");
+      console.log(response.data, "response data");
 
-      // ✅ STORE TOKEN & USER DATA
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      // ✅ FIXED: Pass USER + TOKEN (not just token)
+      const { token, user } = response.data;
+      login(user, token); // Now works with new login function!
 
-      const data = await response.data;
-      console.log(data, "data");
-
-      if (data.token) {
-        login(data.token);
-        navigate("/galleryPick");
-        toast.success("You are logged in successfully.");
-      } else {
-        toast.error("Invalid Email and Password.");
-      }
+      navigate("/galleryPick");
+      toast.success(`Welcome, ${user.name}!`);
     } catch (error) {
-      console.error("Login error:", error.response?.data);
       if (error.response?.status === 401) {
         toast.error("Invalid credentials.");
-      } else {
-        toast.error(error.response?.data?.message || "Login failed!");
       }
     }
   };

@@ -23,7 +23,7 @@ const SignUp = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:4000/signup",
+        "http://localhost:4000/auth/signup",
         { name, email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -34,9 +34,11 @@ const SignUp = () => {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
+
       console.log(response, "response");
       toast.success("Account created successful!");
       navigate("/galleryPick");
+      
     } catch (error) {
       console.error("Error:", error.response?.data);
 
