@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 // import { useAuth } from "../context/AuthContext";
-import { useGoogleLogin } from "@react-oauth/google";
+// import { useGoogleLogin } from "@react-oauth/google";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -20,6 +20,10 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+   if(!name || !email || !password){
+    return toast.error("name, email, and password are required.");
+   }
   
     try {
       const response = await axios.post(
@@ -30,15 +34,16 @@ const SignUp = () => {
         },
       );
 
-      // ✅ STORE TOKEN & USER DATA
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-
-
       console.log(response, "response");
-      toast.success("Account created successful!");
-      navigate("/galleryPick");
+
+      // const { message } = response;
       
+      toast.success("Account created successful!");
+      navigate("/signIn");
+
+      setName(""); 
+      setEmail(""); 
+      setPassword(""); 
     } catch (error) {
       console.error("Error:", error.response?.data);
 

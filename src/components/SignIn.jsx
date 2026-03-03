@@ -4,115 +4,93 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, handleGoogleSignIn } = useAuth();
+  // const { login, handleGoogleSignIn } = useAuth();
   const navigate = useNavigate();
   console.log(email, password, "Data");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try{
+      const res = await axios.post(
+        "http://localhost:4000/auth/login",
+        { email, password },
+        {
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+
+      console.log(res, "res");
+      toast.success(res.data?.message);
+      navigate("/galleryPick");
+
+      // const { email, jwtToken, message, name, success } = res.data;
+      // console.log(email, jwtToken, message, name, success, "data comingn..");
+      // if(success === true || res.status === 2000){
+      //   toast.success(message || "Login successful.");
+      //    localStorage.setItem("token", jwtToken);
+      //     localStorage.setItem("username", name);
+      //    navigate('/galleryPick');
+      // } else{
+      //   toast.error("Login failed.")
+      // }
+    } catch(error){
+     console.error("Login error: ", error); 
+     if (error.response?.status === 401) {
+        toast.error("Invalid credentials.");
+      } else {
+        toast.error(error.response?.data?.message || "Login failed!");
+      }
+  }
+  }
+
+    
+
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
 
+  //   if (!email || !password) {
+  //     return toast.error("email, and password are required.");
+  //   }
+
   //   try {
   //     const response = await axios.post(
-  //       "http://localhost:4000/login",
+  //       "http://localhost:4000/auth/login",
   //       { email, password },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       },
+  //       { headers: { "Content-Type": "application/json" } },
   //     );
 
-  //     // const { token, user } = response.data;
-  //     // if{ token, }
+  //     console.log(response.data, "response data");
 
-  //     console.log(response, "response");
-
-  //     // ✅ STORE TOKEN & USER DATA
-  //     localStorage.setItem("token", response.data.token);
-  //     localStorage.setItem("user", JSON.stringify(response.data.user));
-
-  //     const data = await response.data;
-  //     console.log(data, "data");
-
-  //     if (data.token) {
-  //       login(data.token);
-  //       navigate("/galleryPick");
-  //       toast.success("You are logged in successfully.");
+  //     const { success, jwtToken, message, name, email } = response.data;
+  //     if (success === true || success === 200) {
+  //       toast.success(message || "Login successfull");
+  //       localStorage.setItem("token", jwtToken);
+  //       localStorage.setItem(name);
+  //       setTimeout(() => {
+  //         navigate("/galleryPick");
+  //       }, 1000);
   //     } else {
-  //       toast.error("Invalid Email and Password.");
+  //       toast.error("Login failed!");
   //     }
   //   } catch (error) {
-  //     console.error("Login error:", error.response?.data);
-  //     if (error.response?.status === 401) {
-  //       toast.error("Invalid credentials.");
+  //     console.error("Login error: ", error.response?.data);
+  //     if (error.response?.status === 400) {
+  //       const details = error.response.data?.error?.details?.[0]?.message;
+  //       toast.error(details || "Validation error");
+  //     } else if (error.response?.status === 401) {
+  //       toast.error("Invalid credentials");
   //     } else {
   //       toast.error(error.response?.data?.message || "Login failed!");
   //     }
   //   }
   // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:4000/login",
-  //       { email, password },
-  //       { headers: { "Content-Type": "application/json" } },
-  //     );
-
-  //     console.log(response.data, "response data"); // Check this!
-
-  //     // ✅ DESTRUCTURE DIRECTLY - NO AWAIT!
-  //     const { token, user } = response.data;
-
-  //     if (token && user) {
-  //       // ✅ PASS BOTH user AND token to context
-  //       login(user, token); // Context handles localStorage
-  //       navigate("/galleryPick");
-  //       toast.success(`Welcome back, ${user.name}!`);
-  //     } else {
-  //       toast.error("Invalid response from server.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Login error:", error.response?.data);
-  //     if (error.response?.status === 401) {
-  //       toast.error("Invalid credentials.");
-  //       return; // ✅ Stop execution
-  //     }
-  //     toast.error(error.response?.data?.message || "Login failed!");
-  //   }
-  // };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post(
-        "http://localhost:4000/auth/login",
-        { email, password },
-        { headers: { "Content-Type": "application/json" } },
-      );
-
-      console.log(response.data, "response data");
-
-      // ✅ FIXED: Pass USER + TOKEN (not just token)
-      const { token, user } = response.data;
-      login(user, token); // Now works with new login function!
-
-      navigate("/galleryPick");
-      toast.success(`Welcome, ${user.name}!`);
-    } catch (error) {
-      if (error.response?.status === 401) {
-        toast.error("Invalid credentials.");
-      }
-    }
-  };
 
   return (
     <div>
