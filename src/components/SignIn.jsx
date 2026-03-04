@@ -15,8 +15,8 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
+
+    try {
       const res = await axios.post(
         "http://localhost:4000/auth/login",
         { email, password },
@@ -27,30 +27,21 @@ const SignIn = () => {
 
       console.log(res, "res");
       toast.success(res.data?.message);
-      navigate("/galleryPick");
 
-      // const { email, jwtToken, message, name, success } = res.data;
-      // console.log(email, jwtToken, message, name, success, "data comingn..");
-      // if(success === true || res.status === 2000){
-      //   toast.success(message || "Login successful.");
-      //    localStorage.setItem("token", jwtToken);
-      //     localStorage.setItem("username", name);
-      //    navigate('/galleryPick');
-      // } else{
-      //   toast.error("Login failed.")
-      // }
-    } catch(error){
-     console.error("Login error: ", error); 
-     if (error.response?.status === 401) {
+      const { message, jwtToken, name } = res.data;
+      localStorage.setItem("token", jwtToken);
+      localStorage.setItem("loggedInUser", name);
+
+      navigate("/galleryPick");
+    } catch (error) {
+      console.error("Login error: ", error);
+      if (error.response?.status === 401) {
         toast.error("Invalid credentials.");
       } else {
         toast.error(error.response?.data?.message || "Login failed!");
       }
-  }
-  }
-
-    
-
+    }
+  };
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -141,7 +132,7 @@ const SignIn = () => {
             className="googleAuth"
           />
         </button>
-        <Link to="/">
+        <Link to="/signin">
           <p>
             <i>Don't have an account? Create a new Account!</i>
           </p>

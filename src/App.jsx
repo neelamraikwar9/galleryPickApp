@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from 'react'; 
 import { Routes, Route, Navigate } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
@@ -10,28 +11,36 @@ import { ToastContainer } from "react-toastify";
 import UploadImg from "./pages/UploadImg";
 import CreateAlbum from "./pages/CreateAlbum";
 import PageNoteFound from "./pages/PageNoteFound";
+import RefreshHandler from "./RefreshHandler";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+
+  const PrivateRoute = ({element}) => {
+    return isAuthenticated ? element : <Navigate to="/signin"/>
+  }
+
 
   return (
     <>
       <div>
+      <RefreshHandler setIsAuthenticated={setIsAuthenticated}/>
         {/* <AuthProvider> */}
-          <Routes>
-            <Route path="/" element={<SignUp />}></Route>
-            <Route path="/signIn" element={<SignIn />}></Route>
-            {/* <Route path="/" element={<Navigate to="/SignIn"/>}/> */}
-            {/* <Route element={<ProtectedRoute />}> */}
-              {/* <Route element={<ProtectedLayout />}> */}
-                <Route path="/galleryPick" element={<GalleryPick />}></Route>
-                <Route path="/uploadImg" element={<UploadImg />}></Route>
-                <Route path="/createAlbum" element={<CreateAlbum />}></Route>
-                <Route path="*" element={<PageNoteFound />}></Route>
-              {/* </Route> */}
-            {/* </Route> */}
-          </Routes>
-          <ToastContainer />
+        <Routes>
+          <Route path="/" element={<Navigate to="/signin"/>}/>
+          <Route path="/signin" element={<SignIn />}/>
+          <Route path="/signup" element={<SignUp />}/>
+          {/* <Route element={<ProtectedRoute />}> */}
+          {/* <Route element={<ProtectedLayout />}> */}
+          <Route path="/galleryPick" element={<GalleryPick />}></Route>
+          <Route path="/uploadImg" element={<UploadImg />}></Route>
+          <Route path="/createAlbum" element={<CreateAlbum />}></Route>
+          <Route path="*" element={<PageNoteFound />}></Route>
+          {/* </Route> */}
+          {/* </Route> */}
+        </Routes>
+        <ToastContainer />
         {/* </AuthProvider> */}
       </div>
     </>

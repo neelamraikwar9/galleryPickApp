@@ -39,7 +39,7 @@ const SignUp = () => {
       // const { message } = response;
       
       toast.success("Account created successful!");
-      navigate("/signIn");
+      navigate("/signin");
 
       setName(""); 
       setEmail(""); 
@@ -125,7 +125,7 @@ const SignUp = () => {
             className="googleAuth"
           />
         </button>
-        <Link to="/SignIn">
+        <Link to="/signin">
           <p>
             <i>Already have an account? Sign In.</i>
           </p>
