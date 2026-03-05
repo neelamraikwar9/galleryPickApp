@@ -33,7 +33,7 @@ function App() {
           <Route path="/signup" element={<SignUp />}/>
           {/* <Route element={<ProtectedRoute />}> */}
           {/* <Route element={<ProtectedLayout />}> */}
-          <Route path="/galleryPick" element={<GalleryPick />}></Route>
+          <Route path="/galleryPick" element={<PrivateRoute element={<GalleryPick />}/>}/>
           <Route path="/uploadImg" element={<UploadImg />}></Route>
           <Route path="/createAlbum" element={<CreateAlbum />}></Route>
           <Route path="*" element={<PageNoteFound />}></Route>

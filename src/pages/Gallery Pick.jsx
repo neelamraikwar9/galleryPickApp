@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const GalleryPick = () => {
   const [loggedInUser, setLoggedInUser] = useState('');
   // const [] 
-  const navigate = useNavigate(); 
+  // const navigate = useNavigate(); 
 
   useEffect(() => {
     setLoggedInUser(localStorage.getItem("loggedInUser")); 

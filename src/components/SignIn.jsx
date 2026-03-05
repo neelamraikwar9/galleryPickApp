@@ -43,46 +43,6 @@ const SignIn = () => {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!email || !password) {
-  //     return toast.error("email, and password are required.");
-  //   }
-
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:4000/auth/login",
-  //       { email, password },
-  //       { headers: { "Content-Type": "application/json" } },
-  //     );
-
-  //     console.log(response.data, "response data");
-
-  //     const { success, jwtToken, message, name, email } = response.data;
-  //     if (success === true || success === 200) {
-  //       toast.success(message || "Login successfull");
-  //       localStorage.setItem("token", jwtToken);
-  //       localStorage.setItem(name);
-  //       setTimeout(() => {
-  //         navigate("/galleryPick");
-  //       }, 1000);
-  //     } else {
-  //       toast.error("Login failed!");
-  //     }
-  //   } catch (error) {
-  //     console.error("Login error: ", error.response?.data);
-  //     if (error.response?.status === 400) {
-  //       const details = error.response.data?.error?.details?.[0]?.message;
-  //       toast.error(details || "Validation error");
-  //     } else if (error.response?.status === 401) {
-  //       toast.error("Invalid credentials");
-  //     } else {
-  //       toast.error(error.response?.data?.message || "Login failed!");
-  //     }
-  //   }
-  // };
-
   return (
     <div>
       <div>
