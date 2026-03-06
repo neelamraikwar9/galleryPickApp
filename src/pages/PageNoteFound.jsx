@@ -6,7 +6,7 @@ function PageNoteFound() {
   return (
     <div> 
     <h2>404 Page Note Found</h2>
-    <button onClick={() => navigate('/signIn')}>Login</button>
+    <button onClick={() => navigate('/signin')}>Login</button>
     </div>
   )
 }

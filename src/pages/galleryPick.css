@@ -1,0 +1,36 @@
+
+.mainContainer {
+    display: flex; 
+    /* justify-content: space-between; */
+    width: 110%; 
+    height: 50%; 
+    border: 1px solid rgb(238, 119, 39);
+    
+}
+.container {
+    border: 1px solid springgreen; 
+}
+
+.navCon {
+    width: 20%; 
+    margin-right: 4rem;
+    padding-top: 3%; 
+}
+
+.welCon {
+    width: 100%;
+    padding-top: 2%;
+}
+
+.userName {
+    font-weight: 500;
+    font-size: 2rem;
+    text-shadow: 2;
+    text-align: center;
+    margin-right: 7rem;
+}
+
+.welTxt {
+    text-align: center;
+    margin-right: 7rem; 
+}
