@@ -1,4 +1,5 @@
 import './galleryPick.css'; 
+
 import React, { useState, useEffect} from 'react' 
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar'
@@ -16,10 +17,7 @@ const GalleryPick = () => {
 
  
   return (
-    <main className="mainContainer">
-      <div className="container navCon">
-        <Navbar />
-      </div>
+    <main>
       <div className="container welCon">
         <p className="userName">
           <i>Hi {loggedInUser}</i>

@@ -7,7 +7,7 @@ import SignIn from "./components/SignIn";
 import GalleryPick from "./pages/Gallery Pick";
 import { ToastContainer } from "react-toastify";
 // import ProtectedRoute from "./components/ProtectedRoute";
-// import ProtectedLayout from "./components/ProtectedLayout";
+import ProtectedLayout from "./components/ProtectedLayout";
 import UploadImg from "./pages/UploadImg";
 import CreateAlbum from "./pages/CreateAlbum";
 import PageNoteFound from "./pages/PageNoteFound";
@@ -25,20 +25,22 @@ function App() {
   return (
     <>
       <div>
-      <RefreshHandler setIsAuthenticated={setIsAuthenticated}/>
+        <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
         {/* <AuthProvider> */}
         <Routes>
-          <Route path="/" element={<Navigate to="/signin"/>}/>
-          <Route path="/signin" element={<SignIn />}/>
-          <Route path="/signup" element={<SignUp />}/>
-          {/* <Route element={<ProtectedRoute />}> */}
-          {/* <Route element={<ProtectedLayout />}> */}
-          <Route path="/galleryPick" element={<PrivateRoute element={<GalleryPick />}/>}/>
-          <Route path="/uploadImg" element={<UploadImg />}></Route>
-          <Route path="/createAlbum" element={<CreateAlbum />}></Route>
+          <Route path="/" element={<Navigate to="/signin" />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+
+          <Route element={<ProtectedLayout />}>
+            <Route
+              path="/galleryPick"
+              element={<PrivateRoute element={<GalleryPick />} />}
+            />
+            <Route path="/uploadImg" element={<UploadImg />}></Route>
+            <Route path="/createAlbum" element={<CreateAlbum />}></Route>
+          </Route>
           <Route path="*" element={<PageNoteFound />}></Route>
-          {/* </Route> */}
-          {/* </Route> */}
         </Routes>
         <ToastContainer />
         {/* </AuthProvider> */}

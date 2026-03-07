@@ -1,12 +1,5 @@
 
-.mainContainer {
-    display: flex; 
-    /* justify-content: space-between; */
-    width: 110%; 
-    height: 50%; 
-    border: 1px solid rgb(238, 119, 39);
-    
-}
+
 .container {
     border: 1px solid springgreen; 
 }
@@ -18,7 +11,7 @@
 }
 
 .welCon {
-    width: 100%;
+    width: 288%;
     padding-top: 2%;
 }
 
@@ -27,10 +20,10 @@
     font-size: 2rem;
     text-shadow: 2;
     text-align: center;
-    margin-right: 7rem;
+    /* margin-right: 7rem; */
 }
 
 .welTxt {
     text-align: center;
-    margin-right: 7rem; 
+    /* margin-right: 7rem;  */
 }
