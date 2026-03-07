@@ -47,7 +47,7 @@ const UploadImg = () => {
 
 
   return (
-    <div className="mainContainer">
+    <div className="">
       
       <div className="imgUploadCon">
         <h2>Upload Your Images</h2>
