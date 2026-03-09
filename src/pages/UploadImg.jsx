@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../App.css'; 
 import './uploadImg.css'; 
 import axios from 'axios'; 
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const UploadImg = () => {
   const [img, setImg] = useState(null);
@@ -36,10 +38,12 @@ const UploadImg = () => {
     );
 
     setUploadImg(res.data.imgUrl); 
-    setMsg("Image uploaded successfully");
+    // setMsg("Image uploaded successfully!");
+    toast.success("Image uploaded successfully!");
     } catch(error){
       console.error(error);
-      setMsg("Image upload failed.");
+      // setMsg("Image upload failed.");
+      toast.error("Image upload failed.");
     }
   }; 
 
@@ -54,7 +58,7 @@ const UploadImg = () => {
         <input type="file" onChange={handleImgUpload}/>
         <br/>
         <button onClick={handleUpload}>Upload</button>
-        <p>{msg}</p>
+        <p style={{color: 'green'}}>{msg}</p>
       </div>
     </div>
   );

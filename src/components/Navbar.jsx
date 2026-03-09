@@ -6,6 +6,7 @@ const Navbar = () => {
     <main>
         <div>
             <nav>
+            <img src="./public/logo.png" alt="logo" style={{width: 100, height: 100,  marginLeft: '45px', }}/>
                 <ul>
                     <li><NavLink to="/galleryPick">Home</NavLink></li>
                      <li><NavLink to="/uploadImg">Upload Images</NavLink></li>

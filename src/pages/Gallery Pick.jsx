@@ -47,15 +47,18 @@ getAllImages();
           <i>Hi {loggedInUser}</i>
         </p>
         <h1 className="welTxt">Welcome to Gallery Pick</h1>
-        <h2 className="welTxt">All Images</h2>
       </div>
 
       <div>
+        <h2>
+          {" "}
+          <h2 className="welTxt">All Images</h2>
+        </h2>
         {images.map((img) => (
           <img
-            src={img.imageUrl}
+            src={img.imgUrl}
             alt="image"
-            style={{ width: "100px", height: "100px", objectFit: "cover" }}
+            style={{ width: "250px", height: "250px", objectFit: "cover" }}
           />
         ))}
       </div>
