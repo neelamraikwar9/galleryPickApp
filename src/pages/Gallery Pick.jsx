@@ -46,7 +46,7 @@ getAllImages();
         <p className="userName">
           <i>Hi {loggedInUser}</i>
         </p>
-        <h1 className="welTxt">Welcome to Gallery Pick</h1>
+        <h1 className="welTxt">🌸Welcome to Gallery Pick🌸</h1>
       </div>
 
       <div>

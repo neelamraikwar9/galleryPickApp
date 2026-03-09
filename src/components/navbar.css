@@ -1,0 +1,11 @@
+
+.navItems {
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid grey; 
+}
+.navItem {
+    list-style: none;
+    padding: 1rem; 
+    text-decoration: none;
+}
