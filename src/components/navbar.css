@@ -9,3 +9,26 @@
     padding: 1rem; 
     text-decoration: none;
 }
+
+.navLogo {
+    border: 1px solid blue; 
+    display: flex; 
+    flex-direction: row;
+}
+/* .logo {
+width: 70; 
+height: 70; 
+margin-left: 45px;
+} */
+
+.navItemtxt{
+  font-size: large;
+ text-decoration: none; 
+}
+    
+.navItmCon {
+    display: flex; 
+    flex-direction: row;
+    border: 1px solid blue;
+
+}
