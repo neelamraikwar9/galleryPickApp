@@ -24,12 +24,11 @@ const Navbar = () => {
           <ul className="navItems">
             <li className="navItem">
               <NavLink to="/galleryPick" className="navItemtxt">
-                <div className="navItmCon">
+                <div>
                   <i
                     class="bi bi-house-door-fill"
                     style={{ border: "1px solid green", padding: "0px 10px" }}
                   ></i>
-                  {/* <p>Home</p> */}
                   Home
                 </div>
               </NavLink>

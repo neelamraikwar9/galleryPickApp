@@ -9,10 +9,32 @@ const UploadImg = () => {
   const [img, setImg] = useState(null);
   const [msg, setMsg] = useState(""); 
   const [uploadImg, setUploadImg] = useState(""); 
+  const [images, setImages] = useState([]); 
+  console.log(images, "images"); 
 
-  // useEffect(() => {
-  //   const fetch
-  // })
+  useEffect(() => {
+    const getAllImages = async () => {
+      try {
+        const res = await axios.get("http://localhost:4000/images");
+        console.log(res, "res");
+
+        if (res.data) {
+          setImages(res.data);
+        } else {
+          setImages("No images yet");
+        }
+      } catch (error) {
+        console.error(error);
+        setMsg("Failed to load images");
+      }
+    };
+
+    getAllImages();
+  }, []);
+  
+
+
+ 
   
 
   const handleImgUpload = (e) => {
@@ -51,16 +73,25 @@ const UploadImg = () => {
 
 
   return (
-    <div className="">
-      
+    <main>
       <div className="imgUploadCon">
         <h2>Upload Your Images</h2>
-        <input type="file" onChange={handleImgUpload}/>
-        <br/>
+        <input type="file" onChange={handleImgUpload} />
+        <br />
         <button onClick={handleUpload}>Upload</button>
-        <p style={{color: 'green'}}>{msg}</p>
+        <p style={{ color: "green" }}>{msg}</p>
       </div>
-    </div>
+
+      <div>
+        {images.map((img, index) => (
+          <img
+            src={img.imgUrl}
+            alt="images"
+            style={{ width: "250px", height: "250px", objectFit: "cover" }}
+          />
+        ))}
+      </div>
+    </main>
   );
 }
 
