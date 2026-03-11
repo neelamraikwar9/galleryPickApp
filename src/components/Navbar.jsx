@@ -45,6 +45,19 @@ const Navbar = () => {
                 </div>
               </NavLink>
             </li>
+
+            <li className="navItem">
+              <NavLink to="/favourite" className="navItemtxt">
+                <div>
+                  <i
+                    class="bi bi-heart-fill"
+                    style={{ border: "1px solid green", padding: "0px 10px" }}
+                  ></i>
+                  Favourites
+                </div>
+              </NavLink>
+            </li>
+
             <li className="navItem">
               <NavLink to="/createAlbum" className="navItemtxt">
                 <div>
