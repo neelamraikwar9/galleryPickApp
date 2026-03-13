@@ -1,7 +1,50 @@
 .imgUploadCon {
-    border: 1px solid rgb(218, 217, 217); 
+    border: 1px solid #dad9d9; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.formContainer {
+    display: flex; 
+    border: 1px solid rgb(233, 255, 233); 
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+    /* .imgCon {
+        display: flex; 
+        align-items: center;
+        border: 1px solid rgb(56, 225, 56);
+        
+    } */
+
+.imgCon {
+    /* border: 1px solid rgb(225, 107, 56); */
     display: flex; 
     flex-direction: column;
     align-items: center;
 }
+
+.imgInp {
+    display: flex; 
+    flex-direction: column;
+    /* border: 1px solid rgb(102, 37, 9); */
+}
+
+.fieldCon {
+    border: 1px soldi blue;
+    padding: 1rem
+}
+
+.outImgUplCon {
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid blue;
+    width: 300%
+    
+
+} 
 

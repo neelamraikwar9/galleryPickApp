@@ -12,25 +12,25 @@ const UploadImg = () => {
   const [images, setImages] = useState([]); 
   console.log(images, "images"); 
 
-  useEffect(() => {
-    const getAllImages = async () => {
-      try {
-        const res = await axios.get("http://localhost:4000/images");
-        console.log(res, "res");
+  // useEffect(() => {
+  //   const getAllImages = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:4000/images");
+  //       console.log(res, "res");
 
-        if (res.data) {
-          setImages(res.data);
-        } else {
-          setImages("No images yet");
-        }
-      } catch (error) {
-        console.error(error);
-        setMsg("Failed to load images");
-      }
-    };
+  //       if (res.data) {
+  //         setImages(res.data);
+  //       } else {
+  //         setImages("No images yet");
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //       setMsg("Failed to load images");
+  //     }
+  //   };
 
-    getAllImages();
-  }, []);
+  //   getAllImages();
+  // }, []);
   
 
 
@@ -73,16 +73,71 @@ const UploadImg = () => {
 
 
   return (
-    <main>
+    <div className="outImgUplCon">
       <div className="imgUploadCon">
-        <h2>Upload Your Images</h2>
-        <input type="file" onChange={handleImgUpload} />
-        <br />
-        <button onClick={handleUpload}>Upload</button>
-        <p style={{ color: "green" }}>{msg}</p>
+        <h2>Add Image</h2>
+        <form className="formContainer">
+          <div className="imgCon fieldCon">
+            <label>Select Image: </label>
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImgUpload}
+              required
+              className="imgInp"
+            />
+          </div>
+
+          {/* //fetch album with apis */}
+          <div className="fieldCon">
+            <label>Select Album: </label>
+            <select
+              name="albumId"
+              // value={} onChange={}
+              required
+            >
+              <option value="">Choose album... </option>
+              {/* apply map and show album name. */}
+            </select>
+          </div>
+
+          <div className="fieldCon">
+            <label>Name: </label>
+            <input
+              type="text"
+              name="name"
+              // value={formData.name}
+              // onChange={handleInputChange}
+              placeholder="Vacation Photo"
+              required
+            />
+          </div>
+
+          <div className="fieldCon">
+            <label>Tags: </label>
+            <input type="text" name="tags" placeholder="beach, sunset, 2025" />
+          </div>
+
+          <div className="fieldCon">
+            <label>Person: </label>
+            <input
+              type="text"
+              name="person"
+              placeholder="River"
+              // value={}
+            />
+          </div>
+
+          <br />
+          <div className="fieldCon">
+            <button onClick={handleUpload}>Upload Image</button>
+            <p style={{ color: "green" }}>{msg}</p>
+          </div>
+        </form>
       </div>
 
-      <div>
+      {/* <div>
         {images.map((img, index) => (
           <img
             src={img.imgUrl}
@@ -90,8 +145,8 @@ const UploadImg = () => {
             style={{ width: "250px", height: "250px", objectFit: "cover" }}
           />
         ))}
-      </div>
-    </main>
+      </div> */}
+    </div>
   );
 }
 

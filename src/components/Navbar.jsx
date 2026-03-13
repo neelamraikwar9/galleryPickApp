@@ -40,7 +40,7 @@ const Navbar = () => {
                     class="bi bi-images"
                     style={{ border: "1px solid green", padding: "0px 10px" }}
                   ></i>
-                  Images
+                  Add Images
                 </div>
               </NavLink>
             </li>
