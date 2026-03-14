@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav>
           <div className="navLogo">
             <img
-              src="./public/logo.png"
+              src="/logo.png"
               alt="logo"
               className="logo"
               style={{

@@ -1,76 +1,85 @@
-import React, { useState, useEffect } from 'react'; 
-import '../App.css'; 
-import './uploadImg.css'; 
-import axios from 'axios'; 
+import React, { useState, useEffect } from "react";
+import "../App.css";
+import "./uploadImg.css";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const UploadImg = () => {
-  const [img, setImg] = useState(null);
-  const [msg, setMsg] = useState(""); 
-  const [uploadImg, setUploadImg] = useState(""); 
-  const [images, setImages] = useState([]); 
-  console.log(images, "images"); 
+  // const [msg, setMsg] = useState("");
+  const [uploadImg, setUploadImg] = useState("");
 
-  // useEffect(() => {
-  //   const getAllImages = async () => {
-  //     try {
-  //       const res = await axios.get("http://localhost:4000/images");
-  //       console.log(res, "res");
+  const [formData, setFormData] = useState({
+    imgUrl: null, //
+    albumId: "", //
+    name: "", //
+    tags: "", //
+    person: "",
+    comments: "",
+  });
 
-  //       if (res.data) {
-  //         setImages(res.data);
-  //       } else {
-  //         setImages("No images yet");
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //       setMsg("Failed to load images");
-  //     }
-  //   };
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
 
-  //   getAllImages();
-  // }, []);
-  
-
-
- 
-  
-
-  const handleImgUpload = (e) => {
-    setImg(e.target.files[0]); 
+    if (name === "imgUrl") {
+      setFormData({ ...formData, imgUrl: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
+  // const handleImgUpload = (e) => {
+  //   setImage(e.target.files[0]);
+  // };
+
   const handleUpload = async () => {
-    if(!img){
-      setMsg("Please select an image to upload");
-      return; 
+    //validating required fields;
+    if (!formData.imgUrl || !formData.albumId || !formData.name) {
+      // setMsg("Please select an image to upload");
+      toast.error("Please fill image, album, and name fields!");
+      return;
     }
 
-    const formData = new FormData(); 
+    const imgFormData = new FormData();
 
-    formData.append("image", img); 
+    imgFormData.append("image", formData.imgUrl);
+    imgFormData.append("albumId", formData.albumId);
+    imgFormData.append("name", formData.name);
+    imgFormData.append("tags", formData.tags);
+    imgFormData.append("person", formData.person);
+    imgFormData.append("comments", formData.comments);
 
-    try{
-      const res = await axios.post("http://localhost:4000/upload", formData, {
-        headers:{
-          "Content-Type": "multipart/form-data",
+    try {
+      const res = await axios.post(
+        "http://localhost:4000/upload",
+        imgFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         },
-      }, 
-    );
+      );
 
-    setUploadImg(res.data.imgUrl); 
-    // setMsg("Image uploaded successfully!");
-    toast.success("Image uploaded successfully!");
-    } catch(error){
-      console.error(error);
+      setUploadImg(res.data.imgUrl);
+      // setMsg("Image uploaded successfully!");
+      toast.success("Image uploaded successfully!");
+
+      setFormData({
+        imgUrl: null,
+        albumId: "",
+        name: "",
+        tags: "",
+        person: "",
+        comments: "",
+      });
+    } catch (error) {
+      console.error("upload error", error);
       // setMsg("Image upload failed.");
-      toast.error("Image upload failed.");
+      toast.error(
+        "Upload failed: " + (error.response?.data?.message || error.message),
+      );
     }
-  }; 
-
-
-
+  };
 
   return (
     <div className="outImgUplCon">
@@ -78,12 +87,13 @@ const UploadImg = () => {
         <h2>Add Image</h2>
         <form className="formContainer">
           <div className="imgCon fieldCon">
-            <label>Select Image: </label>
+            <label htmlFor="imgUrl">Select Image: </label>
             <input
               type="file"
-              name="image"
-              accept="image/*"
-              onChange={handleImgUpload}
+              name="imgUrl"
+              id="imgUrl"
+              // onChange={handleImgUpload}
+              onChange={handleInputChange}
               required
               className="imgInp"
             />
@@ -91,10 +101,12 @@ const UploadImg = () => {
 
           {/* //fetch album with apis */}
           <div className="fieldCon">
-            <label>Select Album: </label>
+            <label htmlFor="album">Select Album: </label>
             <select
               name="albumId"
-              // value={} onChange={}
+              id="album"
+              value={formData.albumId}
+              onChange={handleInputChange}
               required
             >
               <option value="">Choose album... </option>
@@ -107,47 +119,63 @@ const UploadImg = () => {
             <input
               type="text"
               name="name"
-              // value={formData.name}
-              // onChange={handleInputChange}
+              id="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="Vacation Photo"
               required
             />
           </div>
 
           <div className="fieldCon">
-            <label>Tags: </label>
-            <input type="text" name="tags" placeholder="beach, sunset, 2025" />
+            <label htmlFor="tags">Tags: </label>
+
+            <input
+              type="text"
+              name="tags"
+              id="tags"
+              value={formData.tags}
+              placeholder="beach, sunset, 2025"
+              onChange={handleInputChange}
+              required
+            />
           </div>
 
           <div className="fieldCon">
-            <label>Person: </label>
+            <label htmlFor="person">Person: </label>
             <input
               type="text"
               name="person"
+              id="person"
               placeholder="River"
-              // value={}
+              value={formData.person}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className="fieldCon">
+            <label htmlFor="comments">Comment: </label>
+            <input
+              type="text"
+              name="comments"
+              id="comments"
+              placeholder="Write your comment"
+              value={formData.comments}
+              onChange={handleInputChange}
+              required
             />
           </div>
 
           <br />
           <div className="fieldCon">
             <button onClick={handleUpload}>Upload Image</button>
-            <p style={{ color: "green" }}>{msg}</p>
+            {/* <p style={{ color: "green" }}>{msg}</p> */}
           </div>
         </form>
       </div>
-
-      {/* <div>
-        {images.map((img, index) => (
-          <img
-            src={img.imgUrl}
-            alt="images"
-            style={{ width: "250px", height: "250px", objectFit: "cover" }}
-          />
-        ))}
-      </div> */}
     </div>
   );
-}
+};
 
-export default UploadImg
+export default UploadImg;
