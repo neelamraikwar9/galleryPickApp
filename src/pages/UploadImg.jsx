@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 const UploadImg = () => {
   // const [msg, setMsg] = useState("");
   const [uploadImg, setUploadImg] = useState("");
+  const [albums, setAlbums] = useState([]); 
+  console.log(albums, "albums"); 
 
   const [formData, setFormData] = useState({
     imgUrl: null, //
@@ -32,11 +34,14 @@ const UploadImg = () => {
   //   setImage(e.target.files[0]);
   // };
 
-  const handleUpload = async () => {
+  const handleUpload = async (e) => {
+
+    e.preventDefault(); 
+    
     //validating required fields;
     if (!formData.imgUrl || !formData.albumId || !formData.name) {
       // setMsg("Please select an image to upload");
-      toast.error("Please fill image, album, and name fields!");
+      toast.error("Please fill all the fields!");
       return;
     }
 
@@ -81,11 +86,33 @@ const UploadImg = () => {
     }
   };
 
+
+  useEffect(() => {
+    const getAllAlbums = async () => {
+      try{
+        const res = await axios.get("http://localhost:4000/albums"); 
+        console.log(res, "res"); 
+
+        if (res.data){
+          setAlbums(res.data); 
+        } else{
+          setAlbums("No albums yet"); 
+        }
+      } catch(error){
+        console.error(error); 
+        setMsg("Failed to load images"); 
+      }
+    }; 
+
+    getAllAlbums(); 
+
+  }, [])
+
   return (
     <div className="outImgUplCon">
       <div className="imgUploadCon">
         <h2>Add Image</h2>
-        <form className="formContainer">
+        <form className="formContainer" onSubmit={handleUpload}>
           <div className="imgCon fieldCon">
             <label htmlFor="imgUrl">Select Image: </label>
             <input
@@ -110,6 +137,11 @@ const UploadImg = () => {
               required
             >
               <option value="">Choose album... </option>
+              {albums?.map((albm) => (
+                <option key={albm._id} value={albm.name}>
+                  {albm.name}
+                </option>
+              ))}
               {/* apply map and show album name. */}
             </select>
           </div>
@@ -169,7 +201,7 @@ const UploadImg = () => {
 
           <br />
           <div className="fieldCon">
-            <button onClick={handleUpload}>Upload Image</button>
+            <button type="button">Upload Image</button>
             {/* <p style={{ color: "green" }}>{msg}</p> */}
           </div>
         </form>
