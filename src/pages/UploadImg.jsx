@@ -18,8 +18,8 @@ const UploadImg = () => {
   const [person, setPerson] = useState("");
   const [comment, setComment] = useState("");
 
-  // const [isloading, setIsLoading] = useState(""); 
-  const fileInputRef = useRef(null); 
+  // const [isloading, setIsLoading] = useState("");
+  const fileInputRef = useRef(null);
 
   console.log(image, album, name, person, comment, "dataaa... ");
 
@@ -51,7 +51,7 @@ const UploadImg = () => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-   
+
     if (!image && !album && !name && !person && !comment) {
       toast.error("Please fill all the fields.");
       return;
@@ -79,7 +79,7 @@ const UploadImg = () => {
 
       setUploadedImageUrl(response.data.images);
       toast.success("Image uploaded successfully.");
-      fileInputRef.current.value = ""; 
+      fileInputRef.current.value = "";
       setImage(null);
       setAlbum("");
       setName("");
@@ -104,7 +104,6 @@ const UploadImg = () => {
               ref={fileInputRef}
               id="imgUrl"
               onChange={handleImgUpload}
-              // onChange={handleInputChange}
               required
               className="imgInp"
             />
@@ -116,8 +115,6 @@ const UploadImg = () => {
             <select
               name="albumId"
               id="album"
-              // value={formData.albumId}
-              // onChange={handleInputChange}
               onChange={(e) => setAlbum(e.target.value)}
               required
             >
@@ -127,7 +124,6 @@ const UploadImg = () => {
                   {albm.name}
                 </option>
               ))}
-              {/* apply map and show album name. */}
             </select>
           </div>
 
@@ -137,8 +133,6 @@ const UploadImg = () => {
               type="text"
               name="name"
               id="name"
-              // value={formData.name}
-              // onChange={handleInputChange}
               onChange={(e) => setName(e.target.value)}
               placeholder="Vacation Photo"
               required
@@ -150,11 +144,8 @@ const UploadImg = () => {
 
             <input
               type="text"
-              // name="tags"
               id="tags"
-              // value={formData.tags}
               placeholder="beach, sunset, 2025"
-              // onChange={handleInputChange}
               onChange={(e) => setTags(e.target.value)}
               required
             />
@@ -164,11 +155,8 @@ const UploadImg = () => {
             <label htmlFor="person">Person: </label>
             <input
               type="text"
-              // name="person"
               id="person"
               placeholder="River"
-              // value={formData.person}
-              // onChange={handleInputChange}
               onChange={(e) => setPerson(e.target.value)}
               required
             />
@@ -181,8 +169,6 @@ const UploadImg = () => {
               name="comments"
               id="comments"
               placeholder="Write your comment"
-              // value={formData.comments}
-              // onChange={handleInputChange}
               onChange={(e) => setComment(e.target.value)}
               required
             />
@@ -191,7 +177,6 @@ const UploadImg = () => {
           <br />
           <div className="fieldCon">
             <button type="submit">Upload Image</button>
-            {/* <p style={{ color: "green" }}>{msg}</p> */}
           </div>
         </form>
       </div>
