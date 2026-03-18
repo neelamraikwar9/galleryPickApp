@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../App.css";
 import "./uploadImg.css";
 import axios from "axios";
@@ -11,14 +11,17 @@ const UploadImg = () => {
   const [albums, setAlbums] = useState([]);
   console.log(albums, "albums");
 
-  const [image, setImage] = useState(null); 
-  const [album, setAlbum] = useState([]); 
-  const [name, setName] = useState(""); 
-  const [tags, setTags] = useState(""); 
-  const [person, setPerson] = useState(""); 
-  const [comment, setComment] = useState(""); 
+  const [image, setImage] = useState(null);
+  const [album, setAlbum] = useState([]);
+  const [name, setName] = useState("");
+  const [tags, setTags] = useState("");
+  const [person, setPerson] = useState("");
+  const [comment, setComment] = useState("");
 
-  console.log(image, album, name, person, comment, "dataaa.. ")
+  // const [isloading, setIsLoading] = useState(""); 
+  const fileInputRef = useRef(null); 
+
+  console.log(image, album, name, person, comment, "dataaa... ");
 
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
@@ -42,30 +45,28 @@ const UploadImg = () => {
     getAllAlbums();
   }, []);
 
-
   const handleImgUpload = (e) => {
     setImage(e.target.files[0]);
   };
 
   const handleUpload = async (e) => {
-
-    e.preventDefault(); 
-
-    if(!image && !album && !name && !person && !comment){
-    toast.error("Please fill all the fields.")
-    return; 
+    e.preventDefault();
+   
+    if (!image && !album && !name && !person && !comment) {
+      toast.error("Please fill all the fields.");
+      return;
     }
 
-    const formData = new FormData(); 
+    const formData = new FormData();
 
-    formData.append("image", image); 
-    formData.append("albumId", album); 
-    formData.append("name", name); 
-    formData.append("tags", tags); 
-    formData.append("person", person); 
-    formData.append("comments", comment); 
+    formData.append("image", image);
+    formData.append("albumId", album);
+    formData.append("name", name);
+    formData.append("tags", tags);
+    formData.append("person", person);
+    formData.append("comments", comment);
 
-    try{
+    try {
       const response = await axios.post(
         "http://localhost:4000/upload",
         formData,
@@ -76,17 +77,19 @@ const UploadImg = () => {
         },
       );
 
-      setUploadedImageUrl(response.data.images); 
+      setUploadedImageUrl(response.data.images);
       toast.success("Image uploaded successfully.");
-
-    } catch(error){
-      console.log(error); 
-      toast.error("Image upload failed.")
+      fileInputRef.current.value = ""; 
+      setImage(null);
+      setAlbum("");
+      setName("");
+      setTags("");
+      setPerson("");
+      setComment("");
+    } catch (error) {
+      console.log(error);
+      toast.error("Image upload failed.");
     }
-
-    
-
-
   };
 
   return (
@@ -98,7 +101,7 @@ const UploadImg = () => {
             <label htmlFor="imgUrl">Select Image: </label>
             <input
               type="file"
-              // name="imgUrl"
+              ref={fileInputRef}
               id="imgUrl"
               onChange={handleImgUpload}
               // onChange={handleInputChange}
