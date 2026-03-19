@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './uploadImg.css'; 
 import './createAlbum.css'; 
+import axios from 'axios'; 
 
 
 const CreateAlbum = () => {
 
+const [msg, setMsg] = useState(); 
+const [users, setUsers] = useState([]); 
+console.log(users, "users")
 const [albumName, setAlbumName] = useState("");  
 const [description, setDescription] = useState(""); 
 const [owner, setOwner] = useState(""); 
@@ -12,7 +16,7 @@ const [email, setEmail] = useState("");
 const [accessLevel, setAccessLevel] = useState("view"); 
 
 //state to hold multiple shared users.
-const [sharedUser, setSharedUser] = useState([]); 
+const [sharedUsers, setSharedUsers] = useState([]); 
 
 //for adding new User in a list; 
 const handleAddUser = () => {
@@ -21,15 +25,31 @@ const handleAddUser = () => {
     return;
   }
 
-  setSharedUser([...sharedUser, {email: email.toLowerCase(), accessLevel}]); 
+  setSharedUsers([...sharedUsers, {email: email.toLowerCase(), accessLevel}]); 
 
   setEmail(""); 
   setAccessLevel("view"); 
 }
 
 
+useEffect(() => {
+  const getAllUsers = async () => {
+    try{
+      const res = await axios.get("http://localhost:4000/users"); 
+      console.log(res, "res"); 
 
-
+      if(res.data){
+        setUsers(res.data); 
+      } else{
+        setUsers("No users yet"); 
+      }
+    } catch(error){
+      console.error(error); 
+      setMsg("Failed to load users");
+    }
+  }
+  getAllUsers();
+}, [])
 
 
 
@@ -108,15 +128,16 @@ const handleAddUser = () => {
             </div>
 
             {/* Show current list */}
-            {/* <h4>Shared Users:</h4>
+            <h4>Shared Users:</h4>
             <ul>
               {sharedUsers.map((user, index) => (
                 <li key={index}>
                   {user.email} — {user.accessLevel}
                 </li>
               ))}
-            </ul> */}
+            </ul>
           </div>
+          <button>Add Album</button>
         </form>
       </div>
     </div>
