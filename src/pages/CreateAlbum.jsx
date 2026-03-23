@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './uploadImg.css'; 
 import './createAlbum.css'; 
 import axios from 'axios'; 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const CreateAlbum = () => {
@@ -52,13 +54,26 @@ useEffect(() => {
 }, [])
 
 
+const handleAlbumSbmt = () => {
+  const submitAlbum = async() => {
+    try{
+      const response = await axios.post("http://localhost:4000/albums"); 
+      console.log(response, "response"); 
+      
+
+    } catch(error){
+      console.error(error); 
+    }
+  }
+}
+
 
 
   return (
     <div className="outImgUplCon">
       <div className="imgUploadCon">
         <h2>Add Album</h2>
-        <form className="imgUploadCon">
+        <form onSubmit={handleAlbumSbmt}className="imgUploadCon">
           <div className="fieldCon">
             <label htmlFor="name">Album Name: </label>
             <input
@@ -88,6 +103,9 @@ useEffect(() => {
               onChange={(e) => setOwner(e.target.value)}
             >
               <option value="">Select Owner</option>
+              {users.map((user) => (
+                <option key={user._id} value={user._id}>{user.name}</option>
+              ))}
             </select>
           </div>
 
@@ -137,7 +155,7 @@ useEffect(() => {
               ))}
             </ul>
           </div>
-          <button>Add Album</button>
+          <button type="submit">Add Album</button>
         </form>
       </div>
     </div>
