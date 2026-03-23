@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CreateAlbum = () => {
 
-const [msg, setMsg] = useState(); 
+const [msg, setMsg] = useState(""); 
 const [users, setUsers] = useState([]); 
 console.log(users, "users")
 const [albumName, setAlbumName] = useState("");  
@@ -54,18 +54,32 @@ useEffect(() => {
 }, [])
 
 
-const handleAlbumSbmt = () => {
-  const submitAlbum = async() => {
-    try{
-      const response = await axios.post("http://localhost:4000/albums"); 
-      console.log(response, "response"); 
-      
+  const handleAlbumSbmt = async (e) => {
+    e.preventDefault();
 
-    } catch(error){
-      console.error(error); 
+    if (!albumName || !owner) {
+      toast.error("Album name and owner is required");
+      return;
     }
-  }
-}
+    try {
+      const response = await axios.post("http://localhost:4000/albums", {
+        name: albumName, 
+        description, 
+        owner, 
+        sharedUsers,
+      });
+      console.log(response, "response");
+      toast.success("Album created successfully.");
+      setAlbumName(""); 
+     setDescription("");
+     setOwner("");
+    //  setSharedUsers([]);
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to create album."); 
+    }
+  };
+
 
 
 
@@ -119,7 +133,7 @@ const handleAlbumSbmt = () => {
                 placeholder="user@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                // required
               />
             </div>
 
