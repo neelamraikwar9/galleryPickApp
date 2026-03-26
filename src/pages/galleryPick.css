@@ -27,3 +27,23 @@
     text-align: center;
     /* margin-right: 7rem;  */
 }
+
+.imgContainer {
+    border: 1px solid greenyellow; 
+    box-sizing: border-box; 
+    width: 15.8rem; 
+    position: relative; 
+    display:inline-block; 
+}
+
+.heartBtn {
+border: 1px solid blueviolet; 
+position: absolute;
+top: 3px; 
+right: 2rem;
+background: none; 
+border: none; 
+cursor: point; 
+padding: 0; 
+
+}
