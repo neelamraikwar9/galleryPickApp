@@ -26,10 +26,16 @@ const UploadImg = () => {
 
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
-    const getAllAlbums = async () => {
+    const getAllAlbums = async () => { 
       try {
-        const res = await axios.get("http://localhost:4000/albums");
+        const res = await axios.get("http://localhost:4000/albums", {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
         console.log(res, "res");
 
         if (res.data) {
@@ -58,6 +64,12 @@ const UploadImg = () => {
       return;
     }
 
+    const token = localStorage.getItem('token'); 
+    if(!token){
+      toast.error("You must logged in to upload images."); 
+      return; 
+    }
+
     const formData = new FormData();
 
     formData.append("image", image);
@@ -74,12 +86,14 @@ const UploadImg = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${token}`,
           },
         },
       );
 
       setUploadedImageUrl(response.data.images);
       toast.success("Image uploaded successfully.");
+
       fileInputRef.current.value = "";
       setImage(null);
       setAlbum("");

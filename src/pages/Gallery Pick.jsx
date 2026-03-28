@@ -11,7 +11,8 @@ const GalleryPick = () => {
   const navigate = useNavigate(); 
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
-  // const navigate = useNavigate();
+  const [msg, setMsg] = useState(""); 
+  // const navigate = useNavigate();  
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
 
@@ -57,10 +58,16 @@ const GalleryPick = () => {
     setLoggedInUser(localStorage.getItem("loggedInUser"));
   }, []);
 
+  const token = localStorage.getItem("token"); 
+
   useEffect(() => {
     const getAllImages = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/images");
+        const res = await axios.get("http://localhost:4000/images", {
+          headers: {
+          "Authorization": `Bearer ${token}`
+          }
+        });
         console.log(res, "res");
 
         if (res.data) {

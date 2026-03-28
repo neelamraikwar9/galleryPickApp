@@ -57,8 +57,8 @@ useEffect(() => {
   const handleAlbumSbmt = async (e) => {
     e.preventDefault();
 
-    if (!albumName || !owner) {
-      toast.error("Album name and owner is required");
+    if (!albumName) {
+      toast.error("Album name is required");
       return;
     }
     try {
@@ -109,7 +109,7 @@ useEffect(() => {
             />
           </div>
 
-          <div className="fieldCon">
+          {/* <div className="fieldCon">
             <label>Owner: </label>
             <select
               type="text"
@@ -121,7 +121,7 @@ useEffect(() => {
                 <option key={user._id} value={user._id}>{user.name}</option>
               ))}
             </select>
-          </div>
+          </div> */}
 
           <div className="addSharedCon">
             <h3 style={{ margin: 0 }}>Add Shared User</h3>
