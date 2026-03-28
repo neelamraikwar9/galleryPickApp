@@ -92,7 +92,7 @@ const SignIn = () => {
             className="googleAuth"
           />
         </button>
-        <Link to="/signin">
+        <Link to="/signup">
           <p>
             <i>Don't have an account? Create a new Account!</i>
           </p>

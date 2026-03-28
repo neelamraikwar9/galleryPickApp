@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const GalleryPick = () => {
+  const navigate = useNavigate(); 
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
   // const navigate = useNavigate();
@@ -76,12 +77,28 @@ const GalleryPick = () => {
     getAllImages();
   }, []);
 
+
+  const handleLogOut = (e) => {
+    localStorage.removeItem('token'); 
+    localStorage.removeItem('loggedInUser');
+    toast.success("User Loggedout");
+
+    setTimeout(() => {
+      setTimeout(() => {
+        navigate("/signin"); 
+      }, 1000)
+    })
+
+  }
+
   return (
     <main>
       <div className="container welCon">
         <p className="userName">
           <i>Hi {loggedInUser}</i>
         </p>
+        <button onClick={handleLogOut}>Log Out</button>
+
         <h1 className="welTxt">🌸Welcome to Gallery Pick🌸</h1>
       </div>
 
