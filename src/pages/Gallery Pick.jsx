@@ -66,6 +66,7 @@ const GalleryPick = () => {
         const res = await axios.get("http://localhost:4000/images", {
           headers: {
           "Authorization": `Bearer ${token}`
+          // "Authorization": `${token}`
           }
         });
         console.log(res, "res");
