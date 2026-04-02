@@ -53,6 +53,8 @@ useEffect(() => {
   getAllUsers();
 }, [])
 
+const token = localStorage.getItem("token"); 
+console.log(token, "token"); 
 
   const handleAlbumSbmt = async (e) => {
     e.preventDefault();
@@ -62,12 +64,18 @@ useEffect(() => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:4000/albums", {
-        name: albumName, 
-        description, 
-        owner, 
-        sharedUsers,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/albums",
+        {
+          name: albumName,
+          description,
+          owner,
+          sharedUsers,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
       console.log(response, "response");
       toast.success("Album created successfully.");
       setAlbumName(""); 

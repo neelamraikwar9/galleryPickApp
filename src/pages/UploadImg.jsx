@@ -27,6 +27,9 @@ const UploadImg = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
   const token = localStorage.getItem('token');
+  // useEffect(() => {
+  //   if(token) getAllAlbums(); 
+  // }, [token]); 
 
   useEffect(() => {
     const getAllAlbums = async () => { 
@@ -89,7 +92,7 @@ const UploadImg = () => {
             "Authorization": `Bearer ${token}`,
           },
         },
-      );
+      )   ;
 
       setUploadedImageUrl(response.data.images);
       toast.success("Image uploaded successfully.");
