@@ -188,7 +188,6 @@ const UploadImg = () => {
               id="comments"
               placeholder="Write your comment"
               onChange={(e) => setComment(e.target.value)}
-              required
             />
           </div>
 
