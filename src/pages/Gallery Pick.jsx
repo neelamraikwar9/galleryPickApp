@@ -8,11 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const GalleryPick = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
-  const [msg, setMsg] = useState(""); 
-  // const navigate = useNavigate();  
+  const [msg, setMsg] = useState("");
+  // const navigate = useNavigate();
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
 
@@ -25,7 +25,7 @@ const GalleryPick = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:4000/favorites/images",
+        "http://localhost:4000/images/favorite",
         {
           imageId,
         },
@@ -58,16 +58,16 @@ const GalleryPick = () => {
     setLoggedInUser(localStorage.getItem("loggedInUser"));
   }, []);
 
-  const token = localStorage.getItem("token"); 
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const getAllImages = async () => {
       try {
         const res = await axios.get("http://localhost:4000/images", {
           headers: {
-          "Authorization": `Bearer ${token}`
-          // "Authorization": `${token}`
-          }
+            Authorization: `Bearer ${token}`,
+            // "Authorization": `${token}`
+          },
         });
         console.log(res, "res");
 
@@ -85,19 +85,17 @@ const GalleryPick = () => {
     getAllImages();
   }, []);
 
-
   const handleLogOut = (e) => {
-    localStorage.removeItem('token'); 
-    localStorage.removeItem('loggedInUser');
+    localStorage.removeItem("token");
+    localStorage.removeItem("loggedInUser");
     toast.success("User Loggedout");
 
     setTimeout(() => {
       setTimeout(() => {
-        navigate("/signin"); 
-      }, 1000)
-    })
-
-  }
+        navigate("/signin");
+      }, 1000);
+    });
+  };
 
   return (
     <main>
@@ -133,8 +131,9 @@ const GalleryPick = () => {
                 style={{
                   fontSize: "20px",
                   cursor: "pointer",
-                  border: "1px solid red",
+                  // border: "1px solid red",
                   position: "absolute",
+                  color: favoriteIds.includes(img._id) ? "red" : "white", 
                 }}
               />
             </button>
