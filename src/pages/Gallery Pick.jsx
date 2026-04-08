@@ -97,6 +97,28 @@ const GalleryPick = () => {
     });
   };
 
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      if (!token) return;
+
+      try {
+        const res = await axios.get("http://localhost:4000/images/favorites", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        // Assuming res.data is { favorites: [{ _id: "img1", ... }], count: ... }
+        const favIds = res.data.favorites.map((img) => img._id);
+        setFavoriteIds(favIds);
+      } catch (error) {
+        console.error("Failed to fetch favorites:", error);
+      }
+    };
+
+    fetchFavorites();
+  }, [token]);
+
   return (
     <main>
       <div className="container welCon">
