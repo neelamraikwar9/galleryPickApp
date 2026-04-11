@@ -37,10 +37,12 @@ const GalleryPick = () => {
       );
 
       const { isFavorite } = res.data;
+      console.log(isFavorite, "checkign iffav");
 
       setFavoriteIds((prev) =>
         isFavorite ? [...prev, imageId] : prev.filter((id) => id !== imageId),
       );
+      console.log(favoriteIds, "favoriteIds"); 
 
       toast.success(
         isFavorite ? "Added to favorites!" : "Removed from favorites",
@@ -85,7 +87,7 @@ const GalleryPick = () => {
     getAllImages();
   }, []);
 
-  const handleLogOut = (e) => {
+  const handleLogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("loggedInUser");
     toast.success("User Loggedout");
@@ -97,7 +99,6 @@ const GalleryPick = () => {
     });
   };
 
-
   useEffect(() => {
     const fetchFavorites = async () => {
       if (!token) return;
@@ -108,8 +109,10 @@ const GalleryPick = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(res, "res");
         // Assuming res.data is { favorites: [{ _id: "img1", ... }], count: ... }
         const favIds = res.data.favorites.map((img) => img._id);
+        console.log(favIds, "faklvijfdj");
         setFavoriteIds(favIds);
       } catch (error) {
         console.error("Failed to fetch favorites:", error);
@@ -155,7 +158,7 @@ const GalleryPick = () => {
                   cursor: "pointer",
                   // border: "1px solid red",
                   position: "absolute",
-                  color: favoriteIds.includes(img._id) ? "red" : "white", 
+                  color: favoriteIds.includes(img._id) ? "red" : "white",
                 }}
               />
             </button>
