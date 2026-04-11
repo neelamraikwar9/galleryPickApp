@@ -42,15 +42,12 @@ const GalleryPick = () => {
       setFavoriteIds((prev) =>
         isFavorite ? [...prev, imageId] : prev.filter((id) => id !== imageId),
       );
-      console.log(favoriteIds, "favoriteIds"); 
+      console.log(favoriteIds, "favoriteIds");
 
       toast.success(
         isFavorite ? "Added to favorites!" : "Removed from favorites",
       );
     } catch (error) {
-      // console.error(error);
-      // toast.error("Failed to update favorite");
-
       console.error(error);
       toast.error(error.response?.data?.message || "Failed to update favorite");
     }
@@ -68,7 +65,6 @@ const GalleryPick = () => {
         const res = await axios.get("http://localhost:4000/images", {
           headers: {
             Authorization: `Bearer ${token}`,
-            // "Authorization": `${token}`
           },
         });
         console.log(res, "res");
@@ -156,7 +152,6 @@ const GalleryPick = () => {
                 style={{
                   fontSize: "20px",
                   cursor: "pointer",
-                  // border: "1px solid red",
                   position: "absolute",
                   color: favoriteIds.includes(img._id) ? "red" : "white",
                 }}
