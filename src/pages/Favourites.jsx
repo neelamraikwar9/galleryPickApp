@@ -29,13 +29,10 @@ const Favourites = () => {
     getFavImg();
   }, []);
 
-
-  
-
   return (
     <>
-      <div>
-      <h1>Favorite Images</h1>
+      <div className="outImgUplCon">
+        <h1 className="welTxt">Favorite Images</h1>
         {favImages.map((img) => (
           <div key={img._id} className="imgContainer">
             <img
