@@ -16,6 +16,15 @@ const GalleryPick = () => {
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
 
+  // have to test it if it works..... 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/signin");
+    }
+  }, []);
+
   const toggleFavorite = async (imageId) => {
     const token = localStorage.getItem("token");
 
