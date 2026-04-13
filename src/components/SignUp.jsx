@@ -58,78 +58,88 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signUpInContainer">
-      <div>
-        <h1>Gallery Pick</h1>
-        <p>
-          <i>Sign up to start storing your photos and memories</i>
-        </p>
-      </div>
-      <form onSubmit={handleSubmit}>
+    <div className="logSignContainer container">
+      <div className="signUpInContainer">
         <div>
-          <label htmlFor="name" className="lable">
-            Name:{" "}
-          </label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="email" className="lable">
-            Email:{" "}
-          </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-
-        <br />
-        <div>
-          <label htmlFor="password" className="lable">
-            Password:{" "}
-          </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Your Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <br />
-        <button type="submit">Sign Up</button>
-      </form>
-      <div>
-        <p>---- Or Sign Up with ----</p>
-        {/* <button onClick={handleGoogleSignIn}> */}
-        <button
-          onClick={() =>
-            window.open("http://localhost:4000/auth/google", "_self")
-          }
-        >
-          <img
-            src="https://cdn-teams-slug.flaticon.com/google.jpg"
-            alt="Google"
-            className="googleAuth"
-          />
-        </button>
-        <Link to="/signin">
-          <p>
-            <i>Already have an account? Sign In.</i>
+          <h1 className="logoTxt">Gallery Pick</h1>
+          <p className="phrase">
+            <i>Sign up to start storing your photos and memories</i>
           </p>
-        </Link>
+        </div>
+        <div className="formStyle">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="name" className="lable">
+                Name:{" "}
+              </label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="fieldGap"
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="email" className="lable">
+                Email:{" "}
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="fieldGap"
+              />
+            </div>
+
+            <br />
+            <div>
+              <label htmlFor="password" className="lable">
+                Password:{" "}
+              </label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Your Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="fieldGap"
+              />
+            </div>
+            <br />
+            <button className="signInBtn" type="submit">
+              Sign Up
+            </button>
+          </form>
+          <div>
+            <p>---- Or Sign Up with ----</p>
+            {/* <button onClick={handleGoogleSignIn}> */}
+            <button
+              className="btn"
+              onClick={() =>
+                window.open("http://localhost:4000/auth/google", "_self")
+              }
+            >
+              <img
+                src="https://cdn-teams-slug.flaticon.com/google.jpg"
+                alt="Google"
+                className="googleImg"
+              />
+            </button>
+            <Link to="/signin">
+              <p>
+                <i>Already have an account? Sign In.</i>
+              </p>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

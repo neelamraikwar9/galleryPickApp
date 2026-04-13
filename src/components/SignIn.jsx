@@ -66,6 +66,7 @@ const SignIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="fieldGap"
+                placeholder="river96@gmail.com"
               />
             </div>
             <br />
