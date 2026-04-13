@@ -83,7 +83,7 @@ const SignIn = () => {
               />
             </div>
             <br />
-            <button type="submit">Sign In</button>
+            <button className="signInBtn" type="submit">Sign In</button>
           </form>
           <div>
             <p>---- Or Sign In with ----</p>

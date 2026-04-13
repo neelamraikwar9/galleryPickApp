@@ -25,19 +25,21 @@
 
 .logoTxt {
     display: flex; 
-    border: 1px solid blue; 
+    /* border: 1px solid blue;  */
     justify-content: center;
     margin-bottom: 0;
+    color: greenyellow
 }
 
 .phrase {
     text-align: center;
     margin-top: 0; 
+    color: rgb(249, 158, 241)
     /* border: 1px solid blue; */
 }
 
 .formStyle {
-    border: 1px solid pink; 
+    /* border: 1px solid pink;  */
     text-align: center;
     margin: 1rem; 
 }
@@ -51,4 +53,8 @@
     /* border: 1px solid red;  */
     margin-left: 10px; 
     
+}
+
+.signInBtn {
+    background-color:rgb(107, 179, 0);
 }
