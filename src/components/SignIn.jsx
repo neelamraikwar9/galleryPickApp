@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import "./signIn.css"; 
 // import { useAuth } from "../context/AuthContext";
 
 const SignIn = () => {
@@ -44,59 +45,65 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Gallery Pick</h1>
-        <p>
-          <i>Sign in to access your photos and memories</i>
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit}>
+    <div className="logSignContainer container">
+      <div className="signUpInContainer">
         <div>
-          <label htmlFor="email" className="label">
-            Email:{" "}
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="password" className="label">
-            Password:{" "}
-          </label>
-          <input
-            type="text"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <br />
-        <button type="submit">Sign In</button>
-      </form>
-      <div>
-        <p>---- Or Sign In with ----</p>
-        <button
-          onClick={() => window.open("http://localhost:4000/auth/google")}
-        >
-          <img
-            src="https://cdn-teams-slug.flaticon.com/google.jpg"
-            alt="Google"
-            className="googleAuth"
-          />
-        </button>
-        <Link to="/signup">
-          <p>
-            <i>Don't have an account? Create a new Account!</i>
+          <h1 className="logoTxt">Gallery Pick</h1>
+          <p className="phrase">
+            <i>Sign in to access your photos and memories</i>
           </p>
-        </Link>
+        </div>
+        <div className="formStyle">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email" className="label">
+                Email:{" "}
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="fieldGap"
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="password" className="label">
+                Password:{" "}
+              </label>
+              <input
+                type="text"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="fieldGap"
+              />
+            </div>
+            <br />
+            <button type="submit">Sign In</button>
+          </form>
+          <div>
+            <p>---- Or Sign In with ----</p>
+            <button
+              onClick={() => window.open("http://localhost:4000/auth/google")}
+              className="btn"
+            >
+              <img
+                src="https://cdn-teams-slug.flaticon.com/google.jpg"
+                alt="Google"
+                className="googleImg"
+              />
+            </button>
+            <Link to="/signup">
+              <p>
+                <i>Don't have an account? Create a new Account!</i>
+              </p>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

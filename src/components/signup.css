@@ -1,4 +1,54 @@
-.googleAuth {
-    width: 5rem; 
-    height: 5rem;
+.googleImg {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background: none;
+    background-color: none;
+}
+
+.signUpInContainer {
+    border: 1px solid rgb(123, 230, 123);
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: 10rem;  
+    border-radius: 1rem;
+    background-color:oklch(32.368% 0.0022 146.303)
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoTxt {
+    display: flex; 
+    border: 1px solid blue; 
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.phrase {
+    text-align: center;
+    margin-top: 0; 
+    /* border: 1px solid blue; */
+}
+
+.formStyle {
+    border: 1px solid pink; 
+    text-align: center;
+    margin: 1rem; 
+}
+
+.btn {
+    background: none; 
+    border: none; 
+}
+
+.fieldGap {
+    /* border: 1px solid red;  */
+    margin-left: 10px; 
+    
 }

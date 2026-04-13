@@ -58,7 +58,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="signUpInContainer">
       <div>
         <h1>Gallery Pick</h1>
         <p>
