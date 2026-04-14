@@ -45,7 +45,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="logSignContainer container" style={{border: "1px solid red"}}>
+    <div className="logSignContainer container" style={{border: "1px solid red", height: ""}}>
       <div className="signUpInContainer">
         <div>
           <h1 className="logoTxt">Gallery Pick</h1>
