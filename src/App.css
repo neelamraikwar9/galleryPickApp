@@ -53,7 +53,7 @@
  .logSignContainer {
    display: flex;
    /* width: 109%; */
-   min-height: 50vh;
+   /* min-height: 10vh; */
    /* border: 1px solid rgb(238, 119, 39); */
    background-size: cover;
    background-position: center;
