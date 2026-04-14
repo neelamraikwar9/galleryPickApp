@@ -45,7 +45,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className="logSignContainer container" style={{border: "1px solid red", height: ""}}>
+    <div className="logSignContainer container">
+      {" "}
+      {/* style={{ border: "1px solid red", height: "" }} */}
       <div className="signUpInContainer">
         <div>
           <h1 className="logoTxt">Gallery Pick</h1>
@@ -84,7 +86,9 @@ const SignIn = () => {
               />
             </div>
             <br />
-            <button className="signInBtn" type="submit">Sign In</button>
+            <button className="signInBtn" type="submit">
+              Sign In
+            </button>
           </form>
           <div>
             <p>---- Or Sign In with ----</p>
