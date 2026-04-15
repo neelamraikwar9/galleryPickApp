@@ -1,19 +1,17 @@
-
-
 .container {
-    border: 1px solid springgreen; 
+    border: 1px solid rgb(255, 51, 0);
+    /* width: 136% */
 }
 
 .navCon {
-    width: 20%; 
+    width: 20%;
     margin-right: 4rem;
-    padding: 3%; 
+    padding: 3%;
 
     /* border: 1px solid red;  */
 }
 
 .welCon {
-    
     padding-top: 2%;
 }
 
@@ -31,38 +29,38 @@
 }
 
 .imgContainer {
-    border: 1px solid greenyellow; 
-    box-sizing: border-box; 
-    width: 15.8rem; 
-    position: relative; 
-    display:inline-block; 
+    border: 1px solid greenyellow;
+    box-sizing: border-box;
+    width: 15.8rem;
+    position: relative;
+    display: inline-block;
 }
 
 .heartBtn {
-border: 1px solid blueviolet; 
-position: absolute;
-top: 3px; 
-right: 2rem;
-background: none; 
-border: none; 
-cursor: point; 
-padding: 0; 
+    border: 1px solid blueviolet;
+    position: absolute;
+    top: 3px;
+    right: 2rem;
+    background: none;
+    border: none;
+    cursor: point;
+    padding: 0;
 
 }
 
 .userAccount {
-    border: 1px solid red;  
-    display: flex; 
+    border: 1px solid red;
+    display: flex;
     flex-direction: column;
     /* justify-content:end; */
     /* align-items: end; */
 }
 
 .userAccCon {
-    border: 1px  solid green; 
-    display: flex; 
+    border: 1px solid green;
+    display: flex;
     width: 40rem;
     justify-content: end;
     align-items: end;
-    
+
 }

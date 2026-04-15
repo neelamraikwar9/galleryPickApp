@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <main>
-      <div>
+      <div className="wholeNavCont">
         <nav className="navContainer">
           <div className="navLogo">
             <img
