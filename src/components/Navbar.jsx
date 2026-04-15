@@ -2,25 +2,42 @@ import "./navbar.css";
 import { NavLink } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useEffect, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
 
   useEffect(() => {
     setLoggedInUser(localStorage.getItem("loggedInUser"));
   }, []);
 
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("loggedInUser");
-    toast.success("User Loggedout");
+const handleLogOut = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("loggedInUser");
+  toast.success("User Loggedout");
 
+  setTimeout(() => {
     setTimeout(() => {
-      setTimeout(() => {
-        navigate("/signin");
-      }, 1000);
-    });
-  };
+      navigate("/signin");
+    }, 1000);
+  });
+};
+
+
+  // const handleLogOut = () => {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("loggedInUser");
+  //   toast.success("User Loggedout");
+
+  //   setTimeout(() => {
+  //     setTimeout(() => {
+  //       navigate("/signin");
+  //     }, 1000);
+  //   });
+  // };
 
   return (
     <main>

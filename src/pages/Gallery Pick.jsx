@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const GalleryPick = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
