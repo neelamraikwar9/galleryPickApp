@@ -1,8 +1,27 @@
-import './navbar.css'; 
+import "./navbar.css";
 import { NavLink } from "react-router-dom";
-import "bootstrap-icons/font/bootstrap-icons.css"; 
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [loggedInUser, setLoggedInUser] = useState("");
+
+  useEffect(() => {
+    setLoggedInUser(localStorage.getItem("loggedInUser"));
+  }, []);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("loggedInUser");
+    toast.success("User Loggedout");
+
+    setTimeout(() => {
+      setTimeout(() => {
+        navigate("/signin");
+      }, 1000);
+    });
+  };
+
   return (
     <main>
       <div>
@@ -67,6 +86,17 @@ const Navbar = () => {
                   Create Album
                 </div>
               </NavLink>
+            </li>
+            <li className="navItem">
+              {/* <div className="userAccCon"> */}
+              {/* <div className="profCont"> */}
+                <i
+                  class="bi bi-person-square"
+                  style={{ border: "1px solid green", padding: "0px 10px" }}
+                ></i>
+                {loggedInUser}
+                <button className="logOutBtn" onClick={handleLogOut}>Log Out</button> {/* </div> */}
+              {/* </div> */}
             </li>
           </ul>
         </nav>

@@ -49,3 +49,20 @@ cursor: point;
 padding: 0; 
 
 }
+
+.userAccount {
+    border: 1px solid red;  
+    display: flex; 
+    flex-direction: column;
+    /* justify-content:end; */
+    /* align-items: end; */
+}
+
+.userAccCon {
+    border: 1px  solid green; 
+    display: flex; 
+    width: 40rem;
+    justify-content: end;
+    align-items: end;
+    
+}

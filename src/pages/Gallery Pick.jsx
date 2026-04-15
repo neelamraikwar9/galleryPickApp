@@ -13,6 +13,7 @@ const GalleryPick = () => {
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
   // const navigate = useNavigate();
+  console.log(loggedInUser, "loggedInUser"); 
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
 
@@ -92,17 +93,17 @@ const GalleryPick = () => {
     getAllImages();
   }, []);
 
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("loggedInUser");
-    toast.success("User Loggedout");
+  // const handleLogOut = () => {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("loggedInUser");
+  //   toast.success("User Loggedout");
 
-    setTimeout(() => {
-      setTimeout(() => {
-        navigate("/signin");
-      }, 1000);
-    });
-  };
+  //   setTimeout(() => {
+  //     setTimeout(() => {
+  //       navigate("/signin");
+  //     }, 1000);
+  //   });
+  // };
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -130,12 +131,16 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-        <p className="userName">
-          <i>Hi {loggedInUser}</i>
-        </p>
-        <button onClick={handleLogOut}>Log Out</button>
+        {/* <div className="userAccCon">
+          <div className="userAccount">
+            <p className="userName">
+              <i>Hi {loggedInUser}</i>
+            </p>
+            <button onClick={handleLogOut}>Log Out</button>
+          </div>
+        </div> */}
 
-        <h1 className="welTxt">🌸Welcome to Gallery Pick🌸</h1>
+        <h1 className="welTxt">🌸Welcome to Gallery Pick, {loggedInUser}!🌸</h1>
       </div>
 
       <div>
