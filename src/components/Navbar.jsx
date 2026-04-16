@@ -27,17 +27,7 @@ const handleLogOut = () => {
 };
 
 
-  // const handleLogOut = () => {
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("loggedInUser");
-  //   toast.success("User Loggedout");
-
-  //   setTimeout(() => {
-  //     setTimeout(() => {
-  //       navigate("/signin");
-  //     }, 1000);
-  //   });
-  // };
+  
 
   return (
     <main>

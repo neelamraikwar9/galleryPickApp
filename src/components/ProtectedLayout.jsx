@@ -11,7 +11,7 @@ const ProtectedLayout = () => {
    }
   return (
     <main className="mainContainer">
-      <div className="">
+      <div className="navCon">
         {" "}
         {/* //container navCon */}
         <Navbar />

@@ -7,6 +7,10 @@
     width: 20%;
     margin-right: 4rem;
     padding: 3%;
+    border: 1px solid blue; 
+    display: flex; 
+    flex-wrap: wrap;
+
 
     /* border: 1px solid red;  */
 }

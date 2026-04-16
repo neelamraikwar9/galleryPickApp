@@ -1,18 +1,17 @@
 import "./galleryPick.css";
 
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const GalleryPick = () => {
-  // const navigate = useNavigate();
+  
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
-  // const navigate = useNavigate();
+
   console.log(loggedInUser, "loggedInUser"); 
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
@@ -93,18 +92,7 @@ const GalleryPick = () => {
     getAllImages();
   }, []);
 
-  // const handleLogOut = () => {
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("loggedInUser");
-  //   toast.success("User Loggedout");
-
-  //   setTimeout(() => {
-  //     setTimeout(() => {
-  //       navigate("/signin");
-  //     }, 1000);
-  //   });
-  // };
-
+  
   useEffect(() => {
     const fetchFavorites = async () => {
       if (!token) return;
@@ -131,14 +119,7 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-        {/* <div className="userAccCon">
-          <div className="userAccount">
-            <p className="userName">
-              <i>Hi {loggedInUser}</i>
-            </p>
-            <button onClick={handleLogOut}>Log Out</button>
-          </div>
-        </div> */}
+       
 
         <h1 className="welTxt">🌸Welcome to Gallery Pick, {loggedInUser}!🌸</h1>
       </div>
