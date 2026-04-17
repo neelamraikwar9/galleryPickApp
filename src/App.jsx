@@ -13,6 +13,7 @@ import CreateAlbum from "./pages/CreateAlbum";
 import PageNoteFound from "./pages/PageNoteFound";
 import Favourites from "./pages/Favourites";
 import RefreshHandler from "./RefreshHandler";
+import Albums from "./pages/Albums";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -28,11 +29,11 @@ function App() {
       <div>
         <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
         {/* <AuthProvider> */}
-        <Routes>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   .mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm                       mmmmmmmmmmmmmmmm                                                                                                                                                                                                                                                                           .
+        <Routes>
+          {" "}
           <Route path="/" element={<Navigate to="/signin" />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
           <Route element={<ProtectedLayout />}>
             <Route
               path="/galleryPick"
@@ -40,7 +41,8 @@ function App() {
             />
             <Route path="/uploadImg" element={<UploadImg />}></Route>
             <Route path="/createAlbum" element={<CreateAlbum />}></Route>
-            <Route path="/favourite" element={<Favourites/>}></Route>
+            <Route path="/albums" element={<Albums />}></Route>
+            <Route path="/favourite" element={<Favourites />}></Route>
           </Route>
           <Route path="*" element={<PageNoteFound />}></Route>
         </Routes>

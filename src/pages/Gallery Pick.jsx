@@ -5,29 +5,56 @@ import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom'; 
 
 const GalleryPick = () => {
-  
+  const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
+  const [isValid, setIsValid] = useState(true);
 
-  console.log(loggedInUser, "loggedInUser"); 
+  console.log(loggedInUser, "loggedInUser");
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
 
-  // have to test it if it works..... 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
+  // Check if token exists AND is not expired
+  const token = localStorage.getItem("token");
+  const isExpired = token
+    ? JSON.parse(atob(token.split(".")[1])).exp * 1000 < Date.now()
+    : true;
 
-    if (!token) {
-      navigate("/signin");
+  useEffect(() => {
+    if (!token || isExpired) {
+      if (isExpired) localStorage.removeItem("token");
+      navigate("/signin", { replace: true });
     }
   }, []);
 
-  const toggleFavorite = async (imageId) => {
-    const token = localStorage.getItem("token");
+  if (!token || isExpired) return null;
 
+  // ... rest of your code unchanged
+
+  // // have to test it if it works.....
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+
+  //   if (!token) {
+  //     setIsValid(false);
+  //     navigate("/signin");
+  //   }
+  // }, []);
+
+  // // Continuous check - runs every render (safe for auth)
+  // // let token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
+
+  // if (!token) {
+  //   navigate("/signin", { replace: true });
+  //   return null; // Prevent flash
+  // }
+
+  const toggleFavorite = async (imageId) => {
     if (!token) {
       toast.error("Please log in first");
       return;
@@ -66,7 +93,7 @@ const GalleryPick = () => {
     setLoggedInUser(localStorage.getItem("loggedInUser"));
   }, []);
 
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
   useEffect(() => {
     const getAllImages = async () => {
@@ -92,7 +119,6 @@ const GalleryPick = () => {
     getAllImages();
   }, []);
 
-  
   useEffect(() => {
     const fetchFavorites = async () => {
       if (!token) return;
@@ -119,8 +145,6 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-       
-
         <h1 className="welTxt">🌸Welcome to Gallery Pick, {loggedInUser}!🌸</h1>
       </div>
 
@@ -157,6 +181,6 @@ const GalleryPick = () => {
       </div>
     </main>
   );
-};
+};;
 
 export default GalleryPick;

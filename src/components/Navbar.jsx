@@ -95,14 +95,28 @@ const handleLogOut = () => {
               </NavLink>
             </li>
             <li className="navItem">
+              <NavLink to="/albums" className="navItemtxt">
+                <div>
+                  <i
+                    class="bi bi-file-earmark-image"
+                    style={{ border: "1px solid green", padding: "0px 10px" }}
+                  ></i>
+                  Albums
+                </div>
+              </NavLink>
+            </li>
+            <li className="navItem">
               {/* <div className="userAccCon"> */}
               {/* <div className="profCont"> */}
-                <i
-                  class="bi bi-person-square"
-                  style={{ border: "1px solid green", padding: "0px 10px" }}
-                ></i>
-                {loggedInUser}
-                <button className="logOutBtn" onClick={handleLogOut}>Log Out</button> {/* </div> */}
+              <i
+                class="bi bi-person-square"
+                style={{ border: "1px solid green", padding: "0px 10px" }}
+              ></i>
+              {loggedInUser}
+              <button className="logOutBtn" onClick={handleLogOut}>
+                Log Out
+              </button>{" "}
+              {/* </div> */}
               {/* </div> */}
             </li>
           </ul>

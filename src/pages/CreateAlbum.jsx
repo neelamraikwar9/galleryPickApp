@@ -16,7 +16,7 @@ const [description, setDescription] = useState("");
 const [owner, setOwner] = useState(""); 
 const [email, setEmail] = useState(""); 
 const [accessLevel, setAccessLevel] = useState("view");
-// const [albms, setAlbms] = useState([]);  
+
 
 //state to hold multiple shared users.
 const [sharedUsers, setSharedUsers] = useState([]); 
@@ -89,25 +89,7 @@ console.log(token, "token");
     }
   };
 
-  //get all albums; 
-
-  // useEffect(() => {
-  //   const getAlbums = async () => {
-  //     if(!token) return; 
-  //     try{
-  //     const res = await axios.get("http://localhost:4000/albums", {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`, 
-  //       }
-  //     });
-  //     console.log(res, "res"); 
-  //     setAlbms(res.data); 
-  //   } catch(error){
-  //     console.log("Failed to fetch albums: ", error); 
-  //   }
-  //   }; 
-  //   getAlbums(); 
-  // }, []); 
+ 
 
 
 
