@@ -111,93 +111,95 @@ const UploadImg = () => {
   };
 
   return (
-    <div className="outImgUplCon">
-      <div className="imgUploadCon">
-        <h2>Add Image</h2>
-        <form onSubmit={handleUpload} className="formContainer">
-          <div className="imgCon fieldCon">
-            <label htmlFor="imgUrl">Select Image: </label>
-            <input
-              type="file"
-              ref={fileInputRef}
-              id="imgUrl"
-              onChange={handleImgUpload}
-              required
-              className="imgInp"
-            />
-          </div>
+    <main className="outImgUplCon">
+      <div className="formOutCon">
+        <div className="imgUploadCon">
+          <h2>Add Image</h2>
+          <form onSubmit={handleUpload} className="formContainer">
+            <div className="imgCon fieldCon">
+              <label htmlFor="imgUrl">Select Image: </label>
+              <input
+                type="file"
+                ref={fileInputRef}
+                id="imgUrl"
+                onChange={handleImgUpload}
+                required
+                className="imgInp"
+              />
+            </div>
 
-          {/* //fetch album with apis */}
-          <div className="fieldCon">
-            <label htmlFor="album">Select Album: </label>
-            <select
-              name="albumId"
-              id="album"
-              onChange={(e) => setAlbum(e.target.value)}
-              required
-            >
-              <option value="">Choose album... </option>
-              {albums?.map((albm) => (
-                <option key={albm._id} value={albm._id}>
-                  {albm.name}
-                </option>
-              ))}
-            </select>
-          </div>
+            {/* //fetch album with apis */}
+            <div className="fieldCon">
+              <label htmlFor="album">Select Album: </label>
+              <select
+                name="albumId"
+                id="album"
+                onChange={(e) => setAlbum(e.target.value)}
+                required
+              >
+                <option value="">Choose album... </option>
+                {albums?.map((albm) => (
+                  <option key={albm._id} value={albm._id}>
+                    {albm.name}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div className="fieldCon">
-            <label>Name: </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Vacation Photo"
-              required
-            />
-          </div>
+            <div className="fieldCon">
+              <label>Name: </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Vacation Photo"
+                required
+              />
+            </div>
 
-          <div className="fieldCon">
-            <label htmlFor="tags">Tags: </label>
+            <div className="fieldCon">
+              <label htmlFor="tags">Tags: </label>
 
-            <input
-              type="text"
-              id="tags"
-              placeholder="beach, sunset, 2025"
-              onChange={(e) => setTags(e.target.value)}
-              required
-            />
-          </div>
+              <input
+                type="text"
+                id="tags"
+                placeholder="beach, sunset, 2025"
+                onChange={(e) => setTags(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="fieldCon">
-            <label htmlFor="person">Person: </label>
-            <input
-              type="text"
-              id="person"
-              placeholder="River"
-              onChange={(e) => setPerson(e.target.value)}
-              required
-            />
-          </div>
+            <div className="fieldCon">
+              <label htmlFor="person">Person: </label>
+              <input
+                type="text"
+                id="person"
+                placeholder="River"
+                onChange={(e) => setPerson(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="fieldCon">
-            <label htmlFor="comments">Comment: </label>
-            <input
-              type="text"
-              name="comments"
-              id="comments"
-              placeholder="Write your comment"
-              onChange={(e) => setComment(e.target.value)}
-            />
-          </div>
+            <div className="fieldCon">
+              <label htmlFor="comments">Comment: </label>
+              <input
+                type="text"
+                name="comments"
+                id="comments"
+                placeholder="Write your comment"
+                onChange={(e) => setComment(e.target.value)}
+              />
+            </div>
 
-          <br />
-          <div className="fieldCon">
-            <button type="submit">Upload Image</button>
-          </div>
-        </form>
+            <br />
+            <div className="fieldCon">
+              <button type="submit">Upload Image</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

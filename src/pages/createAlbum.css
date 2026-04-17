@@ -19,3 +19,34 @@
 .addUserBtn {
     width: 80px
 }
+
+.addAlbmTxt {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.albmContainer {
+    border: 1px solid rgb(247, 249, 247);
+    /* width: 40%; */
+    border-radius: 1rem;
+    margin-top: 1rem; 
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+} 
+
+.albumOutCon {
+    width: 50rem; 
+    height: auto;
+}
+
+.addAlbBtn {
+    /* border: 1px solid orangered;  */
+    margin-top: 1rem; 
+    display: flex;
+    justify-content: center;
+}
