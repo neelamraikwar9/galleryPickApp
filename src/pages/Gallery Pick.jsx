@@ -35,24 +35,7 @@ const GalleryPick = () => {
 
   // ... rest of your code unchanged
 
-  // // have to test it if it works.....
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-
-  //   if (!token) {
-  //     setIsValid(false);
-  //     navigate("/signin");
-  //   }
-  // }, []);
-
-  // // Continuous check - runs every render (safe for auth)
-  // // let token = localStorage.getItem("token");
-  // const token = localStorage.getItem("token");
-
-  // if (!token) {
-  //   navigate("/signin", { replace: true });
-  //   return null; // Prevent flash
-  // }
+  
 
   const toggleFavorite = async (imageId) => {
     if (!token) {
