@@ -159,6 +159,7 @@ const GalleryPick = () => {
                 }}
               />
             </button>
+            <button></button>
           </div>
         ))}
       </div>

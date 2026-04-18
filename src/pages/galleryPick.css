@@ -36,6 +36,7 @@
     border: 1px solid greenyellow;
     box-sizing: border-box;
     width: 15.8rem;
+    height: 17rem; 
     position: relative;
     display: inline-block;
 }
