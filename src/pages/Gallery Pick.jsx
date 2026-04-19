@@ -125,6 +125,33 @@ const GalleryPick = () => {
     fetchFavorites();
   }, [token]);
 
+  
+  async function handleDeleteImgs(e){
+    const imgId = e.target.value; 
+    console.log(imgId, "imgId"); 
+
+    try{
+      await axios.delete(`http://localhost:4000/images/${imgId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        }
+      } ); 
+      setImages((prev) => prev.filter((img) => img._id !== imgId)); 
+      console.log(images, 'dlfkjdkfj'); 
+
+      toast.success("Image deleted successfully.", {autoclose: 3000}); 
+    } catch(error){
+      console.log("Failed to delete image:", error); 
+      toast.error("Failed to delete image. Please try again.",
+         {
+        autoClose: 3000, 
+      }); 
+    }
+  }
+
+
+
+
   return (
     <main>
       <div className="container welCon">
@@ -159,7 +186,9 @@ const GalleryPick = () => {
                 }}
               />
             </button>
-            <button></button>
+            <div className="delBtn">
+              <button value={img._id} onClick={handleDeleteImgs}>Delete</button>
+            </div>
           </div>
         ))}
       </div>

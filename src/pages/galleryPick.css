@@ -36,7 +36,7 @@
     border: 1px solid greenyellow;
     box-sizing: border-box;
     width: 15.8rem;
-    height: 17rem; 
+    height: 18rem; 
     position: relative;
     display: inline-block;
 }
@@ -61,5 +61,10 @@
     width: 40rem;
     justify-content: end;
     align-items: end;
+}
 
+.delBtn {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
