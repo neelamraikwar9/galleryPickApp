@@ -13,8 +13,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-   const [visible, setVisible] = useState(false);
- 
+  const [visible, setVisible] = useState(false);
+
   const navigate = useNavigate();
   // const { handleGoogleSignIn } = useAuth();
   console.log(name, email, password, "data");
@@ -22,10 +22,10 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   if(!name || !email || !password){
-    return toast.error("name, email, and password are required.");
-   }
-  
+    if (!name || !email || !password) {
+      return toast.error("name, email, and password are required.");
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:4000/auth/signup",
@@ -38,30 +38,29 @@ const SignUp = () => {
       console.log(response, "response");
 
       // const { message } = response;
-      
+
       toast.success("Account created successful!");
       navigate("/signin");
 
-      setName(""); 
-      setEmail(""); 
-      setPassword(""); 
+      setName("");
+      setEmail("");
+      setPassword("");
     } catch (error) {
       console.error("Error:", error.response?.data);
 
-    if (error.response?.status === 401) {
-      toast.error("User already exists! Please login instead.");
-    } else if (error.response?.status === 400) {
-      toast.error("Please check your input data!");
-    } else {
-      toast.error(error.response?.data?.message || "Signup failed!");
+      if (error.response?.status === 401) {
+        toast.error("User already exists! Please login instead.");
+      } else if (error.response?.status === 400) {
+        toast.error("Please check your input data!");
+      } else {
+        toast.error(error.response?.data?.message || "Signup failed!");
+      }
     }
+  };
+
+  function handleEyeClick() {
+    setVisible(!visible);
   }
-  };
-
-
-  function handleEyeClick(){
-    setVisible(!visible); 
-  };
 
   return (
     <div className="logSignContainer container">
@@ -142,8 +141,9 @@ const SignUp = () => {
             {/* <button onClick={handleGoogleSignIn}> */}
             <button
               className="btn"
+              type="button"
               onClick={() =>
-                window.open("http://localhost:4000/auth/google", "_self")
+                (window.location.href = "http://localhost:4000/auth/google")
               }
             >
               <img
@@ -151,6 +151,7 @@ const SignUp = () => {
                 alt="Google"
                 className="googleImg"
               />
+              {/* Sign up with Google */}
             </button>
             <Link to="/signin">
               <p>

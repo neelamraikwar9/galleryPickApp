@@ -14,6 +14,7 @@ import PageNoteFound from "./pages/PageNoteFound";
 import Favourites from "./pages/Favourites";
 import RefreshHandler from "./RefreshHandler";
 import Albums from "./pages/Albums";
+import AuthSuccess from "./pages/AuthSuccess";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/createAlbum" element={<CreateAlbum />}></Route>
             <Route path="/albums" element={<Albums />}></Route>
             <Route path="/favourite" element={<Favourites />}></Route>
+            <Route path="/auth-success" element={<AuthSuccess />} />
           </Route>
           <Route path="*" element={<PageNoteFound />}></Route>
         </Routes>

@@ -78,35 +78,35 @@ const SignIn = () => {
               />
             </div>
             <br />
-            
-              <div>
-                <label htmlFor="password" className="label">
-                  Password:{" "}
-                </label>
-                <input
-                  type={visible ? "text" : "password"}
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="fieldGap"
-                  placeholder="Your Password"
-                />
 
-                <button
-                  type="button"
-                  onClick={handleEyeClick}
-                  className="eyeBtn"
-                  // style={{marginRight: "5rem"}}
-                >
-                  {visible ? (
-                    <i className="bi bi-eye"></i>
-                  ) : (
-                    <i class="bi bi-eye-slash"></i>
-                  )}
-                </button>
-              </div>
-           
+            <div>
+              <label htmlFor="password" className="label">
+                Password:{" "}
+              </label>
+              <input
+                type={visible ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="fieldGap"
+                placeholder="Your Password"
+              />
+
+              <button
+                type="button"
+                onClick={handleEyeClick}
+                className="eyeBtn"
+                // style={{marginRight: "5rem"}}
+              >
+                {visible ? (
+                  <i className="bi bi-eye"></i>
+                ) : (
+                  <i class="bi bi-eye-slash"></i>
+                )}
+              </button>
+            </div>
+
             <br />
             <button className="signInBtn" type="submit">
               Sign In
@@ -117,12 +117,17 @@ const SignIn = () => {
             <button
               onClick={() => window.open("http://localhost:4000/auth/google")}
               className="btn"
+              type="button"
+              onClick={() =>
+                (window.location.href = "http://localhost:4000/auth/google")
+              }
             >
               <img
                 src="https://cdn-teams-slug.flaticon.com/google.jpg"
                 alt="Google"
                 className="googleImg"
               />
+              {/* Sign in with Google */}
             </button>
             <Link to="/signup">
               <p>
