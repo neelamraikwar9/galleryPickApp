@@ -4,12 +4,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import "./signIn.css"; 
+import "./signIn.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 // import { useAuth } from "../context/AuthContext";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
   // const { login, handleGoogleSignIn } = useAuth();
   const navigate = useNavigate();
   console.log(email, password, "Data");
@@ -44,6 +46,10 @@ const SignIn = () => {
     }
   };
 
+  const handleEyeClick = () => {
+    setVisible(!visible);
+  };
+
   return (
     <div className="logSignContainer container">
       {" "}
@@ -68,22 +74,38 @@ const SignIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="fieldGap"
-                placeholder="river96@gmail.com"
+                placeholder="Your Email"
               />
             </div>
             <br />
             <div>
-              <label htmlFor="password" className="label">
-                Password:{" "}
-              </label>
-              <input
-                type="text"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="fieldGap"
-              />
+              <div>
+                <label htmlFor="password" className="label">
+                  Password:{" "}
+                </label>
+                <input
+                  type={visible ? "text" : "password"}
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="fieldGap"
+                  placeholder="Your Password"
+                />
+
+                <button
+                  type="button"
+                  onClick={handleEyeClick}
+                  className="eyeBtn"
+                  // style={{marginRight: "5rem"}}
+                >
+                  {visible ? (
+                    <i className="bi bi-eye"></i>
+                  ) : (
+                    <i class="bi bi-eye-slash"></i>
+                  )}
+                </button>
+              </div>
             </div>
             <br />
             <button className="signInBtn" type="submit">
