@@ -13,6 +13,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
+   const [visible, setVisible] = useState(false);
  
   const navigate = useNavigate();
   // const { handleGoogleSignIn } = useAuth();
@@ -55,6 +56,11 @@ const SignUp = () => {
       toast.error(error.response?.data?.message || "Signup failed!");
     }
   }
+  };
+
+
+  function handleEyeClick(){
+    setVisible(!visible); 
   };
 
   return (
@@ -100,18 +106,31 @@ const SignUp = () => {
 
             <br />
             <div>
-              <label htmlFor="password" className="lable">
+              <label htmlFor="password" className="label">
                 Password:{" "}
               </label>
               <input
-                type="password"
+                type={visible ? "text" : "password"}
                 id="password"
-                placeholder="Your Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="fieldGap"
+                placeholder="Your Password"
               />
+
+              <button
+                type="button"
+                onClick={handleEyeClick}
+                className="eyeBtn"
+                // style={{marginRight: "5rem"}}
+              >
+                {visible ? (
+                  <i className="bi bi-eye"></i>
+                ) : (
+                  <i class="bi bi-eye-slash"></i>
+                )}
+              </button>
             </div>
             <br />
             <button className="signInBtn" type="submit">

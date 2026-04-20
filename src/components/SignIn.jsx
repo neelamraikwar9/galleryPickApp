@@ -78,7 +78,7 @@ const SignIn = () => {
               />
             </div>
             <br />
-            <div>
+            
               <div>
                 <label htmlFor="password" className="label">
                   Password:{" "}
@@ -106,7 +106,7 @@ const SignIn = () => {
                   )}
                 </button>
               </div>
-            </div>
+           
             <br />
             <button className="signInBtn" type="submit">
               Sign In
