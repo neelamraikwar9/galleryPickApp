@@ -6,8 +6,12 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom'; 
+import { useAuth } from "../context/AuthContext"; 
 
 const GalleryPick = () => {
+  const { user, logout} = useAuth(); 
+  console.log(user, "user"); 
+
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
@@ -155,7 +159,7 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-        <h1 className="welTxt">🌸Welcome to Gallery Pick, {loggedInUser}!🌸</h1>
+        <h1 className="welTxt">🌸Welcome to Gallery Pick, {user.name} {loggedInUser}!🌸</h1>
       </div>
 
       <div>

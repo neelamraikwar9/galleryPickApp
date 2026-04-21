@@ -35,6 +35,7 @@ function App() {
           <Route path="/" element={<Navigate to="/signin" />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/auth-success" element={<AuthSuccess />} />
           <Route element={<ProtectedLayout />}>
             <Route
               path="/galleryPick"
@@ -44,7 +45,6 @@ function App() {
             <Route path="/createAlbum" element={<CreateAlbum />}></Route>
             <Route path="/albums" element={<Albums />}></Route>
             <Route path="/favourite" element={<Favourites />}></Route>
-            <Route path="/auth-success" element={<AuthSuccess />} />
           </Route>
           <Route path="*" element={<PageNoteFound />}></Route>
         </Routes>

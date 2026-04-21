@@ -91,6 +91,7 @@ const SignIn = () => {
                 required
                 className="fieldGap"
                 placeholder="Your Password"
+                autoComplete="current-password" // fixed autoComplete suppressHydrationWarning.
               />
 
               <button
@@ -102,7 +103,7 @@ const SignIn = () => {
                 {visible ? (
                   <i className="bi bi-eye"></i>
                 ) : (
-                  <i class="bi bi-eye-slash"></i>
+                  <i className="bi bi-eye-slash"></i>
                 )}
               </button>
             </div>
@@ -115,7 +116,9 @@ const SignIn = () => {
           <div>
             <p>---- Or Sign In with ----</p>
             <button
-              onClick={() => window.open("http://localhost:4000/auth/google")}
+              onClick={() =>
+                (window.location.href = "http://localhost:4000/auth/google")
+              }
               className="btn"
               type="button"
               onClick={() =>
