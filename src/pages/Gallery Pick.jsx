@@ -159,7 +159,7 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-        <h1 className="welTxt">🌸Welcome to Gallery Pick, {user.name} {loggedInUser}!🌸</h1>
+        <h1 className="welTxt">🌸Welcome to Gallery Pick {user.name} {loggedInUser}!🌸</h1>
       </div>
 
       <div>
