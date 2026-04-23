@@ -76,9 +76,9 @@ const GalleryPick = () => {
     }
   };
 
-  useEffect(() => {
-    setLoggedInUser(localStorage.getItem("loggedInUser"));
-  }, []);
+  // useEffect(() => {
+  //   setLoggedInUser(localStorage.getItem("loggedInUser"));
+  // }, []);
 
   // const token = localStorage.getItem("token");
 
