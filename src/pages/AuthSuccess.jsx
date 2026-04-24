@@ -10,6 +10,8 @@ const AuthSuccess = () => {
   const { setUser } = useAuth(); // getting setUser from context
 
   useEffect(() => {
+    // let cancelled = false;  // adding this to have one alert of sign in user I am getting this two times because of authSuccess component is rendering twice due to React Strict 
+
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
 
