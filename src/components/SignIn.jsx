@@ -6,9 +6,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import "./signIn.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-// import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const SignIn = () => {
+  const { setUser } = useAuth(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -34,6 +35,9 @@ const SignIn = () => {
       const { message, jwtToken, name } = res.data;
       localStorage.setItem("token", jwtToken);
       localStorage.setItem("loggedInUser", name);
+
+      setUser({ name })
+      
 
       navigate("/galleryPick");
     } catch (error) {

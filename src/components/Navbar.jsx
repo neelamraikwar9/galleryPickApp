@@ -5,14 +5,17 @@ import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext'; 
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { user, logout } = useAuth(); 
+  console.log(user, "user"); 
   // const [loggedInUser, setLoggedInUser] = useState("");
 
-  useEffect(() => {
-    setLoggedInUser(localStorage.getItem("loggedInUser"));
-  }, []);
+  // useEffect(() => {
+  //   setLoggedInUser(localStorage.getItem("loggedInUser"));
+  // }, []);
 
 const handleLogOut = () => {
   localStorage.removeItem("token");
@@ -112,7 +115,7 @@ const handleLogOut = () => {
                 class="bi bi-person-square"
                 style={{ border: "1px solid green", padding: "0px 10px" }}
               ></i>
-              {loggedInUser}
+              {user?.name}
               <button className="logOutBtn" onClick={handleLogOut}>
                 Log Out
               </button>{" "}
