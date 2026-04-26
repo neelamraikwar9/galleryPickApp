@@ -5,28 +5,24 @@ import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../context/AuthContext'; 
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { user, logout } = useAuth(); 
-  console.log(user, "user"); 
-  
+  const { user, logout } = useAuth();
+  console.log(user, "user");
 
-const handleLogOut = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("loggedInUser");
-  toast.success("User Loggedout");
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("loggedInUser");
+    toast.success("User Loggedout");
 
-  setTimeout(() => {
     setTimeout(() => {
-      navigate("/signin");
-    }, 1000);
-  });
-};
-
-
-  
+      setTimeout(() => {
+        navigate("/signin");
+      }, 1000);
+    });
+  };
 
   return (
     <main>
@@ -35,7 +31,7 @@ const handleLogOut = () => {
           <div className="navLogo">
             <img
               src="/logo.png"
-              alt="logo"
+              alt="Gallery Pick logo"
               className="logo"
               style={{
                 width: 70,
@@ -43,8 +39,14 @@ const handleLogOut = () => {
                 border: "1px solid green",
                 marginTop: "10px",
               }}
+              onClick={() => navigate("./galleryPick")}
             />
-            <h1>GalleryPick</h1>
+            <h1
+              onClick={() => navigate("./galleryPick")}
+              style={{ cursor: "pointer" }}
+            >
+              GalleryPick
+            </h1>
           </div>
           <ul className="navItems">
             <li className="navItem">
