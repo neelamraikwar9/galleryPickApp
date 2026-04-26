@@ -11,11 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth(); 
   console.log(user, "user"); 
-  // const [loggedInUser, setLoggedInUser] = useState("");
-
-  // useEffect(() => {
-  //   setLoggedInUser(localStorage.getItem("loggedInUser"));
-  // }, []);
+  
 
 const handleLogOut = () => {
   localStorage.removeItem("token");

@@ -9,7 +9,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useAuth } from "../context/AuthContext";
 
 const SignIn = () => {
-  const { setUser } = useAuth(); 
+  const { setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -36,8 +36,7 @@ const SignIn = () => {
       localStorage.setItem("token", jwtToken);
       localStorage.setItem("loggedInUser", name);
 
-      setUser({ name })
-      
+      setUser({ name });
 
       navigate("/galleryPick");
     } catch (error) {
@@ -56,8 +55,6 @@ const SignIn = () => {
 
   return (
     <div className="logSignContainer container">
-      {" "}
-      {/* style={{ border: "1px solid red", height: "" }} */}
       <div className="signUpInContainer">
         <div>
           <h1 className="logoTxt">Gallery Pick</h1>
@@ -98,12 +95,7 @@ const SignIn = () => {
                 autoComplete="current-password" // fixed autoComplete suppressHydrationWarning.
               />
 
-              <button
-                type="button"
-                onClick={handleEyeClick}
-                className="eyeBtn"
-                // style={{marginRight: "5rem"}}
-              >
+              <button type="button" onClick={handleEyeClick} className="eyeBtn">
                 {visible ? (
                   <i className="bi bi-eye"></i>
                 ) : (
@@ -134,7 +126,6 @@ const SignIn = () => {
                 alt="Google"
                 className="googleImg"
               />
-              {/* Sign in with Google */}
             </button>
             <Link to="/signup">
               <p>

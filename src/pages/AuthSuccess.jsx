@@ -16,7 +16,7 @@ const AuthSuccess = () => {
     const token = params.get("token");
 
     if (!token) {
-      toast.error("Google sign-in failed.");
+      toast.error("Google sign-in failed.", { toastId: "google-error" });
       navigate("/signin");
       return;
     }
@@ -36,7 +36,7 @@ const AuthSuccess = () => {
         // 3. Save user to context so it's available everywhere
         setUser(response.data.user); // ✅ now username shows in navbar etc.
 
-        toast.success("Signed in with Google!");
+        toast.success("Signed in with Google!", { toastId: "google-success" });
         navigate("/galleryPick"); // ✅ change to your actual route
       } catch (error) {
         console.error("Failed to fetch user:", error);
