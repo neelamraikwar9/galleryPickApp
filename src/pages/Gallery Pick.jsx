@@ -171,11 +171,11 @@ const GalleryPick = () => {
         <div>
           {images.length <= 0 ? (
             isImage && (
-              <div style={{color: "pink"}}>
-                <p style={{color: "#00FF00"}}>Not images yet!</p>
-                  <p>
-                  Add images make sure to select an album so create
-                  album first then add images to the album.
+              <div>
+                <p className="noImgMsg">Not images yet!</p>
+                <p style={{ color: "pink" }}>
+                  Add images make sure to select an album so create album first
+                  then add images to the album.
                 </p>
               </div>
             )

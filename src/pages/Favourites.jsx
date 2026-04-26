@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 
 const Favourites = () => {
   const [favImages, setFavImages] = useState([]);
-  const [favoriteIds, setFavoriteIds] = useState([]); 
+  const [favoriteIds, setFavoriteIds] = useState([]);
+  const [favImgMsg, setFavImgMsg] = useState(true); 
   console.log(favImages, "favjdkfjkdjf");
 
   const token = localStorage.getItem("token");
@@ -100,6 +101,11 @@ const Favourites = () => {
     <>
       <div className="outImgUplCon">
         <h1 className="welTxt">Favorite Images</h1>
+        {favImages.length === 0 ? (
+          favImgMsg && <p className="noImgMsg">There is no favorite Images.</p>
+        ) : (
+          <p></p>
+        )}
         {favImages.map((img) => (
           <div
             key={img._id}

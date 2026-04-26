@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const Albums = () => {
     const [albms, setAlbms] = useState([]);  
+    const [isAlbm, setIsAlbm] = useState(true); 
     console.log(albms, "alnme")
 
     const token = localStorage.getItem("token"); 
@@ -56,6 +57,15 @@ const Albums = () => {
     <main>
       <div class>
         <h1>Albums</h1>
+        {albms.length === 0 ? (
+          isAlbm && (
+            <p className="noImgMsg">
+              Not any Album yet navigate to Create Album in the Navbar.
+            </p>
+          )
+        ) : (
+          <p></p>
+        )}
         {albms.map((albm) => (
           <div key={albm._id} className="albumCont">
             <div>
