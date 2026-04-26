@@ -17,6 +17,7 @@ const GalleryPick = () => {
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
   const [isValid, setIsValid] = useState(true);
+  const [isImage, setIsImage] = useState(true); 
 
   console.log(loggedInUser, "loggedInUser");
 
@@ -159,13 +160,29 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-        <h1 className="welTxt">🌸Welcome to Gallery Pick,  
-       {user?.name} !🌸</h1>
+        <h1 className="welTxt">
+          🌸Welcome to Gallery Pick,
+          {user?.name} !🌸
+        </h1>
       </div>
 
       <div>
         <h2 className="welTxt">All Images</h2>
-
+        <div>
+          {images.length <= 0 ? (
+            isImage && (
+              <div style={{color: "pink"}}>
+                <p style={{color: "#00FF00"}}>Not images yet!</p>
+                  <p>
+                  Add images make sure to select an album so create
+                  album first then add images to the album.
+                </p>
+              </div>
+            )
+          ) : (
+            <p></p>
+          )}
+        </div>
         {images.map((img) => (
           <div key={img._id} className="imgContainer">
             <img
@@ -192,7 +209,9 @@ const GalleryPick = () => {
               />
             </button>
             <div className="delBtn">
-              <button value={img._id} onClick={handleDeleteImgs}>Delete</button>
+              <button value={img._id} onClick={handleDeleteImgs}>
+                Delete
+              </button>
             </div>
           </div>
         ))}

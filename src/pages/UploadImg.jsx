@@ -177,7 +177,7 @@ const UploadImg = () => {
                 id="person"
                 placeholder="River"
                 onChange={(e) => setPerson(e.target.value)}
-                required
+                // required
               />
             </div>
 
