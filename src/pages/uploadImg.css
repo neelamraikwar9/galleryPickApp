@@ -1,8 +1,10 @@
 .imgUploadCon {
-    /* border: 1px solid #dad9d9;  */
+    border: 1px solid #dad9d9; 
     display: flex; 
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+
     /* justify-content: center; */
 }
 

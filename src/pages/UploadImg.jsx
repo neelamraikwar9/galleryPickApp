@@ -112,7 +112,8 @@ const UploadImg = () => {
 
   return (
     <main className="outImgUplCon">
-      <div className="formOutCon">
+      {/* <div className="formOutCon"> */}{" "}
+      <div className="albumOutCon">
         <div className="imgUploadCon">
           <h2>Add Image</h2>
           <form onSubmit={handleUpload} className="formContainer">

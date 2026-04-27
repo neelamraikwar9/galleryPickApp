@@ -96,10 +96,11 @@ console.log(token, "token");
 
   return (
     <main className="outImgUplCon">
-      <div className="formOutCon albumOutCon">
-        <div className="albmContainer">
+      <div className="albumOutCon">
+        <div className="imgUploadCon">
           <h2 className="addAlbmTxt">Add Album</h2>
-          <form onSubmit={handleAlbumSbmt} className="">
+          {/* <div className="albmContainer"> */}
+          <form onSubmit={handleAlbumSbmt} className="formContainer">
             <div className="fieldCon">
               <label htmlFor="name">Album Name: </label>
               <input

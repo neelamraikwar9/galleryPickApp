@@ -64,17 +64,22 @@
    border-color: none;
  }
 
+.container {
+  border: 1px solid rgb(255, 51, 0);
+  /* width: 136% */
+}
 
-
- .formOutCon {
+ /* .formOutCon {
   border: 1px solid gold; 
   display: flex; 
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 
- }
+ } */
 
  .noImgMsg {
   color: #00FF00; 
  }
+
+ 
