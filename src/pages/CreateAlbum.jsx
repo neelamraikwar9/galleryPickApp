@@ -95,7 +95,9 @@ console.log(token, "token");
 
 
   return (
-    <main className="outImgUplCon">
+    <main className="outImgUplCon" 
+    // style={{width: "0%"}}
+    >
       <div className="albumOutCon">
         <div className="imgUploadCon">
           <h2 className="addAlbmTxt">Add Album</h2>

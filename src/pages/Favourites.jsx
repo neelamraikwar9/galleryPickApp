@@ -99,13 +99,17 @@ const Favourites = () => {
 
   return (
     <>
-      <div className="outImgUplCon">
+      <div className="outImgUplCon" style={{width: "350%"}}>
         <h1 className="welTxt">Favorite Images</h1>
-        {favImages.length === 0 ? (
-          favImgMsg && <p className="noImgMsg">There is no favorite Images.</p>
-        ) : (
-          <p></p>
-        )}
+        <div className="noImgAlbMsg">
+          {favImages.length === 0 ? (
+            favImgMsg && (
+              <p className="noImgMsg">There is no favorite Images.</p>
+            )
+          ) : (
+            <p></p>
+          )}
+        </div>
         {favImages.map((img) => (
           <div
             key={img._id}

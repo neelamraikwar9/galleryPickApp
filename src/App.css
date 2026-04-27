@@ -78,6 +78,12 @@
 
  } */
 
+ .noImgAlbMsg {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+ }
+
  .noImgMsg {
   color: #00FF00; 
  }

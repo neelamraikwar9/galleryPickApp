@@ -1,5 +1,6 @@
 import React from 'react'
-import './albums.css'
+import './albums.css'; 
+
 import axios from 'axios'; 
 import { useState, useEffect } from 'react'; 
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -54,18 +55,20 @@ const Albums = () => {
 
   }
   return (
-    <main>
-      <div class>
-        <h1>Albums</h1>
-        {albms.length === 0 ? (
-          isAlbm && (
-            <p className="noImgMsg">
-              Not any Album yet navigate to Create Album in the Navbar.
-            </p>
-          )
-        ) : (
-          <p></p>
-        )}
+    <>
+      <div className="outImgUplCon">
+        <h1 className="welTxt">Albums</h1>
+        <div className="noImgAlbMsg">
+          {albms.length === 0 ? (
+            isAlbm && (
+              <p className="noImgMsg">
+                Not any Album yet navigate to Create Album in the Navbar.
+              </p>
+            )
+          ) : (
+            <p></p>
+          )}
+        </div>
         {albms.map((albm) => (
           <div key={albm._id} className="albumCont">
             <div>
@@ -80,7 +83,7 @@ const Albums = () => {
           </div>
         ))}
       </div>
-    </main>
+    </>
   );
 }
 
