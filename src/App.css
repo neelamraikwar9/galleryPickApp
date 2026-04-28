@@ -88,4 +88,12 @@
   color: #00FF00; 
  }
 
+ .albmsCon {
+  box-sizing: border-box;
+    width: 15.8rem;
+    height: 18rem;
+    position: relative;
+    display: inline-block;
+ }
+ 
  

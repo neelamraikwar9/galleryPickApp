@@ -98,9 +98,12 @@ const Favourites = () => {
   
 
   return (
-    <>
-      <div className="outImgUplCon">
-        <h1 className="welTxt">Favorite Images</h1>
+    <main>
+      <div className="">
+      {/* <div className="container welCon"> */}
+        <div>
+          <h1 className="welTxt">Favorite Images</h1>
+        </div>
         <div className="noImgAlbMsg">
           {favImages.length === 0 ? (
             favImgMsg && (
@@ -113,7 +116,7 @@ const Favourites = () => {
         {favImages.map((img) => (
           <div
             key={img._id}
-            className=" favImgContainer imgContainer"
+            className="imgContainer"
             style={{ height: "16rem" }}
           >
             <img
@@ -142,7 +145,7 @@ const Favourites = () => {
           </div>
         ))}
       </div>
-    </>
+    </main>
   );
 };
 

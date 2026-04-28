@@ -55,9 +55,11 @@ const Albums = () => {
 
   }
   return (
-    <>
-      <div className="outImgUplCon">
-        <h1 className="welTxt">Albums</h1>
+    <main>
+      <div className="">
+        <div>
+          <h1 className="welTxt">Albums</h1>
+        </div>
         <div className="noImgAlbMsg">
           {albms.length === 0 ? (
             isAlbm && (
@@ -70,20 +72,22 @@ const Albums = () => {
           )}
         </div>
         {albms.map((albm) => (
-          <div key={albm._id} className="albumCont">
-            <div>
-              <p>{albm.name}</p>
-              <div className="albImg">
-                <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
-                <button value={albm._id} onClick={handleDeleteAlbm}>
-                  Delete
-                </button>
+          <div className="albmsCon">
+            <div key={albm._id} className="albumCont">
+              <div>
+                <p>{albm.name}</p>
+                <div className="albImg">
+                  <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
+                  <button value={albm._id} onClick={handleDeleteAlbm}>
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-    </>
+    </main>
   );
 }
 

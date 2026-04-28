@@ -44,6 +44,8 @@
 .outImgUplCon {
     display: flex; 
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
     border: 1px solid blue;
     width: 100%;
     

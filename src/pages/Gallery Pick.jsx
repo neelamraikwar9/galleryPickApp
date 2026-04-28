@@ -184,7 +184,11 @@ const GalleryPick = () => {
           )}
         </div>
         {images.map((img) => (
-          <div key={img._id} className="imgContainer">
+          <div
+            key={img._id}
+            className="imgContainer"
+            style={{ height: "16rem" }}
+          >
             <img
               src={img.imgUrl}
               alt="image"
