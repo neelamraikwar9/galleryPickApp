@@ -39,6 +39,9 @@
     height: 18rem; 
     position: relative;
     display: inline-block;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    
 }
 
 .heartBtn {
