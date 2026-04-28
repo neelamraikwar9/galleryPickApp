@@ -99,7 +99,7 @@ const Favourites = () => {
 
   return (
     <>
-      <div className="outImgUplCon" style={{width: "350%"}}>
+      <div className="outImgUplCon">
         <h1 className="welTxt">Favorite Images</h1>
         <div className="noImgAlbMsg">
           {favImages.length === 0 ? (

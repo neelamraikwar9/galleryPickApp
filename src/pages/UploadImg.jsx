@@ -135,6 +135,7 @@ const UploadImg = () => {
               <select
                 name="albumId"
                 id="album"
+                value={album}
                 onChange={(e) => setAlbum(e.target.value)}
                 required
               >
@@ -153,6 +154,7 @@ const UploadImg = () => {
                 type="text"
                 name="name"
                 id="name"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Vacation Photo"
                 required
@@ -165,6 +167,7 @@ const UploadImg = () => {
               <input
                 type="text"
                 id="tags"
+                value={tags}
                 placeholder="beach, sunset, 2025"
                 onChange={(e) => setTags(e.target.value)}
                 required
@@ -176,6 +179,7 @@ const UploadImg = () => {
               <input
                 type="text"
                 id="person"
+                tags={person}
                 placeholder="River"
                 onChange={(e) => setPerson(e.target.value)}
                 // required
@@ -188,6 +192,7 @@ const UploadImg = () => {
                 type="text"
                 name="comments"
                 id="comments"
+                value={comment}
                 placeholder="Write your comment"
                 onChange={(e) => setComment(e.target.value)}
               />
