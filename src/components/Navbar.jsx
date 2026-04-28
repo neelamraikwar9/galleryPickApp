@@ -36,7 +36,7 @@ const Navbar = () => {
               style={{
                 width: 70,
                 height: 70,
-                border: "1px solid green",
+                // border: "1px solid green",
                 marginTop: "10px",
               }}
               onClick={() => navigate("./galleryPick")}

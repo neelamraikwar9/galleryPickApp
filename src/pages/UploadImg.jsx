@@ -179,7 +179,7 @@ const UploadImg = () => {
               <input
                 type="text"
                 id="person"
-                tags={person}
+                value={person}
                 placeholder="River"
                 onChange={(e) => setPerson(e.target.value)}
                 // required
