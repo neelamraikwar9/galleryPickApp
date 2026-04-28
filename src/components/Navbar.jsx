@@ -28,27 +28,27 @@ const Navbar = () => {
     <main>
       <div>
         <nav className="navContainer">
-        <div className="navLogo">
-          <img
-            src="/logo.png"
-            alt="Gallery Pick logo"
-            className="logo"
-            style={{
-              width: 70,
-              height: 70,
-              // border: "1px solid green",
-              marginTop: "5px",
-            }}
-            onClick={() => navigate("./galleryPick")}
-          />
-          <h1
-            onClick={() => navigate("./galleryPick")}
-            style={{ cursor: "pointer", marginTop: '1rem' }}
-          >
-            GalleryPick
-          </h1>
-        </div>
-        
+          <div className="navLogo">
+            <img
+              src="/logo.png"
+              alt="Gallery Pick logo"
+              className="logo"
+              style={{
+                width: 70,
+                height: 70,
+                // border: "1px solid green",
+                marginTop: "5px",
+              }}
+              onClick={() => navigate("./galleryPick")}
+            />
+            <h1
+              onClick={() => navigate("./galleryPick")}
+              style={{ cursor: "pointer", marginTop: "1rem" }}
+            >
+              GalleryPick
+            </h1>
+          </div>
+
           <ul className="navItems">
             <li className="navItem">
               <NavLink to="/galleryPick" className="navItemtxt">
@@ -108,8 +108,6 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="navItem">
-              {/* <div className="userAccCon"> */}
-              {/* <div className="profCont"> */}
               <i
                 class="bi bi-person-square"
                 style={{ border: "1px solid green", padding: "0px 10px" }}
@@ -118,8 +116,6 @@ const Navbar = () => {
               <button className="logOutBtn" onClick={handleLogOut}>
                 Log Out
               </button>{" "}
-              {/* </div> */}
-              {/* </div> */}
             </li>
           </ul>
         </nav>

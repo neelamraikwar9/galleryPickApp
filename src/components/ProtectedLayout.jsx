@@ -1,19 +1,17 @@
-import '../pages/galleryPick.css'
-import { Navigate, Outlet} from "react-router-dom";
+import "../pages/galleryPick.css";
+import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 
-
 const ProtectedLayout = () => {
-   const isAuthenticated = localStorage.getItem('token'); 
+  const isAuthenticated = localStorage.getItem("token");
 
-   if(!isAuthenticated){
-    return <Navigate to="/signin" replace/>; 
-   }
+  if (!isAuthenticated) {
+    return <Navigate to="/signin" replace />;
+  }
   return (
     <main className="mainContainer">
       <div className="navCon">
         {" "}
-        {/* //container navCon */}
         <Navbar />
       </div>
       <div>

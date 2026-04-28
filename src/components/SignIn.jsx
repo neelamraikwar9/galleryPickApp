@@ -13,12 +13,11 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-  // const { login, handleGoogleSignIn } = useAuth();
   const navigate = useNavigate();
   console.log(email, password, "Data");
 
-  const token = localStorage.getItem("token"); 
-  console.log(token, "token"); 
+  const token = localStorage.getItem("token");
+  console.log(token, "token");
 
   const handleSubmit = async (e) => {
     e.preventDefault();

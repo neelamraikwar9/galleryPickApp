@@ -1,23 +1,22 @@
 import "./galleryPick.css";
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import { useNavigate } from 'react-router-dom'; 
-import { useAuth } from "../context/AuthContext"; 
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const GalleryPick = () => {
-  const { user, logout} = useAuth(); 
-  console.log(user, "user"); 
+  const { user, logout } = useAuth();
+  console.log(user, "user");
 
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
   const [isValid, setIsValid] = useState(true);
-  const [isImage, setIsImage] = useState(true); 
+  const [isImage, setIsImage] = useState(true);
 
   console.log(loggedInUser, "loggedInUser");
 
@@ -37,10 +36,6 @@ const GalleryPick = () => {
   }, []);
 
   if (!token || isExpired) return null;
-
-  // ... rest of your code unchanged
-
-  
 
   const toggleFavorite = async (imageId) => {
     if (!token) {
@@ -77,12 +72,6 @@ const GalleryPick = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setLoggedInUser(localStorage.getItem("loggedInUser"));
-  // }, []);
-
-  // const token = localStorage.getItem("token");
-
   useEffect(() => {
     const getAllImages = async () => {
       try {
@@ -118,7 +107,7 @@ const GalleryPick = () => {
           },
         });
         console.log(res, "res");
-        // Assuming res.data is { favorites: [{ _id: "img1", ... }], count: ... }
+
         const favIds = res.data.favorites.map((img) => img._id);
         console.log(favIds, "faklvijfdj");
         setFavoriteIds(favIds);
@@ -130,32 +119,27 @@ const GalleryPick = () => {
     fetchFavorites();
   }, [token]);
 
-  
-  async function handleDeleteImgs(e){
-    const imgId = e.target.value; 
-    console.log(imgId, "imgId"); 
+  async function handleDeleteImgs(e) {
+    const imgId = e.target.value;
+    console.log(imgId, "imgId");
 
-    try{
+    try {
       await axios.delete(`http://localhost:4000/images/${imgId}`, {
         headers: {
-          Authorization: `Bearer ${token}`, 
-        }
-      } ); 
-      setImages((prev) => prev.filter((img) => img._id !== imgId)); 
-      console.log(images, 'dlfkjdkfj'); 
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setImages((prev) => prev.filter((img) => img._id !== imgId));
+      console.log(images, "dlfkjdkfj");
 
-      toast.success("Image deleted successfully.", {autoclose: 3000}); 
-    } catch(error){
-      console.log("Failed to delete image:", error); 
-      toast.error("Failed to delete image. Please try again.",
-         {
-        autoClose: 3000, 
-      }); 
+      toast.success("Image deleted successfully.", { autoclose: 3000 });
+    } catch (error) {
+      console.log("Failed to delete image:", error);
+      toast.error("Failed to delete image. Please try again.", {
+        autoClose: 3000,
+      });
     }
   }
-
-
-
 
   return (
     <main>
@@ -187,7 +171,7 @@ const GalleryPick = () => {
           <div
             key={img._id}
             className="imgContainer"
-            style={{ height: "18rem"}}
+            style={{ height: "18rem" }}
           >
             <img
               src={img.imgUrl}
@@ -222,6 +206,6 @@ const GalleryPick = () => {
       </div>
     </main>
   );
-};;
+};
 
 export default GalleryPick;

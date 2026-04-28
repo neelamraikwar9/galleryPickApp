@@ -1,58 +1,57 @@
-import React from 'react'
-import './albums.css'; 
+import React from "react";
+import "./albums.css";
 
-import axios from 'axios'; 
-import { useState, useEffect } from 'react'; 
+import axios from "axios";
+import { useState, useEffect } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const Albums = () => {
-    const [albms, setAlbms] = useState([]);  
-    const [isAlbm, setIsAlbm] = useState(true); 
-    console.log(albms, "alnme")
+  const [albms, setAlbms] = useState([]);
+  const [isAlbm, setIsAlbm] = useState(true);
+  console.log(albms, "alnme");
 
-    const token = localStorage.getItem("token"); 
+  const token = localStorage.getItem("token");
 
- //get all albums; 
+  //get all albums;
   useEffect(() => {
     const getAlbums = async () => {
-      if(!token) return; 
-      try{
-      const res = await axios.get("http://localhost:4000/albums", {
-        headers: {
-          Authorization: `Bearer ${token}`, 
-        }
-      });
-      console.log(res, "res"); 
-      setAlbms(res.data); 
-    } catch(error){
-      console.log("Failed to fetch albums: ", error); 
-    }
-    }; 
-    getAlbums(); 
-  }, []); 
+      if (!token) return;
+      try {
+        const res = await axios.get("http://localhost:4000/albums", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(res, "res");
+        setAlbms(res.data);
+      } catch (error) {
+        console.log("Failed to fetch albums: ", error);
+      }
+    };
+    getAlbums();
+  }, []);
 
-  async function handleDeleteAlbm(e){
-    const albmId = e.target.value; 
-    console.log(albmId, "albumId"); 
-    try{
+  async function handleDeleteAlbm(e) {
+    const albmId = e.target.value;
+    console.log(albmId, "albumId");
+    try {
       await axios.delete(`http://localhost:4000/albums/${albmId}`, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }); 
-      setAlbms((prev) => prev.filter((alb) => alb._id !== albmId)); 
-      console.log(albms); 
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setAlbms((prev) => prev.filter((alb) => alb._id !== albmId));
+      console.log(albms);
 
-      toast.success("Album delted successfully.", {autoclose:3000}); 
-    } catch(error){
-      console.log("Failed to delete album", error); 
+      toast.success("Album delted successfully.", { autoclose: 3000 });
+    } catch (error) {
+      console.log("Failed to delete album", error);
       toast.error("Failed to delete album. Please try again.", {
-        autoClose: 3000, 
-      })
+        autoClose: 3000,
+      });
     }
-
   }
   return (
     <main>
@@ -89,6 +88,6 @@ const Albums = () => {
       </div>
     </main>
   );
-}
+};
 
-export default Albums; 
+export default Albums;

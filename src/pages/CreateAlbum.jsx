@@ -1,61 +1,60 @@
-import React, { useState, useEffect } from 'react'
-import './uploadImg.css'; 
-import './createAlbum.css'; 
-import axios from 'axios'; 
+import React, { useState, useEffect } from "react";
+import "./uploadImg.css";
+import "./createAlbum.css";
+import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const CreateAlbum = () => {
+  const [msg, setMsg] = useState("");
+  const [users, setUsers] = useState([]);
+  console.log(users, "users");
+  const [albumName, setAlbumName] = useState("");
+  const [description, setDescription] = useState("");
+  const [owner, setOwner] = useState("");
+  const [email, setEmail] = useState("");
+  const [accessLevel, setAccessLevel] = useState("view");
 
-const [msg, setMsg] = useState(""); 
-const [users, setUsers] = useState([]); 
-console.log(users, "users")
-const [albumName, setAlbumName] = useState("");  
-const [description, setDescription] = useState(""); 
-const [owner, setOwner] = useState(""); 
-const [email, setEmail] = useState(""); 
-const [accessLevel, setAccessLevel] = useState("view");
+  //state to hold multiple shared users.
+  const [sharedUsers, setSharedUsers] = useState([]);
 
-
-//state to hold multiple shared users.
-const [sharedUsers, setSharedUsers] = useState([]); 
-
-//for adding new User in a list; 
-const handleAddUser = () => {
-  if(!email){
-    toast.error("Email is required");
-    return;
-  }
-
-  setSharedUsers([...sharedUsers, {email: email.toLowerCase(), accessLevel}]); 
-
-  setEmail(""); 
-  setAccessLevel("view"); 
-}
-
-
-useEffect(() => {
-  const getAllUsers = async () => {
-    try{
-      const res = await axios.get("http://localhost:4000/users"); 
-      console.log(res, "res"); 
-
-      if(res.data){
-        setUsers(res.data); 
-      } else{
-        setUsers("No users yet"); 
-      }
-    } catch(error){
-      console.error(error); 
-      setMsg("Failed to load users");
+  //for adding new User in a list;
+  const handleAddUser = () => {
+    if (!email) {
+      toast.error("Email is required");
+      return;
     }
-  }
-  getAllUsers();
-}, [])
 
-const token = localStorage.getItem("token"); 
-console.log(token, "token"); 
+    setSharedUsers([
+      ...sharedUsers,
+      { email: email.toLowerCase(), accessLevel },
+    ]);
+
+    setEmail("");
+    setAccessLevel("view");
+  };
+
+  useEffect(() => {
+    const getAllUsers = async () => {
+      try {
+        const res = await axios.get("http://localhost:4000/users");
+        console.log(res, "res");
+
+        if (res.data) {
+          setUsers(res.data);
+        } else {
+          setUsers("No users yet");
+        }
+      } catch (error) {
+        console.error(error);
+        setMsg("Failed to load users");
+      }
+    };
+    getAllUsers();
+  }, []);
+
+  const token = localStorage.getItem("token");
+  console.log(token, "token");
 
   const handleAlbumSbmt = async (e) => {
     e.preventDefault();
@@ -79,29 +78,22 @@ console.log(token, "token");
       );
       console.log(response, "response");
       toast.success("Album created successfully.");
-      setAlbumName(""); 
-     setDescription("");
-     setOwner("");
-    //  setSharedUsers([]);
+      setAlbumName("");
+      setDescription("");
+      setOwner("");
+      //  setSharedUsers([]);
     } catch (error) {
       console.error(error);
-      toast.error("Failed to create album."); 
+      toast.error("Failed to create album.");
     }
   };
 
- 
-
-
-
-
   return (
-    <main className="outImgUplCon" 
-    // style={{width: "0%"}}
-    >
+    <main className="outImgUplCon">
       <div className="albumOutCon">
         <div className="imgUploadCon">
           <h2 className="addAlbmTxt">Add Album</h2>
-          {/* <div className="albmContainer"> */}
+
           <form onSubmit={handleAlbumSbmt} className="formContainer">
             <div className="fieldCon">
               <label htmlFor="name">Album Name: </label>
@@ -123,20 +115,6 @@ console.log(token, "token");
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-
-            {/* <div className="fieldCon">
-            <label>Owner: </label>
-            <select
-              type="text"
-              value={owner}
-              onChange={(e) => setOwner(e.target.value)}
-            >
-              <option value="">Select Owner</option>
-              {users.map((user) => (
-                <option key={user._id} value={user._id}>{user.name}</option>
-              ))}
-            </select>
-          </div> */}
 
             <div className="addSharedCon">
               <h3 style={{ margin: 0 }}>Add Shared User</h3>
@@ -192,6 +170,6 @@ console.log(token, "token");
       </div>
     </main>
   );
-}
+};
 
-export default CreateAlbum
+export default CreateAlbum;

@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const Favourites = () => {
   const [favImages, setFavImages] = useState([]);
   const [favoriteIds, setFavoriteIds] = useState([]);
-  const [favImgMsg, setFavImgMsg] = useState(true); 
+  const [favImgMsg, setFavImgMsg] = useState(true);
   console.log(favImages, "favjdkfjkdjf");
 
   const token = localStorage.getItem("token");
@@ -33,7 +33,6 @@ const Favourites = () => {
     };
     getFavImg();
   }, []);
-
 
   const toggleFavorite = async (imageId) => {
     if (!token) {
@@ -70,7 +69,6 @@ const Favourites = () => {
     }
   };
 
-
   useEffect(() => {
     const fetchFavorites = async () => {
       if (!token) return;
@@ -82,7 +80,7 @@ const Favourites = () => {
           },
         });
         console.log(res, "res");
-        // Assuming res.data is { favorites: [{ _id: "img1", ... }], count: ... }
+
         const favIds = res.data.favorites.map((img) => img._id);
         console.log(favIds, "faklvijfdj");
         setFavoriteIds(favIds);
@@ -94,13 +92,9 @@ const Favourites = () => {
     fetchFavorites();
   }, [token]);
 
-
-  
-
   return (
     <main>
       <div className="">
-      {/* <div className="container welCon"> */}
         <div>
           <h1 className="welTxt">Favorite Images</h1>
         </div>

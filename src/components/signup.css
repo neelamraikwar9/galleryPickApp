@@ -11,9 +11,9 @@
     display: flex;
     flex-direction: column;
     width: 25rem;
-    margin: 10rem;  
+    margin: 10rem;
     border-radius: 1rem;
-    background-color:oklch(32.368% 0.0022 146.303)
+    background-color: oklch(32.368% 0.0022 146.303)
 }
 
 .container {
@@ -21,12 +21,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: none; 
+    border: none;
     /* border: 1px solid rgb(4, 11, 65) */
 }
 
 .logoTxt {
-    display: flex; 
+    display: flex;
     /* border: 1px solid blue;  */
     justify-content: center;
     margin-bottom: 0;
@@ -35,28 +35,28 @@
 
 .phrase {
     text-align: center;
-    margin-top: 0; 
+    margin-top: 0;
     color: rgb(249, 158, 241)
-    /* border: 1px solid blue; */
+        /* border: 1px solid blue; */
 }
 
 .formStyle {
     /* border: 1px solid pink;  */
     text-align: center;
-    margin: 1rem; 
+    margin: 1rem;
 }
 
 .btn {
-    background: none; 
-    border: none; 
+    background: none;
+    border: none;
 }
 
 .fieldGap {
     /* border: 1px solid red;  */
-    margin-left: 10px; 
-    
+    margin-left: 10px;
+
 }
 
 .signInBtn {
-    background-color:rgb(107, 179, 0);
+    background-color: rgb(107, 179, 0);
 }

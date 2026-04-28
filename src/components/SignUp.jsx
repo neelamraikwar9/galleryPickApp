@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../context/AuthContext";
-// import { useGoogleLogin } from "@react-oauth/google";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -16,7 +14,6 @@ const SignUp = () => {
   const [visible, setVisible] = useState(false);
 
   const navigate = useNavigate();
-  // const { handleGoogleSignIn } = useAuth();
   console.log(name, email, password, "data");
 
   const handleSubmit = async (e) => {
@@ -36,8 +33,6 @@ const SignUp = () => {
       );
 
       console.log(response, "response");
-
-      // const { message } = response;
 
       toast.success("Account created successful!");
       navigate("/signin");
@@ -118,12 +113,7 @@ const SignUp = () => {
                 placeholder="Your Password"
               />
 
-              <button
-                type="button"
-                onClick={handleEyeClick}
-                className="eyeBtn"
-                // style={{marginRight: "5rem"}}
-              >
+              <button type="button" onClick={handleEyeClick} className="eyeBtn">
                 {visible ? (
                   <i className="bi bi-eye"></i>
                 ) : (
@@ -138,7 +128,7 @@ const SignUp = () => {
           </form>
           <div>
             <p>---- Or Sign Up with ----</p>
-            {/* <button onClick={handleGoogleSignIn}> */}
+
             <button
               className="btn"
               type="button"
@@ -151,7 +141,6 @@ const SignUp = () => {
                 alt="Google"
                 className="googleImg"
               />
-              {/* Sign up with Google */}
             </button>
             <Link to="/signin">
               <p>

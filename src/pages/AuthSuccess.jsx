@@ -1,17 +1,14 @@
-// src/pages/AuthSuccess.jsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useAuth } from "../context/AuthContext"; 
+import { useAuth } from "../context/AuthContext";
 
 const AuthSuccess = () => {
   const navigate = useNavigate();
   const { setUser } = useAuth(); // getting setUser from context
 
   useEffect(() => {
-    // let cancelled = false;  // adding this to have one alert of sign in user I am getting this two times because of authSuccess component is rendering twice due to React Strict 
-
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
 
@@ -34,10 +31,10 @@ const AuthSuccess = () => {
         });
 
         // 3. Save user to context so it's available everywhere
-        setUser(response.data.user); // ✅ now username shows in navbar etc.
+        setUser(response.data.user);
 
         toast.success("Signed in with Google!", { toastId: "google-success" });
-        navigate("/galleryPick"); // ✅ change to your actual route
+        navigate("/galleryPick");
       } catch (error) {
         console.error("Failed to fetch user:", error);
         toast.error("Something went wrong. Please try again.");
