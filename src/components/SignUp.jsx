@@ -25,7 +25,9 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/auth/signup",
+        // "http://localhost:4000/auth/signup",
+        "https://gallery-pick-apis.vercel.app/auth/signup",
+
         { name, email, password },
         {
           headers: { "Content-Type": "application/json" },

@@ -44,7 +44,9 @@ const GalleryPick = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:4000/images/favorite",
+        // "http://localhost:4000/images/favorite",
+        "https://gallery-pick-apis.vercel.app/images/favorite",
+
         {
           imageId,
         },
@@ -75,11 +77,15 @@ const GalleryPick = () => {
   useEffect(() => {
     const getAllImages = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/images", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        // const res = await axios.get("http://localhost:4000/images", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/images",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
         console.log(res, "res");
 
         if (res.data) {
@@ -124,11 +130,15 @@ const GalleryPick = () => {
     console.log(imgId, "imgId");
 
     try {
-      await axios.delete(`http://localhost:4000/images/${imgId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      // await axios.delete(`http://localhost:4000/images/${imgId}`, {
+      await axios.delete(
+        `https://gallery-pick-apis.vercel.app/images/${imgId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
       setImages((prev) => prev.filter((img) => img._id !== imgId));
       console.log(images, "dlfkjdkfj");
 

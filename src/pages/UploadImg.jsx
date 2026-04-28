@@ -34,11 +34,15 @@ const UploadImg = () => {
   useEffect(() => {
     const getAllAlbums = async () => { 
       try {
-        const res = await axios.get("http://localhost:4000/albums", {
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
-        });
+        // const res = await axios.get("http://localhost:4000/albums", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/albums",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
         console.log(res, "res");
 
         if (res.data) {
@@ -84,15 +88,17 @@ const UploadImg = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/upload",
+        // "http://localhost:4000/upload",
+        "https://gallery-pick-apis.vercel.app/upload",
+
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            "Authorization": `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         },
-      )   ;
+      );   ;
 
       setUploadedImageUrl(response.data.images);
       toast.success("Image uploaded successfully.");

@@ -24,7 +24,9 @@ const SignIn = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:4000/auth/login",
+        // "http://localhost:4000/auth/login",
+        "https://gallery-pick-apis.vercel.app/auth/login",
+
         { email, password },
         {
           headers: { Authorization: `Bearer ${token}` },

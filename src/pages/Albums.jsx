@@ -19,11 +19,15 @@ const Albums = () => {
     const getAlbums = async () => {
       if (!token) return;
       try {
-        const res = await axios.get("http://localhost:4000/albums", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        // const res = await axios.get("http://localhost:4000/albums", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/albums",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
         console.log(res, "res");
         setAlbms(res.data);
       } catch (error) {
@@ -37,11 +41,15 @@ const Albums = () => {
     const albmId = e.target.value;
     console.log(albmId, "albumId");
     try {
-      await axios.delete(`http://localhost:4000/albums/${albmId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      // await axios.delete(`http://localhost:4000/albums/${albmId}`, {
+      await axios.delete(
+        `https://gallery-pick-apis.vercel.app/albums/${albmId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
       setAlbms((prev) => prev.filter((alb) => alb._id !== albmId));
       console.log(albms);
 

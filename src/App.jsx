@@ -1,12 +1,10 @@
 import "./App.css";
-import { useState } from 'react'; 
+import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
-// import { AuthProvider } from "./context/AuthContext";
 import GalleryPick from "./pages/Gallery Pick";
 import { ToastContainer } from "react-toastify";
-// import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLayout from "./components/ProtectedLayout";
 import UploadImg from "./pages/UploadImg";
 import CreateAlbum from "./pages/CreateAlbum";
@@ -15,21 +13,18 @@ import Favourites from "./pages/Favourites";
 import RefreshHandler from "./RefreshHandler";
 import Albums from "./pages/Albums";
 import AuthSuccess from "./pages/AuthSuccess";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const PrivateRoute = ({element}) => {
-    return isAuthenticated ? element : <Navigate to="/signin"/>
-  }
-
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to="/signin" />;
+  };
 
   return (
     <>
       <div>
         <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
-        {/* <AuthProvider> */}
         <Routes>
           {" "}
           <Route path="/" element={<Navigate to="/signin" />} />
@@ -49,7 +44,6 @@ function App() {
           <Route path="*" element={<PageNoteFound />}></Route>
         </Routes>
         <ToastContainer />
-        {/* </AuthProvider> */}
       </div>
     </>
   );
