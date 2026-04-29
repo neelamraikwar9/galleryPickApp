@@ -16,9 +16,13 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const response = await axios.get("http://localhost:4000/auth/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        // const response = await axios.get("http://localhost:4000/auth/me", {
+        const response = await axios.get(
+          "https://gallery-pick-apis.vercel.app/auth/me",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        );
         setUser(response.data.user);
       } catch (error) {
         localStorage.removeItem("token"); // clear bad token

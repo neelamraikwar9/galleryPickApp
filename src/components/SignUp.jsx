@@ -135,7 +135,9 @@ const SignUp = () => {
               className="btn"
               type="button"
               onClick={() =>
-                (window.location.href = "http://localhost:4000/auth/google")
+                //(window.location.href = "http://localhost:4000/auth/google")
+                (window.location.href =
+                  "https://gallery-pick-apis.vercel.app/auth/google")
               }
             >
               <img

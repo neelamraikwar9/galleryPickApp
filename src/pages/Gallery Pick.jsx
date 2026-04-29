@@ -107,11 +107,15 @@ const GalleryPick = () => {
       if (!token) return;
 
       try {
-        const res = await axios.get("http://localhost:4000/images/favorites", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        // const res = await axios.get("http://localhost:4000/images/favorites", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/images/favorites",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
         console.log(res, "res");
 
         const favIds = res.data.favorites.map((img) => img._id);

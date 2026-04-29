@@ -116,13 +116,15 @@ const SignIn = () => {
           <div>
             <p>---- Or Sign In with ----</p>
             <button
-              onClick={() =>
-                (window.location.href = "http://localhost:4000/auth/google")
-              }
+              // onClick={() =>
+              //   (window.location.href = "http://localhost:4000/auth/google")
+              // }
               className="btn"
               type="button"
               onClick={() =>
-                (window.location.href = "http://localhost:4000/auth/google")
+                // (window.location.href = "http://localhost:4000/auth/google")
+                (window.location.href =
+                  "https://gallery-pick-apis.vercel.app/auth/google")
               }
             >
               <img
