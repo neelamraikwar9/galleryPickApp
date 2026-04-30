@@ -9,6 +9,8 @@ const Favourites = () => {
   const [favImages, setFavImages] = useState([]);
   const [favoriteIds, setFavoriteIds] = useState([]);
   const [favImgMsg, setFavImgMsg] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
   console.log(favImages, "favjdkfjkdjf");
 
   const token = localStorage.getItem("token");
@@ -31,6 +33,7 @@ const Favourites = () => {
         const favoriteImgs = res.data.favorites;
         console.log(favoriteImgs, "favimgs");
         setFavImages(favoriteImgs);
+        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch favorites:", error);
       }
@@ -104,51 +107,42 @@ const Favourites = () => {
 
   return (
     <main>
-      <div className="">
-        <div>
-          <h1 className="welTxt">Favorite Images</h1>
-        </div>
-        <div className="noImgAlbMsg">
-          {favImages.length === 0 ? (
-            favImgMsg && (
-              <p className="noImgMsg">There is no favorite Images.</p>
-            )
-          ) : (
-            <p></p>
-          )}
-        </div>
-        {favImages.map((img) => (
-          <div
-            key={img._id}
-            className="imgContainer"
-            style={{ height: "16rem" }}
-          >
-            <img
-              src={img.imgUrl}
-              alt="image"
-              style={{ width: "250px", height: "250px", objectFit: "cover" }}
-            />
-            <button
-              className="heartBtn"
-              onClick={() => toggleFavorite(img._id)}
-            >
-              <i
-                className={
-                  favoriteIds.includes(img._id)
-                    ? "bi bi-heart-fill text-danger"
-                    : "bi bi-heart"
-                }
-                style={{
-                  fontSize: "20px",
-                  cursor: "pointer",
-                  position: "absolute",
-                  color: favoriteIds.includes(img._id) ? "red" : "white",
-                }}
-              />
-            </button>
-          </div>
-        ))}
+      <div>
+        <h1 className="welTxt">Favorite Images</h1>
       </div>
+      <div className="noImgAlbMsg">
+        {loading ? (
+          <p>Favorites Images are Loading...</p>
+        ) : error ? (
+          <p style={{ color: "red" }}>{error}</p>
+        ) : favImages.length === 0 ? (
+          <p className="noImgMsg">There are no favorite Images.</p>
+        ) : null}
+      </div>
+      {favImages.map((img) => (
+        <div key={img._id} className="imgContainer" style={{ height: "16rem" }}>
+          <img
+            src={img.imgUrl}
+            alt="image"
+            style={{ width: "250px", height: "250px", objectFit: "cover" }}
+          />
+          <button className="heartBtn" onClick={() => toggleFavorite(img._id)}>
+            <i
+              className={
+                favoriteIds.includes(img._id)
+                  ? "bi bi-heart-fill text-danger"
+                  : "bi bi-heart"
+              }
+              style={{
+                fontSize: "20px",
+                cursor: "pointer",
+                position: "absolute",
+                color: favoriteIds.includes(img._id) ? "red" : "white",
+              }}
+            />
+          </button>
+        </div>
+      ))}
     </main>
   );
 };

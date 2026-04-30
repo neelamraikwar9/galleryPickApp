@@ -16,7 +16,6 @@ const GalleryPick = () => {
   const [images, setImages] = useState([]);
   const [msg, setMsg] = useState("");
   const [isValid, setIsValid] = useState(true);
-  const [isImage, setIsImage] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
