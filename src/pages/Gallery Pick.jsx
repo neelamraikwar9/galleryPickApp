@@ -17,6 +17,8 @@ const GalleryPick = () => {
   const [msg, setMsg] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [isImage, setIsImage] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
   console.log(loggedInUser, "loggedInUser");
 
@@ -65,6 +67,8 @@ const GalleryPick = () => {
       );
       console.log(favoriteIds, "favoriteIds");
 
+      setLoading(false);
+
       toast.success(
         isFavorite ? "Added to favorites!" : "Removed from favorites",
       );
@@ -90,6 +94,7 @@ const GalleryPick = () => {
 
         if (res.data) {
           setImages(res.data);
+          setLoading(false);
         } else {
           setImages("No images yet");
         }
@@ -121,6 +126,7 @@ const GalleryPick = () => {
         const favIds = res.data.favorites.map((img) => img._id);
         console.log(favIds, "faklvijfdj");
         setFavoriteIds(favIds);
+        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch favorites:", error);
       }
@@ -167,20 +173,21 @@ const GalleryPick = () => {
       <div>
         <h2 className="welTxt">All Images</h2>
         <div>
-          {images.length <= 0 ? (
-            isImage && (
-              <div>
-                <p className="noImgMsg">Not images yet!</p>
-                <p style={{ color: "pink" }}>
-                  Add images make sure to select an album so create album first
-                  then add images to the album.
-                </p>
-              </div>
-            )
-          ) : (
-            <p></p>
-          )}
+          {loading ? (
+            <p>Images are Loading...</p>
+          ) : error ? (
+            <p style={{ color: "red" }}>{error}</p>
+          ) : images.length === 0 ? (
+            <div>
+              <p className="noImgMsg">Not images yet!</p>
+              <p style={{ color: "pink" }}>
+                Add images make sure to select an album so create album first
+                then add images to the album.
+              </p>
+            </div>
+          ) : null}
         </div>
+
         {images.map((img) => (
           <div
             key={img._id}
