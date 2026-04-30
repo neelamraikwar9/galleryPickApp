@@ -9,8 +9,10 @@ import { toast } from "react-toastify";
 
 const Albums = () => {
   const [albms, setAlbms] = useState([]);
-  const [isAlbm, setIsAlbm] = useState(true);
+  // const [isAlbm, setIsAlbm] = useState(true);
   console.log(albms, "alnme");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
   const token = localStorage.getItem("token");
 
@@ -30,6 +32,7 @@ const Albums = () => {
         );
         console.log(res, "res");
         setAlbms(res.data);
+        setLoading(false); 
       } catch (error) {
         console.log("Failed to fetch albums: ", error);
       }
@@ -63,37 +66,35 @@ const Albums = () => {
   }
   return (
     <main>
-      <div className="">
-        <div>
-          <h1 className="welTxt">Albums</h1>
-        </div>
-        <div className="noImgAlbMsg">
-          {albms.length === 0 ? (
-            isAlbm && (
-              <p className="noImgMsg">
-                Not any Album yet navigate to Create Album in the Navbar.
-              </p>
-            )
-          ) : (
-            <p></p>
-          )}
-        </div>
-        {albms.map((albm) => (
-          <div className="albmsCon">
-            <div key={albm._id} className="albumCont">
-              <div>
-                <p>{albm.name}</p>
-                <div className="albImg">
-                  <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
-                  <button value={albm._id} onClick={handleDeleteAlbm}>
-                    Delete
-                  </button>
-                </div>
+      <div>
+        <h1 className="welTxt">Albums</h1>
+      </div>
+      <div className="noImgAlbMsg">
+        {loading ? (
+          <p>Albums are Loading...</p>
+        ) : error ? (
+          <p style={{ color: "red" }}>{error}</p>
+        ) : albms.length === 0 ? (
+          <p className="noImgMsg">
+            Not any Album yet navigate to Create Album in the Navbar.
+          </p>
+        ) : null}
+      </div>
+      {albms.map((albm) => (
+        <div className="albmsCon">
+          <div key={albm._id} className="albumCont">
+            <div>
+              <p>{albm.name}</p>
+              <div className="albImg">
+                <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
+                <button value={albm._id} onClick={handleDeleteAlbm}>
+                  Delete
+                </button>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </main>
   );
 };
