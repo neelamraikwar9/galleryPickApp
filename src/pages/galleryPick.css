@@ -3,17 +3,7 @@
     /* width: 136% */
 }
 
-.navCon {
-    width: 20%;
-    margin-right: 4rem;
-    padding: 3%;
-    border: 1px solid blue;
-    display: flex;
-    flex-wrap: wrap;
 
-
-    /* border: 1px solid red;  */
-}
 
 .welCon {
     padding-top: 2%;
@@ -69,4 +59,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.noImgMsgOnGalPic{
+    display: flex; 
+    flex-direction: column;
+    padding: 1rem 5rem;
+    
+    
 }

@@ -76,7 +76,7 @@ const Albums = () => {
           <p style={{ color: "red" }}>{error}</p>
         ) : albms.length === 0 ? (
           <p className="noImgMsg">
-            Not any Album yet navigate to Create Album in the Navbar.
+            Not any Album yet. Navigate to Create Album in the Navbar.
           </p>
         ) : null}
       </div>

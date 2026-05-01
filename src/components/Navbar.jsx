@@ -28,7 +28,8 @@ const Navbar = () => {
     <main>
       <div>
         <nav className="navContainer">
-          <div className="navLogo">
+          {/* <div className="navLogo"> */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <img
               src="/logo.png"
               alt="Gallery Pick logo"
@@ -41,13 +42,19 @@ const Navbar = () => {
               }}
               onClick={() => navigate("./galleryPick")}
             />
-            <h1
-              onClick={() => navigate("./galleryPick")}
-              style={{ cursor: "pointer", marginTop: "1rem" }}
-            >
-              GalleryPick
-            </h1>
           </div>
+          <h1
+            onClick={() => navigate("./galleryPick")}
+            style={{
+              cursor: "pointer",
+              marginTop: "1px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            GalleryPick
+          </h1>
+          {/* </div> */}
 
           <ul className="navItems">
             <li className="navItem">

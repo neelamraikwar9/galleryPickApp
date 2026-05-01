@@ -96,4 +96,22 @@
     display: inline-block;
  }
  
+ @media (max-width: 768px){
+  /* .mainContainer{
+    flex-direction: row;
+  } */
+
+  .navCon {
+    /* width: 20%; */
+    flex-direction: row;
+    height: auto;
+    border-color: aqua;
+
+  }
+  /* .mainContainer{
+    width: 100%
+  } */
+
+  }
+
  
