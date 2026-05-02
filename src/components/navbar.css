@@ -1,8 +1,8 @@
 
 .navItems {
-    display: flex; 
-    flex-wrap: wrap;
-    flex-direction: column;
+    /* display: flex;  */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
     border: 1px solid grey; 
     padding: 0 
 }
@@ -41,7 +41,20 @@ margin-left: 45px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    
+    width: 15rem
+}
+
+@media (max-width: 480){
+    .navContainer {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid rgb(189, 47, 255)
+    }; 
+
+    .navItems {
+        flex-direction: row;
+    }
+
 }
 
 .logOutBtn {

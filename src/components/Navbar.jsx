@@ -43,7 +43,7 @@ const Navbar = () => {
               onClick={() => navigate("./galleryPick")}
             />
           </div>
-          <h1
+          <h1 className="logTxt"
             onClick={() => navigate("./galleryPick")}
             style={{
               cursor: "pointer",
