@@ -66,12 +66,20 @@
     padding: 1rem 5rem;
 }
 
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
     .container {
-        border: 1px solid red; 
-        display: flex; 
-        flex-direction: column;
-        width: 100rem; 
+        /* /* border: 1px solid red;  */
+        /* display: flex;  */
+        /* flex-direction: column; */
+        width: 50rem;  
 
     }
-} */
+
+    .welCon {
+        margin-top: 15rem;
+    }
+
+    .navContainer {
+        width: 0; 
+    }
+}

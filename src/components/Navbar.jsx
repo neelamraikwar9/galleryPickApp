@@ -1,4 +1,5 @@
 import "./navbar.css";
+import '../pages/galleryPick.css'; 
 import { NavLink } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useEffect, useState } from "react";
@@ -28,7 +29,7 @@ const Navbar = () => {
     <main>
       <div>
         <nav className="navContainer">
-          {/* <div className="navLogo"> */}
+          {/* <div className="logoCon"> */}
           <div style={{ display: "flex", justifyContent: "center" }}>
             <img
               src="/logo.png"
