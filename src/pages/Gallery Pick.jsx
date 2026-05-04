@@ -45,8 +45,8 @@ const GalleryPick = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:4000/images/favorite",
-        // "https://gallery-pick-apis.vercel.app/images/favorite",
+        // "http://localhost:4000/images/favorite",
+        "https://gallery-pick-apis.vercel.app/images/favorite",
 
         {
           imageId,
@@ -80,10 +80,10 @@ const GalleryPick = () => {
   useEffect(() => {
     const getAllImages = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/images", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/images",
-        //   {
+        // const res = await axios.get("http://localhost:4000/images", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/images",
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -111,10 +111,10 @@ const GalleryPick = () => {
       if (!token) return;
 
       try {
-        const res = await axios.get("http://localhost:4000/images/favorites", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/images/favorites",
-        //   {
+        // const res = await axios.get("http://localhost:4000/images/favorites", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/images/favorites",
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -139,10 +139,10 @@ const GalleryPick = () => {
     console.log(imgId, "imgId");
 
     try {
-      await axios.delete(`http://localhost:4000/images/${imgId}`, {
-      // await axios.delete(
-      //   `https://gallery-pick-apis.vercel.app/images/${imgId}`,
-      //   {
+      // await axios.delete(`http://localhost:4000/images/${imgId}`, {
+      await axios.delete(
+        `https://gallery-pick-apis.vercel.app/images/${imgId}`,
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },

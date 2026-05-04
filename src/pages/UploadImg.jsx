@@ -34,10 +34,10 @@ const UploadImg = () => {
   useEffect(() => {
     const getAllAlbums = async () => { 
       try {
-        const res = await axios.get("http://localhost:4000/albums", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/albums",
-        //   {
+        // const res = await axios.get("http://localhost:4000/albums", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/albums",
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -88,8 +88,8 @@ const UploadImg = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/upload",
-        // "https://gallery-pick-apis.vercel.app/upload",
+        // "http://localhost:4000/upload",
+        "https://gallery-pick-apis.vercel.app/upload",
 
         formData,
         {

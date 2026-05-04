@@ -24,10 +24,10 @@ const AuthSuccess = () => {
         localStorage.setItem("token", token);
 
         // 2. Fetch full user data using that token
-        const response = await axios.get("http://localhost:4000/auth/me", {
-        // const response = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/auth/me",
-        //   {
+        // const response = await axios.get("http://localhost:4000/auth/me", {
+        const response = await axios.get(
+          "https://gallery-pick-apis.vercel.app/auth/me",
+          {
             headers: {
               Authorization: `Bearer ${token}`, // ✅ send token immediately
             },

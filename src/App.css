@@ -44,6 +44,7 @@
 
  .mainContainer {
    display: flex;
+   flex-direction: row;
    /* justify-content: space-between; */
    height: 50%;
    border: 1px solid rgb(238, 119, 39);
@@ -115,3 +116,25 @@
   }
 
  
+    /* @media (max-width: 480px) {
+      .container {
+  
+        width: 50rem;
+  
+  
+      }
+  
+      .welCon {
+        margin-top: 15rem;
+      }
+  
+      .navContainer {
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 0;
+        height: 0; 
+      }
+  
+      
+    } */

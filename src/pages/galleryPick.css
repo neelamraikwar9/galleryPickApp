@@ -66,12 +66,11 @@
     padding: 1rem 5rem;
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .container {
-        /* /* border: 1px solid red;  */
-        /* display: flex;  */
-        /* flex-direction: column; */
+        
         width: 50rem;  
+
 
     }
 
@@ -82,4 +81,8 @@
     .navContainer {
         width: 0; 
     }
-}
+
+    .navContainer {
+
+    }
+} */
