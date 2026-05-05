@@ -12,6 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   console.log(user, "user");
+  const [isOpen, setIsOpen] = useState(false); 
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
@@ -44,7 +45,8 @@ const Navbar = () => {
               onClick={() => navigate("./galleryPick")}
             />
           </div>
-          <h1 className="logTxt"
+          <h1
+            className="logTxt"
             onClick={() => navigate("./galleryPick")}
             style={{
               cursor: "pointer",
@@ -57,9 +59,21 @@ const Navbar = () => {
           </h1>
           {/* </div> */}
 
-          <ul className="navItems">
+          {/* //hamburger button;  */}
+          <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          {/* Nav Items */}
+
+          <ul className={`navItems ${isOpen ? "open" : ""}`}>
             <li className="navItem">
-              <NavLink to="/galleryPick" className="navItemtxt">
+              <NavLink
+                to="/galleryPick"
+                className="navItemtxt"
+                onClick={() => setIsOpen(false)}
+              >
                 <div>
                   <i
                     class="bi bi-house-door-fill"
@@ -70,7 +84,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="navItem">
-              <NavLink to="/uploadImg" className="navItemtxt">
+              <NavLink
+                to="/uploadImg"
+                className="navItemtxt"
+                onClick={() => setIsOpen(false)}
+              >
                 <div>
                   <i
                     class="bi bi-images"
@@ -82,7 +100,11 @@ const Navbar = () => {
             </li>
 
             <li className="navItem">
-              <NavLink to="/favourite" className="navItemtxt">
+              <NavLink
+                to="/favourite"
+                className="navItemtxt"
+                onClick={() => setIsOpen(false)}
+              >
                 <div>
                   <i
                     class="bi bi-heart-fill"
@@ -105,7 +127,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="navItem">
-              <NavLink to="/albums" className="navItemtxt">
+              <NavLink
+                to="/albums"
+                className="navItemtxt"
+                onClick={() => setIsOpen(false)}
+              >
                 <div>
                   <i
                     class="bi bi-file-earmark-image"
