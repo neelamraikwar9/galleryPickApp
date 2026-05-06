@@ -13,7 +13,7 @@
 }
 
 .navLogo {
-    border: 1px solid rgb(126, 241, 58);
+    border: 1px solid rgb(228, 69, 20);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -42,7 +42,8 @@ margin-left: 45px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 15rem
+    width: 15rem; 
+    height: auto; 
 }
 
 
@@ -87,6 +88,12 @@ margin-left: 45px;
         /* justify-content: space-between; */
         padding: 10px ;
     }
+
+    .navLogo {
+        width: 100%; 
+    }
+
+
 
     /* Show hamburger on mobile */
     .hamburger {
