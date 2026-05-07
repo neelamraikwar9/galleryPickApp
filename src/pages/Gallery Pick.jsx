@@ -167,8 +167,8 @@ const GalleryPick = () => {
     <main>
       <div className="container welCon">
         <h1 className="welTxt">
-          🌸Welcome to Gallery Pick,
-          {user?.name} !🌸
+          🌸Welcome to Gallery Pick, {" "}
+          {user?.name}!🌸
         </h1>
       </div>
 

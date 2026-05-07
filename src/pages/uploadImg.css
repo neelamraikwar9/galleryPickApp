@@ -4,6 +4,8 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    
+    
 
     /* justify-content: center; */
 }
@@ -47,9 +49,19 @@
     flex-wrap: wrap;
     justify-content: space-around;
     border: 1px solid blue;
-    width: 100%;
+    width: 128%;
     
 } 
+
+@media (max-width: 768px){
+    .imgUploadCon {
+        width: 25.5rem; 
+    }
+
+    .outImgUplCon {
+        width: 25.5rem;
+    }
+}
 
 
 
