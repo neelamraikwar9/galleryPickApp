@@ -65,9 +65,9 @@ const Albums = () => {
     }
   }
   return (
-    <main>
+    <main style={{padding: '1rem 4rem'}}>
       <div>
-        <h1 className="welTxt">Albums</h1>
+        <h1 className="welTxt" style={{marginBottom: '3rem'}}>Albums</h1>
       </div>
       <div className="noImgAlbMsg">
         {loading ? (
