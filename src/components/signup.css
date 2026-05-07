@@ -17,9 +17,9 @@
 }
 
 @media (max-width: 480px){
-    /* .signUpInContainer {
+    .signUpInContainer {
         width: 20rem; 
-    } */
+    }
 }
 
 .container {
