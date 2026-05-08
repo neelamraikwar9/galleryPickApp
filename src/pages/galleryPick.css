@@ -29,8 +29,8 @@
     height: 18rem;
     position: relative;
     display: inline-block;
-    margin: 1rem 2rem;
-
+    margin: 1rem 3rem;
+    border-radius: 1%;
 }
 
 .heartBtn {
@@ -66,3 +66,21 @@
     padding: 1rem 5rem;
 }
 
+.loadingMsg {
+    text-align:center;
+}
+
+/* @media (max-width: 600px) {
+    .allImagesWrapper {
+        display: grid; 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 4px; 
+        padding: 0 8px; 
+    }
+
+    .imgContainer {
+        width: 100%; 
+        height: auto; 
+        margin: 0; 
+    }
+} */

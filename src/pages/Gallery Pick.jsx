@@ -166,17 +166,14 @@ const GalleryPick = () => {
   return (
     <main>
       <div className="container welCon">
-        <h1 className="welTxt">
-          🌸Welcome to Gallery Pick, {" "}
-          {user?.name}!🌸
-        </h1>
+        <h1 className="welTxt">🌸Welcome to Gallery Pick, {user?.name}!🌸</h1>
       </div>
 
       <div>
         <h2 className="welTxt">All Images</h2>
         <div>
           {loading ? (
-            <p>Images are Loading...</p>
+            <p className="loadingMsg">Images are Loading...</p>
           ) : error ? (
             <p style={{ color: "red" }}>{error}</p>
           ) : images.length === 0 ? (
@@ -191,38 +188,40 @@ const GalleryPick = () => {
         </div>
 
         {images.map((img) => (
-          <div
-            key={img._id}
-            className="imgContainer"
-            style={{ height: "18rem" }}
-          >
-            <img
-              src={img.imgUrl}
-              alt="image"
-              style={{ width: "250px", height: "250px", objectFit: "cover" }}
-            />
-            <button
-              className="heartBtn"
-              onClick={() => toggleFavorite(img._id)}
+          <div className="allImagesWrapper">
+            <div
+              key={img._id}
+              className="imgContainer"
+              style={{ height: "18rem" }}
             >
-              <i
-                className={
-                  favoriteIds.includes(img._id)
-                    ? "bi bi-heart-fill text-danger"
-                    : "bi bi-heart"
-                }
-                style={{
-                  fontSize: "20px",
-                  cursor: "pointer",
-                  position: "absolute",
-                  color: favoriteIds.includes(img._id) ? "red" : "white",
-                }}
+              <img
+                src={img.imgUrl}
+                alt="image"
+                style={{ width: "250px", height: "250px", objectFit: "cover" }}
               />
-            </button>
-            <div className="delBtn">
-              <button value={img._id} onClick={handleDeleteImgs}>
-                Delete
+              <button
+                className="heartBtn"
+                onClick={() => toggleFavorite(img._id)}
+              >
+                <i
+                  className={
+                    favoriteIds.includes(img._id)
+                      ? "bi bi-heart-fill text-danger"
+                      : "bi bi-heart"
+                  }
+                  style={{
+                    fontSize: "20px",
+                    cursor: "pointer",
+                    position: "absolute",
+                    color: favoriteIds.includes(img._id) ? "red" : "white",
+                  }}
+                />
               </button>
+              <div className="delBtn">
+                <button value={img._id} onClick={handleDeleteImgs}>
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         ))}
