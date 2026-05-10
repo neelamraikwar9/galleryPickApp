@@ -169,7 +169,7 @@ const GalleryPick = () => {
         <h1 className="welTxt">🌸Welcome to Gallery Pick, {user?.name}!🌸</h1>
       </div>
 
-      <div>
+      <div className="outImgUplCon">
         <h2 className="welTxt">All Images</h2>
         <div>
           {loading ? (

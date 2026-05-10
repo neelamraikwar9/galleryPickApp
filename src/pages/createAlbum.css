@@ -16,7 +16,7 @@
 }
 
 .addUserBtn {
-    width: 80px
+    width: 80px; 
 }
 
 .addAlbmTxt {
@@ -39,9 +39,9 @@
 }
 
 .albumOutCon {
-    /* width: 20rem; */
-    border: 1px solid rgb(0, 255, 30); 
-    /* height: auto; */
+    width: 50rem;
+    /* border: 1px solid rgb(0, 255, 30);  */
+    height: auto;
 }
 
 .addAlbBtn {

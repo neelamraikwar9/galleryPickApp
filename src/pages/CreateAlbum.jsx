@@ -95,8 +95,8 @@ const CreateAlbum = () => {
 
   return (
     <main className="outImgUplCon">
-      <div className="albumOutCon">
-        <div className="imgUploadCon">
+      {/* <div className="albumOutCon"> */}
+        {/* <div className="imgUploadCon"> */}
           <h2 className="addAlbmTxt">Add Album</h2>
 
           <form onSubmit={handleAlbumSbmt} className="formContainer">
@@ -171,8 +171,8 @@ const CreateAlbum = () => {
               <button type="submit">Add Album</button>
             </div>
           </form>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
     </main>
   );
 };

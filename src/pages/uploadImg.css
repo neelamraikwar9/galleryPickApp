@@ -1,9 +1,11 @@
 .imgUploadCon {
-    border: 1px solid #dad9d9; 
+    border: 1px solid #750404; 
     display: flex; 
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    /* width: 100rem;  */
+    
     
     
 
@@ -24,6 +26,7 @@
         border: 1px solid rgb(56, 225, 56);
         
     } */
+
 
 .imgCon {
     /* border: 1px solid rgb(225, 107, 56); */
@@ -49,13 +52,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
     border: 1px solid blue;
-    width: 128%;
-    
+    width: 60rem;
 } 
 
 @media (max-width: 768px){
     .imgUploadCon {
-        width: 20rem; 
+        width: 40rem; 
         padding: 1.1rem;
     }
 
