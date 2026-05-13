@@ -37,10 +37,10 @@ const CreateAlbum = () => {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
-        // const res = await axios.get("http://localhost:4000/users");
-        const res = await axios.get(
-          "https://gallery-pick-apis.vercel.app/users",
-        );
+        const res = await axios.get("http://localhost:4000/users");
+        // const res = await axios.get(
+        //   "https://gallery-pick-apis.vercel.app/users",
+        // );
         console.log(res, "res");
 
         if (res.data) {
@@ -67,10 +67,10 @@ const CreateAlbum = () => {
       return;
     }
     try {
-      // const response = await axios.post(
-      //   "http://localhost:4000/albums",
       const response = await axios.post(
-        "https://gallery-pick-apis.vercel.app/albums",
+        "http://localhost:4000/albums",
+      // const response = await axios.post(
+      //   "https://gallery-pick-apis.vercel.app/albums",
         {
           name: albumName,
           description,
@@ -94,84 +94,85 @@ const CreateAlbum = () => {
   };
 
   return (
-    <main className="outImgUplCon">
-      {/* <div className="albumOutCon"> */}
+    // <main className="outImgUplCon">
+    <main className="albumOuterContainer" >
+      <div style={{ border: "1px solid green" }}>
         {/* <div className="imgUploadCon"> */}
-          <h2 className="addAlbmTxt">Add Album</h2>
+        <h2 className="addAlbmTxt">Add Album</h2>
 
-          <form onSubmit={handleAlbumSbmt} className="formContainer">
+        <form onSubmit={handleAlbumSbmt} className="formContainer">
+          <div className="fieldCon">
+            <label htmlFor="name">Album Name: </label>
+            <input
+              type="text"
+              id="name"
+              value={albumName}
+              placeholder="Enter Album Name"
+              onChange={(e) => setAlbumName(e.target.value)}
+            />
+          </div>
+
+          <div className="fieldCon">
+            <label htmlFor="des">Description: </label>
+            <input
+              type="text"
+              id="des"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+
+          <div className="addSharedCon">
+            <h3 style={{ margin: 0 }}>Add Shared User</h3>
             <div className="fieldCon">
-              <label htmlFor="name">Album Name: </label>
+              <label htmlFor="email">Email: </label>
               <input
-                type="text"
-                id="name"
-                value={albumName}
-                placeholder="Enter Album Name"
-                onChange={(e) => setAlbumName(e.target.value)}
+                type="email"
+                id="email"
+                placeholder="user@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                // required
               />
             </div>
 
-            <div className="fieldCon">
-              <label htmlFor="des">Description: </label>
-              <input
-                type="text"
-                id="des"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
+            <div className="fieldCon accCon">
+              <label htmlFor="access">Access Level: </label>
+              <select
+                id="access"
+                value={accessLevel}
+                onChange={(e) => setAccessLevel(e.target.value)}
+              >
+                <option value="view">View</option>
+                <option value="edit">Edit</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div className="userBtnCon">
+              <button
+                className="addUserBtn"
+                type="button"
+                onClick={handleAddUser}
+              >
+                Add User
+              </button>
             </div>
 
-            <div className="addSharedCon">
-              <h3 style={{ margin: 0 }}>Add Shared User</h3>
-              <div className="fieldCon">
-                <label htmlFor="email">Email: </label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="user@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  // required
-                />
-              </div>
-
-              <div className="fieldCon accCon">
-                <label htmlFor="access">Access Level: </label>
-                <select
-                  id="access"
-                  value={accessLevel}
-                  onChange={(e) => setAccessLevel(e.target.value)}
-                >
-                  <option value="view">View</option>
-                  <option value="edit">Edit</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
-              <div className="userBtnCon">
-                <button
-                  className="addUserBtn"
-                  type="button"
-                  onClick={handleAddUser}
-                >
-                  Add User
-                </button>
-              </div>
-
-              {/* Show current list */}
-              <h4>Shared Users:</h4>
-              <ul>
-                {sharedUsers.map((user, index) => (
-                  <li key={index}>
-                    {user.email} — {user.accessLevel}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="addAlbBtn">
-              <button type="submit">Add Album</button>
-            </div>
-          </form>
-        {/* </div> */}
+            {/* Show current list */}
+            <h4>Shared Users:</h4>
+            <ul>
+              {sharedUsers.map((user, index) => (
+                <li key={index}>
+                  {user.email} — {user.accessLevel}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="addAlbBtn">
+            <button type="submit">Add Album</button>
+          </div>
+        </form>
+      </div>
       {/* </div> */}
     </main>
   );
