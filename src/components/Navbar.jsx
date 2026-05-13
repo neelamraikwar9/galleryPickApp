@@ -30,7 +30,10 @@ const Navbar = () => {
     <div>
       <nav className="navContainer">
         {/* <div className="logoCon"> */}
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+          className="logo"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <img
             src="/logo.png"
             alt="Gallery Pick logo"
@@ -52,7 +55,7 @@ const Navbar = () => {
             marginTop: "1px",
             display: "flex",
             justifyContent: "center",
-            color: "yellowgreen"
+            color: "yellowgreen",
           }}
         >
           GalleryPick
@@ -71,15 +74,19 @@ const Navbar = () => {
           <li className="navItem">
             <NavLink
               to="/galleryPick"
-              className="navItemtxt"
+              // className="navItemtxt"
+              className={({ isActive }) =>
+                isActive ? "navItemtxt active" : "navItemtxt"
+              }
               onClick={() => setIsOpen(false)}
             >
               <div>
                 <i
                   class="bi bi-house-door-fill"
-                  style={{ 
+                  style={{
                     // border: "1px solid green"
-                   padding: "0px 10px" }}
+                    padding: "0px 10px",
+                  }}
                 ></i>
                 Home
               </div>
@@ -88,15 +95,19 @@ const Navbar = () => {
           <li className="navItem">
             <NavLink
               to="/uploadImg"
-              className="navItemtxt"
+              // className="navItemtxt"
+              className={({ isActive }) =>
+                isActive ? "navItemtxt active" : "navItemtxt"
+              }
               onClick={() => setIsOpen(false)}
             >
               <div>
                 <i
                   class="bi bi-images"
-                  style={{ 
+                  style={{
                     // border: "1px solid green"
-                    padding: "0px 10px" }}
+                    padding: "0px 10px",
+                  }}
                 ></i>
                 Add Images
               </div>
@@ -106,15 +117,19 @@ const Navbar = () => {
           <li className="navItem">
             <NavLink
               to="/favourite"
-              className="navItemtxt"
+              // className="navItemtxt"
+              className={({ isActive }) =>
+                isActive ? "navItemtxt active" : "navItemtxt"
+              }
               onClick={() => setIsOpen(false)}
             >
               <div>
                 <i
                   class="bi bi-heart-fill"
-                  style={{ 
+                  style={{
                     // border: "1px solid green"
-                    padding: "0px 10px" }}
+                    padding: "0px 10px",
+                  }}
                 ></i>
                 Favourites
               </div>
@@ -122,13 +137,20 @@ const Navbar = () => {
           </li>
 
           <li className="navItem">
-            <NavLink to="/createAlbum" className="navItemtxt">
+            <NavLink
+              to="/createAlbum"
+              // className="navItemtxt"
+              className={({ isActive }) =>
+                isActive ? "navItemtxt active" : "navItemtxt"
+              }
+            >
               <div>
                 <i
                   class="bi bi-file-earmark-image"
-                  style={{ 
+                  style={{
                     // border: "1px solid green"
-                     padding: "0px 10px" }}
+                    padding: "0px 10px",
+                  }}
                 ></i>
                 Create Album
               </div>
@@ -137,15 +159,19 @@ const Navbar = () => {
           <li className="navItem">
             <NavLink
               to="/albums"
-              className="navItemtxt"
+              // className="navItemtxt"
+              className={({ isActive }) =>
+                isActive ? "navItemtxt active" : "navItemtxt"
+              }
               onClick={() => setIsOpen(false)}
             >
               <div>
                 <i
                   class="bi bi-file-earmark-image"
-                  style={{ 
+                  style={{
                     // border: "1px solid green"
-                     padding: "0px 10px" }}
+                    padding: "0px 10px",
+                  }}
                 ></i>
                 Albums
               </div>
@@ -154,9 +180,10 @@ const Navbar = () => {
           <li className="navItem">
             <i
               class="bi bi-person-square"
-              style={{ 
+              style={{
                 // border: "1px solid green"
-                 padding: "0px 10px" }}
+                padding: "0px 10px",
+              }}
             ></i>
             {user?.name}
             <button className="logOutBtn" onClick={handleLogOut}>

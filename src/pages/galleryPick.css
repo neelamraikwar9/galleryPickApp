@@ -1,5 +1,5 @@
 .container {
-    border: 1px solid rgb(255, 51, 0);
+    border: 1px solid rgb(139, 241, 79);
     /* width: 136% */
 }
 
@@ -34,7 +34,7 @@
 }
 
 .heartBtn {
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     position: absolute;
     top: 3px;
     right: 2rem;
