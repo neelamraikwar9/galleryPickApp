@@ -52,6 +52,7 @@ const Navbar = () => {
             marginTop: "1px",
             display: "flex",
             justifyContent: "center",
+            color: "yellowgreen"
           }}
         >
           GalleryPick
@@ -76,7 +77,9 @@ const Navbar = () => {
               <div>
                 <i
                   class="bi bi-house-door-fill"
-                  style={{ border: "1px solid green", padding: "0px 10px" }}
+                  style={{ 
+                    // border: "1px solid green"
+                   padding: "0px 10px" }}
                 ></i>
                 Home
               </div>
@@ -91,7 +94,9 @@ const Navbar = () => {
               <div>
                 <i
                   class="bi bi-images"
-                  style={{ border: "1px solid green", padding: "0px 10px" }}
+                  style={{ 
+                    // border: "1px solid green"
+                    padding: "0px 10px" }}
                 ></i>
                 Add Images
               </div>
@@ -107,7 +112,9 @@ const Navbar = () => {
               <div>
                 <i
                   class="bi bi-heart-fill"
-                  style={{ border: "1px solid green", padding: "0px 10px" }}
+                  style={{ 
+                    // border: "1px solid green"
+                    padding: "0px 10px" }}
                 ></i>
                 Favourites
               </div>
@@ -119,7 +126,9 @@ const Navbar = () => {
               <div>
                 <i
                   class="bi bi-file-earmark-image"
-                  style={{ border: "1px solid green", padding: "0px 10px" }}
+                  style={{ 
+                    // border: "1px solid green"
+                     padding: "0px 10px" }}
                 ></i>
                 Create Album
               </div>
@@ -134,7 +143,9 @@ const Navbar = () => {
               <div>
                 <i
                   class="bi bi-file-earmark-image"
-                  style={{ border: "1px solid green", padding: "0px 10px" }}
+                  style={{ 
+                    // border: "1px solid green"
+                     padding: "0px 10px" }}
                 ></i>
                 Albums
               </div>
@@ -143,7 +154,9 @@ const Navbar = () => {
           <li className="navItem">
             <i
               class="bi bi-person-square"
-              style={{ border: "1px solid green", padding: "0px 10px" }}
+              style={{ 
+                // border: "1px solid green"
+                 padding: "0px 10px" }}
             ></i>
             {user?.name}
             <button className="logOutBtn" onClick={handleLogOut}>

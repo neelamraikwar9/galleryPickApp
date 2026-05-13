@@ -81,14 +81,13 @@ const GalleryPick = () => {
     const getAllImages = async () => {
       try {
         const res = await axios.get("http://localhost:4000/images", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/images",
-        //   {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          // const res = await axios.get(
+          //   "https://gallery-pick-apis.vercel.app/images",
+          //   {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
         console.log(res, "res");
 
         if (res.data) {
@@ -112,14 +111,13 @@ const GalleryPick = () => {
 
       try {
         const res = await axios.get("http://localhost:4000/images/favorites", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/images/favorites",
-        //   {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          // const res = await axios.get(
+          //   "https://gallery-pick-apis.vercel.app/images/favorites",
+          //   {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        });
         console.log(res, "res");
 
         const favIds = res.data.favorites.map((img) => img._id);
@@ -140,14 +138,13 @@ const GalleryPick = () => {
 
     try {
       await axios.delete(`http://localhost:4000/images/${imgId}`, {
-      // await axios.delete(
-      //   `https://gallery-pick-apis.vercel.app/images/${imgId}`,
-      //   {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        // await axios.delete(
+        //   `https://gallery-pick-apis.vercel.app/images/${imgId}`,
+        //   {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
       setImages((prev) => prev.filter((img) => img._id !== imgId));
       console.log(images, "dlfkjdkfj");
 
@@ -160,13 +157,15 @@ const GalleryPick = () => {
     }
   }
 
-
   if (!token || isExpired) return null;
 
   return (
     <main>
       <div className="container welCon">
-        <h1 className="welTxt">🌸Welcome to Gallery Pick, {user?.name}!🌸</h1>
+        <h1 className="welTxt">
+          <span style={{ color: "#6FCF97" }}>🌸Welcome</span>{" "}
+          <span style={{ color: "#64d2f7" }}>{user?.name}!🌸</span>
+        </h1>
       </div>
 
       <div
@@ -194,9 +193,12 @@ const GalleryPick = () => {
         </div>
 
         {/* <div style={{ display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:"1.5rem",  }}> */}
-        <div style={{margin: "3rem", 
-        // border: "1px solid red"
-         }}>
+        <div
+          style={{
+            margin: "3rem",
+            // border: "1px solid red"
+          }}
+        >
           {images.map((img) => (
             <div
               key={img._id}
