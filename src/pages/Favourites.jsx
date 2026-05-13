@@ -119,30 +119,45 @@ const Favourites = () => {
           <p className="noImgMsg">There are no favorite Images.</p>
         ) : null}
       </div>
-      {favImages.map((img) => (
-        <div key={img._id} className="imgContainer" style={{ height: "16rem" }}>
-          <img
-            src={img.imgUrl}
-            alt="image"
-            style={{ width: "250px", height: "250px", objectFit: "cover" }}
-          />
-          <button className="heartBtn" onClick={() => toggleFavorite(img._id)}>
-            <i
-              className={
-                favoriteIds.includes(img._id)
-                  ? "bi bi-heart-fill text-danger"
-                  : "bi bi-heart"
-              }
-              style={{
-                fontSize: "20px",
-                cursor: "pointer",
-                position: "absolute",
-                color: favoriteIds.includes(img._id) ? "red" : "white",
-              }}
+
+      <div
+        style={{
+          margin: "3rem",
+          // border: "1px solid red"
+        }}
+      >
+        {favImages.map((img) => (
+          <div
+            key={img._id}
+            className="imgContainer"
+            style={{ height: "13rem" }}
+          >
+            <img
+              src={img.imgUrl}
+              alt="image"
+              style={{ width: "200px", height: "200px", objectFit: "cover" }}
             />
-          </button>
-        </div>
-      ))}
+            <button
+              className="heartBtn"
+              onClick={() => toggleFavorite(img._id)}
+            >
+              <i
+                className={
+                  favoriteIds.includes(img._id)
+                    ? "bi bi-heart-fill text-danger"
+                    : "bi bi-heart"
+                }
+                style={{
+                  fontSize: "20px",
+                  cursor: "pointer",
+                  position: "absolute",
+                  color: favoriteIds.includes(img._id) ? "red" : "white",
+                }}
+              />
+            </button>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

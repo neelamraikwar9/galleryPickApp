@@ -56,4 +56,11 @@
     display: flex;
     justify-content: center; 
     width: 64rem; 
+    /* height: 10rem;  */
+}
+
+@media(max-width: 768px){
+    .albumOuterContainer {
+        width: 22rem; 
+    }
 }

@@ -67,7 +67,9 @@ const Albums = () => {
   return (
     <main>
       <div>
-        <h1 className="welTxt" style={{marginBottom: '3rem'}}>Albums</h1>
+        <h1 className="welTxt" style={{ marginBottom: "3rem" }}>
+          Albums
+        </h1>
       </div>
       <div className="noImgAlbMsg">
         {loading ? (
@@ -80,21 +82,28 @@ const Albums = () => {
           </p>
         ) : null}
       </div>
-      {albms.map((albm) => (
-        <div className="albmsCon">
-          <div key={albm._id} className="albumCont">
-            <div>
-              <p>{albm.name}</p>
-              <div className="albImg">
-                <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
-                <button value={albm._id} onClick={handleDeleteAlbm}>
-                  Delete
-                </button>
+      <div
+        style={{
+          margin: "0 3rem",
+          // border: "1px solid red"
+        }}
+      >
+        {albms.map((albm) => (
+          <div className="albmsCon">
+            <div key={albm._id} className="albumCont">
+              <div>
+                <p>{albm.name}</p>
+                <div className="albImg">
+                  <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
+                  <button value={albm._id} onClick={handleDeleteAlbm}>
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </main>
   );
 };

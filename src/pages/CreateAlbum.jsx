@@ -96,7 +96,9 @@ const CreateAlbum = () => {
   return (
     // <main className="outImgUplCon">
     <main className="albumOuterContainer" >
-      <div style={{ border: "1px solid green" }}>
+      <div 
+      // style={{ border: "1px solid green" }}
+      >
         {/* <div className="imgUploadCon"> */}
         <h2 className="addAlbmTxt">Add Album</h2>
 
