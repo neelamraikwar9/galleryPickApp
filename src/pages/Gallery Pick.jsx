@@ -167,6 +167,7 @@ const GalleryPick = () => {
           <span style={{ color: "#64d2f7" }}>{user?.name}!🌸</span>
         </h1>
       </div>
+      <hr/>
 
       <div
       // style={{border: "10px solid green", }}

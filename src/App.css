@@ -47,7 +47,7 @@
    flex-direction: row;
    /* justify-content: space-between; */
    height: 50%;
-   border: 1px solid rgb(135, 238, 39);
+   /* border: 1px solid rgb(135, 238, 39); */
    width: 99.6%;
    height: auto;
  }
