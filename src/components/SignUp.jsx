@@ -25,8 +25,8 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/auth/signup",
-        // "https://gallery-pick-apis.vercel.app/auth/signup",
+        // "http://localhost:4000/auth/signup",
+        "https://gallery-pick-apis.vercel.app/auth/signup",
 
         { name, email, password },
         {
@@ -135,9 +135,9 @@ const SignUp = () => {
               className="btn"
               type="button"
               onClick={() =>
-                (window.location.href = "http://localhost:4000/auth/google")
-                // (window.location.href =
-                //   "https://gallery-pick-apis.vercel.app/auth/google")
+                // (window.location.href = "http://localhost:4000/auth/google")
+                (window.location.href =
+                  "https://gallery-pick-apis.vercel.app/auth/google")
               }
             >
               <img

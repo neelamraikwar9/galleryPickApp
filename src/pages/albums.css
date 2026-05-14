@@ -16,3 +16,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.marginBtm {
+    margin-bottom: 3rem;
+}
+
+.albmmOutCont {
+    margin: 0 3rem;
+    /* border: 1px solid red */
+}

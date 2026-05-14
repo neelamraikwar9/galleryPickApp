@@ -45,8 +45,8 @@ const GalleryPick = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:4000/images/favorite",
-        // "https://gallery-pick-apis.vercel.app/images/favorite",
+        // "http://localhost:4000/images/favorite",
+        "https://gallery-pick-apis.vercel.app/images/favorite",
 
         {
           imageId,
@@ -80,10 +80,10 @@ const GalleryPick = () => {
   useEffect(() => {
     const getAllImages = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/images", {
-          // const res = await axios.get(
-          //   "https://gallery-pick-apis.vercel.app/images",
-          //   {
+        // const res = await axios.get("http://localhost:4000/images", {
+          const res = await axios.get(
+            "https://gallery-pick-apis.vercel.app/images",
+            {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -110,10 +110,10 @@ const GalleryPick = () => {
       if (!token) return;
 
       try {
-        const res = await axios.get("http://localhost:4000/images/favorites", {
-          // const res = await axios.get(
-          //   "https://gallery-pick-apis.vercel.app/images/favorites",
-          //   {
+        // const res = await axios.get("http://localhost:4000/images/favorites", {
+          const res = await axios.get(
+            "https://gallery-pick-apis.vercel.app/images/favorites",
+            {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -137,10 +137,10 @@ const GalleryPick = () => {
     console.log(imgId, "imgId");
 
     try {
-      await axios.delete(`http://localhost:4000/images/${imgId}`, {
-        // await axios.delete(
-        //   `https://gallery-pick-apis.vercel.app/images/${imgId}`,
-        //   {
+      // await axios.delete(`http://localhost:4000/images/${imgId}`, {
+        await axios.delete(
+          `https://gallery-pick-apis.vercel.app/images/${imgId}`,
+          {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -170,13 +170,11 @@ const GalleryPick = () => {
       <hr/>
 
       <div
-      // style={{border: "10px solid green", }}
+      
       >
         <h2 className="welTxt">All Images</h2>
 
-        {/* <div  className="outImgUplCon"> */}
-        {/* <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around", border: "1px solid yellow", width: "20rem",  }}> */}
-        {/* <div className="container" style={{ width: "50rem" }}> */}
+       
         <div>
           {loading ? (
             <p className="loadingMsg">Images are Loading...</p>
@@ -195,10 +193,7 @@ const GalleryPick = () => {
 
         {/* <div style={{ display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:"1.5rem",  }}> */}
         <div
-          style={{
-            margin: "3rem",
-            // border: "1px solid red"
-          }}
+        className="allImgesCont"
         >
           {images.map((img) => (
             <div
@@ -209,11 +204,12 @@ const GalleryPick = () => {
               <img
                 src={img.imgUrl}
                 alt="image"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  objectFit: "cover",
-                }}
+                className="allImagesStyl"
+                // style={{
+                //   width: "200px",
+                //   height: "200px",
+                //   objectFit: "cover",
+                // }}
               />
               <button
                 className="heartBtn"

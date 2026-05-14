@@ -20,10 +20,10 @@ const Favourites = () => {
     const getFavImg = async () => {
       if (!token) return;
       try {
-        const res = await axios.get("http://localhost:4000/images/favorites", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/images/favorites",
-        //   {
+        // const res = await axios.get("http://localhost:4000/images/favorites", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/images/favorites",
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -48,8 +48,8 @@ const Favourites = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:4000/images/favorite",
-        // "https://gallery-pick-apis.vercel.app/images/favorite",
+        // "http://localhost:4000/images/favorite",
+        "https://gallery-pick-apis.vercel.app/images/favorite",
 
         {
           imageId,
@@ -83,10 +83,10 @@ const Favourites = () => {
       if (!token) return;
 
       try {
-        const res = await axios.get("http://localhost:4000/images/favorites", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/images/favorites",
-        //   {
+        // const res = await axios.get("http://localhost:4000/images/favorites", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/images/favorites",
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -120,22 +120,18 @@ const Favourites = () => {
         ) : null}
       </div>
 
-      <div
-        style={{
-          margin: "3rem",
-          // border: "1px solid red"
-        }}
-      >
+      <div className="favImgContainer">
         {favImages.map((img) => (
           <div
             key={img._id}
-            className="imgContainer"
-            style={{ height: "13rem" }}
+            className="imgContainer favImgHeight"
+            
           >
             <img
               src={img.imgUrl}
               alt="image"
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              className="favImgStyl"
+              
             />
             <button
               className="heartBtn"

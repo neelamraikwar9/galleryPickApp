@@ -21,10 +21,10 @@ const Albums = () => {
     const getAlbums = async () => {
       if (!token) return;
       try {
-        const res = await axios.get("http://localhost:4000/albums", {
-        // const res = await axios.get(
-        //   "https://gallery-pick-apis.vercel.app/albums",
-        //   {
+        // const res = await axios.get("http://localhost:4000/albums", {
+        const res = await axios.get(
+          "https://gallery-pick-apis.vercel.app/albums",
+          {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -44,10 +44,10 @@ const Albums = () => {
     const albmId = e.target.value;
     console.log(albmId, "albumId");
     try {
-      await axios.delete(`http://localhost:4000/albums/${albmId}`, {
-      // await axios.delete(
-      //   `https://gallery-pick-apis.vercel.app/albums/${albmId}`,
-      //   {
+      // await axios.delete(`http://localhost:4000/albums/${albmId}`, {
+      await axios.delete(
+        `https://gallery-pick-apis.vercel.app/albums/${albmId}`,
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -67,7 +67,7 @@ const Albums = () => {
   return (
     <main>
       <div>
-        <h1 className="welTxt" style={{ marginBottom: "3rem" }}>
+        <h1 className="welTxt marginBtm">
           Albums
         </h1>
       </div>
@@ -83,10 +83,8 @@ const Albums = () => {
         ) : null}
       </div>
       <div
-        style={{
-          margin: "0 3rem",
-          // border: "1px solid red"
-        }}
+      className="albmmOutCont"
+       
       >
         {albms.map((albm) => (
           <div className="albmsCon">
