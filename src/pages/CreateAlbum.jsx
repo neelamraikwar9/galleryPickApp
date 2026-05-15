@@ -39,7 +39,7 @@ const CreateAlbum = () => {
       try {
         // const res = await axios.get("http://localhost:4000/users");
         const res = await axios.get(
-          "https://gallery-pick-apis.vercel.app/users",
+          "https://gallery-pick-apis-lfxz.vercel.app/users",
         );
         console.log(res, "res");
 
@@ -70,7 +70,7 @@ const CreateAlbum = () => {
       // const response = await axios.post(
       //   "http://localhost:4000/albums",
       const response = await axios.post(
-        "https://gallery-pick-apis.vercel.app/albums",
+        "https://gallery-pick-apis-lfxz.vercel.app/albums",
         {
           name: albumName,
           description,

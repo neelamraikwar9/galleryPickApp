@@ -22,7 +22,7 @@ const Favourites = () => {
       try {
         // const res = await axios.get("http://localhost:4000/images/favorites", {
         const res = await axios.get(
-          "https://gallery-pick-apis.vercel.app/images/favorites",
+          "https://gallery-pick-apis-lfxz.vercel.app/images/favorites",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ const Favourites = () => {
     try {
       const res = await axios.post(
         // "http://localhost:4000/images/favorite",
-        "https://gallery-pick-apis.vercel.app/images/favorite",
+        "https://gallery-pick-apis-lfxz.vercel.app/images/favorite",
 
         {
           imageId,
@@ -85,7 +85,7 @@ const Favourites = () => {
       try {
         // const res = await axios.get("http://localhost:4000/images/favorites", {
         const res = await axios.get(
-          "https://gallery-pick-apis.vercel.app/images/favorites",
+          "https://gallery-pick-apis-lfxz.vercel.app/images/favorites",
           {
             headers: {
               Authorization: `Bearer ${token}`,

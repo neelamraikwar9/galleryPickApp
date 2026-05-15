@@ -23,7 +23,7 @@ const Albums = () => {
       try {
         // const res = await axios.get("http://localhost:4000/albums", {
         const res = await axios.get(
-          "https://gallery-pick-apis.vercel.app/albums",
+          "https://gallery-pick-apis-lfxz.vercel.app/albums",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ const Albums = () => {
     try {
       // await axios.delete(`http://localhost:4000/albums/${albmId}`, {
       await axios.delete(
-        `https://gallery-pick-apis.vercel.app/albums/${albmId}`,
+        `https://gallery-pick-apis-lfxz.vercel.app/albums/${albmId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       try {
         // const response = await axios.get("http://localhost:4000/auth/me", {
         const response = await axios.get(
-          "https://gallery-pick-apis.vercel.app/auth/me",
+          "https://gallery-pick-apis-lfxz.vercel.app/auth/me",
           {
             headers: { Authorization: `Bearer ${token}` },
           },

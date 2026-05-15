@@ -36,7 +36,7 @@ const UploadImg = () => {
       try {
         // const res = await axios.get("http://localhost:4000/albums", {
         const res = await axios.get(
-          "https://gallery-pick-apis.vercel.app/albums",
+          "https://gallery-pick-apis-lfxz.vercel.app/albums",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -89,7 +89,7 @@ const UploadImg = () => {
     try {
       const response = await axios.post(
         // "http://localhost:4000/upload",
-        "https://gallery-pick-apis.vercel.app/upload",
+        "https://gallery-pick-apis-lfxz.vercel.app/upload",
 
         formData,
         {

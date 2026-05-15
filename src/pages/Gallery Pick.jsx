@@ -46,7 +46,7 @@ const GalleryPick = () => {
     try {
       const res = await axios.post(
         // "http://localhost:4000/images/favorite",
-        "https://gallery-pick-apis.vercel.app/images/favorite",
+        "https://gallery-pick-apis-lfxz.vercel.app/images/favorite",
 
         {
           imageId,
@@ -82,12 +82,13 @@ const GalleryPick = () => {
       try {
         // const res = await axios.get("http://localhost:4000/images", {
           const res = await axios.get(
-            "https://gallery-pick-apis.vercel.app/images",
+            "https://gallery-pick-apis-lfxz.vercel.app/images",
             {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+          );
         console.log(res, "res");
 
         if (res.data) {
@@ -112,12 +113,13 @@ const GalleryPick = () => {
       try {
         // const res = await axios.get("http://localhost:4000/images/favorites", {
           const res = await axios.get(
-            "https://gallery-pick-apis.vercel.app/images/favorites",
+            "https://gallery-pick-apis-lfxz.vercel.app/images/favorites",
             {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+          );
         console.log(res, "res");
 
         const favIds = res.data.favorites.map((img) => img._id);
@@ -139,12 +141,13 @@ const GalleryPick = () => {
     try {
       // await axios.delete(`http://localhost:4000/images/${imgId}`, {
         await axios.delete(
-          `https://gallery-pick-apis.vercel.app/images/${imgId}`,
+          `https://gallery-pick-apis-lfxz.vercel.app/images/${imgId}`,
           {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
       setImages((prev) => prev.filter((img) => img._id !== imgId));
       console.log(images, "dlfkjdkfj");
 
