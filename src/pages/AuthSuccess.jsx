@@ -1,3 +1,5 @@
+// import "./authSuccess.css"; 
+import "./authSuccess.css"; 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -50,9 +52,16 @@ const AuthSuccess = () => {
   }, [navigate, setUser]);
 
   return (
-    <div className="signInMsg">
-      <p>Signing you in...</p>
-    </div>
+    // <div className="signInMsg">
+    //   <p>📸Signing you in to Gallery Pick...</p>
+    // </div>
+    <>
+      <img src="/favicon.ico" alt="logo" style={{width: "200px", height: "200px"}} />
+      <div className="spinner">
+        <h2>Signing you in...</h2>
+        <p>Please wait a moment</p>
+      </div>
+    </>
   );
 };
 
