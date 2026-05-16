@@ -4,11 +4,11 @@
 }
 
 .favImgHeight {
-    height: 13rem; 
+    height: 13rem;
 }
 
 .favImgStyl {
     width: 200px;
-    height: 200px; 
-    object-fit: cover; 
+    height: 200px;
+    object-fit: cover;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./favourites.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -122,17 +123,8 @@ const Favourites = () => {
 
       <div className="favImgContainer">
         {favImages.map((img) => (
-          <div
-            key={img._id}
-            className="imgContainer favImgHeight"
-            
-          >
-            <img
-              src={img.imgUrl}
-              alt="image"
-              className="favImgStyl"
-              
-            />
+          <div key={img._id} className="imgContainer favImgHeight">
+            <img src={img.imgUrl} alt="image" className="favImgStyl" />
             <button
               className="heartBtn"
               onClick={() => toggleFavorite(img._id)}
