@@ -107,8 +107,8 @@ const Favourites = () => {
   }, [token]);
 
   return (
-    <>
-      <div>
+    <main>
+      <div className="container welCon">
         <h1 className="welTxt">Favorite Images</h1>
       </div>
       <div className="noImgAlbMsg">
@@ -146,7 +146,7 @@ const Favourites = () => {
           </div>
         ))}
       </div>
-    </>
+    </main>
   );
 };
 

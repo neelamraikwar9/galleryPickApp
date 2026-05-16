@@ -164,7 +164,7 @@ const GalleryPick = () => {
 
   return (
     <main>
-      <div className="container welCon">
+      <div className="container welCon"> 
         <h1 className="welTxt">
           <span style={{ color: "#6FCF97" }}>🌸Welcome</span>{" "}
           <span style={{ color: "#64d2f7" }}>{user?.name}!🌸</span>
