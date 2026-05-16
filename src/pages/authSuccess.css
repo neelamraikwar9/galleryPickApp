@@ -16,3 +16,10 @@
     color: white; 
     background: #0f0f0f,
 }
+
+.ImgCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 

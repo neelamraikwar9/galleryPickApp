@@ -55,13 +55,17 @@ const AuthSuccess = () => {
     // <div className="signInMsg">
     //   <p>📸Signing you in to Gallery Pick...</p>
     // </div>
-    <>
-      <img src="/favicon.ico" alt="logo" style={{width: "200px", height: "200px"}} />
+    <main className="ImgCon">
+      <img
+        src="/favicon.ico"
+        alt="logo"
+        style={{ width: "200px", height: "200px" }}
+      />
       <div className="spinner">
-        <h2>Signing you in...</h2>
+        <h2>📸Signing you in...</h2>
         <p>Please wait a moment</p>
       </div>
-    </>
+    </main>
   );
 };
 
