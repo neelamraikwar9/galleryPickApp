@@ -1,5 +1,6 @@
 import React from "react";
 import "./favourites.css";
+import './galleryPick.css'; 
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
