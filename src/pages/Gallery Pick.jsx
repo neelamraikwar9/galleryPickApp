@@ -186,7 +186,7 @@ const GalleryPick = () => {
           ) : images.length === 0 ? (
             <div className="noImgMsgOnGalPic">
               <p className="noImgMsg">Not images yet!</p>
-              <p style={{ color: "Red" }}>
+              <p style={{ color: "pink" }}>
                 Add images make sure to select an album so create album first
                 then add images to the album.
               </p>
