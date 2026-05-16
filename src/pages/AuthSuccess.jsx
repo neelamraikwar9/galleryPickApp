@@ -55,7 +55,7 @@ const AuthSuccess = () => {
     // <div className="signInMsg">
     //   <p>📸Signing you in to Gallery Pick...</p>
     // </div>
-    <main className="ImgCon">
+    <div className="ImgCon">
       <img
         src="/favicon.ico"
         alt="logo"
@@ -65,7 +65,7 @@ const AuthSuccess = () => {
         <h2>📸Signing you in...</h2>
         <p>Please wait a moment</p>
       </div>
-    </main>
+    </div>
   );
 };
 
