@@ -110,7 +110,7 @@ const Favourites = () => {
 
   return (
     <main>
-      <div style={{border: "1px solid blue", marginLeft: "3px" }}>
+      <div style={{border: "1px solid blue", marginLeft: "5rem" }}>
         <h1 className="welTxt">Favorite Images</h1>
       </div>
       <div className="noImgAlbMsg">
