@@ -1,6 +1,6 @@
 import React from "react";
 import "./favourites.css";
-import './galleryPick.css';
+// import './galleryPick.css';
 import './galleryPick.css'
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -110,7 +110,7 @@ const Favourites = () => {
 
   return (
     <main>
-      <div className="container welCon">
+      <div style={{border: "1px solid blue"}}>
         <h1 className="welTxt">Favorite Images</h1>
       </div>
       <div className="noImgAlbMsg">
