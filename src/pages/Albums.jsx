@@ -71,7 +71,7 @@ const Albums = () => {
           Albums
         </h1>
       </div>
-      <div className="noImgAlbMsg">
+      <div className="noImgAlbMsg noAlMsg">
         {loading ? (
           <p>Albums are Loading...</p>
         ) : error ? (
