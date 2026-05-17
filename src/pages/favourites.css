@@ -14,12 +14,12 @@
 }
 
 .favHedTxt {
-    border: 1px solid blue; 
+    /* border: 1px solid blue;  */
     margin: 1rem 20rem;
 }
 
 .favImgMsg {
-    border: 1px solid red; 
+    /* border: 1px solid red;  */
     margin: 1rem 20rem;
 
 }
