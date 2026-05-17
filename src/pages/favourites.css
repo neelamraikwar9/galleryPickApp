@@ -12,3 +12,25 @@
     height: 200px;
     object-fit: cover;
 }
+
+.favHedTxt {
+    border: 1px solid blue; 
+    margin: 3rem;
+}
+
+.favImgMsg {
+    border: 1px solid red; 
+    margin: 3rem;
+
+}
+
+
+@media (max-width: 600px) {
+    .favHedTxt {
+        margin: 0;
+    }
+
+    .favImgMsg {
+        margin: 0
+    }
+}

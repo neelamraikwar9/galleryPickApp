@@ -111,11 +111,11 @@ const Favourites = () => {
   return (
     <main>
       <div 
-      // style={{border: "1px solid blue"}}
+      className="favHedTxt"
       >
         <h1 className="welTxt">Favorite Images</h1>
       </div>
-      <div className="noImgAlbMsg">
+      <div className="noImgAlbMsg favImgMsg">
         {loading ? (
           <p>Favorites Images are Loading...</p>
         ) : error ? (
