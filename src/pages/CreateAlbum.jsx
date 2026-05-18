@@ -100,7 +100,7 @@ const CreateAlbum = () => {
       setAlbumName("");
       setDescription("");
       setOwner("");
-      //  setSharedUsers([]);
+      setSharedUsers([]);
     } catch (error) {
       console.error(error);
       toast.error("Failed to create album.");
@@ -184,7 +184,7 @@ const CreateAlbum = () => {
                     type="button"
                     onClick={() =>
                       setSharedUsers(
-                        sharedUsers.filter((index, u) => u !== index),
+                        sharedUsers.filter((_, u) => u !== index),
                       )
                     }
                     style={{
@@ -193,7 +193,10 @@ const CreateAlbum = () => {
                       border: "none",
                       cursor: "pointer",
                     }}
-                  >X</button>
+                  >
+                    {" "}
+                    ✕
+                  </button>
                 </li>
               ))}
             </ul>
