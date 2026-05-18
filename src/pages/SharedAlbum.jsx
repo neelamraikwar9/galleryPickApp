@@ -76,7 +76,7 @@ const SharedAlbums = () => {
 
               <div>
                 <button
-                  onClick={() => navigate(`/shared-album/${album._id}`)}
+                  onClick={() => navigate(`/sharedAlbum/${album._id}`)}
                   style={{
                     marginTop: "10px",
                     padding: "6px 16px",
