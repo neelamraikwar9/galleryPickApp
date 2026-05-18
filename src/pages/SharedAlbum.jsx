@@ -74,6 +74,23 @@ const SharedAlbums = () => {
                 Shared by: <strong>{album.ownerId.name}</strong>
               </p>
 
+              <div>
+                <button
+                  onClick={() => navigate(`/shared-album/${album._id}`)}
+                  style={{
+                    marginTop: "10px",
+                    padding: "6px 16px",
+                    background: "#4ade80",
+                    border: "none",
+                    borderRadius: "20px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                  }}
+                >
+                  VIEW
+                </button>
+              </div>
+
               {/* Show what access level Beauty has */}
               {album.sharedUsers
                 .filter((u) => u.email === getUserEmail(token))
@@ -101,20 +118,6 @@ const SharedAlbums = () => {
                 ))}
             </div>
           ))}
-          <button
-            onClick={() => navigate(`/shared-album/${album._id}`)}
-            style={{
-              marginTop: "10px",
-              padding: "6px 16px",
-              background: "#4ade80",
-              border: "none",
-              borderRadius: "20px",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            VIEW
-          </button>
         </div>
       )}
     </main>
