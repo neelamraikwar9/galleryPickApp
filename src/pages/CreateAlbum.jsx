@@ -14,6 +14,7 @@ const CreateAlbum = () => {
   const [owner, setOwner] = useState("");
   const [email, setEmail] = useState("");
   const [accessLevel, setAccessLevel] = useState("view");
+ 
 
   //state to hold multiple shared users.
   const [sharedUsers, setSharedUsers] = useState([]);
@@ -25,6 +26,19 @@ const CreateAlbum = () => {
       return;
     }
 
+    // ✅ ADD: Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email");
+      return;
+    }
+
+    // ✅ ADD: Prevent duplicate emails
+    if (sharedUsers.find((u) => u.email === email.toLowerCase())) {
+      toast.error("This user is already added");
+      return;
+    }
+
     setSharedUsers([
       ...sharedUsers,
       { email: email.toLowerCase(), accessLevel },
@@ -32,7 +46,7 @@ const CreateAlbum = () => {
 
     setEmail("");
     setAccessLevel("view");
-  };
+  };;
 
   useEffect(() => {
     const getAllUsers = async () => {
@@ -95,8 +109,8 @@ const CreateAlbum = () => {
 
   return (
     // <main className="outImgUplCon">
-    <main className="albumOuterContainer" >
-      <div 
+    <main className="albumOuterContainer">
+      <div
       // style={{ border: "1px solid green" }}
       >
         {/* <div className="imgUploadCon"> */}
@@ -166,6 +180,20 @@ const CreateAlbum = () => {
               {sharedUsers.map((user, index) => (
                 <li key={index}>
                   {user.email} — {user.accessLevel}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSharedUsers(
+                        sharedUsers.filter((index, u) => u !== index),
+                      )
+                    }
+                    style={{
+                      color: "red",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >X</button>
                 </li>
               ))}
             </ul>
