@@ -21,6 +21,7 @@ const SharedAlbums = () => {
             headers: { Authorization: `Bearer ${token}` },
           },
         );
+        console.log(res.data, "res"); 
         setSharedAlbums(res.data);
       } catch (error) {
         console.error(error);
