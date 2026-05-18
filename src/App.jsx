@@ -13,6 +13,7 @@ import Favourites from "./pages/Favourites";
 import RefreshHandler from "./RefreshHandler";
 import Albums from "./pages/Albums";
 import AuthSuccess from "./pages/AuthSuccess";
+import SharedAlbums from "./pages/SharedAlbum";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,6 +41,7 @@ function App() {
             <Route path="/createAlbum" element={<CreateAlbum />}></Route>
             <Route path="/albums" element={<Albums />}></Route>
             <Route path="/favourite" element={<Favourites />}></Route>
+            <Route path="/sharedAlbums" element={<SharedAlbums />}></Route>
           </Route>
           <Route path="*" element={<PageNoteFound />}></Route>
         </Routes>

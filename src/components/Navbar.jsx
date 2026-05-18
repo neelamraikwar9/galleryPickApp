@@ -177,6 +177,29 @@ const Navbar = () => {
               </div>
             </NavLink>
           </li>
+
+          <li className="navItem">
+            <NavLink
+              to="/sharedAlbums"
+              // className="navItemtxt"
+              className={({ isActive }) =>
+                isActive ? "navItemtxt active" : "navItemtxt"
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              <div>
+                <i
+                  class="bi bi-image-fill"
+                  style={{
+                    // border: "1px solid green"
+                    padding: "0px 10px",
+                  }}
+                ></i>
+                Shared Albums
+              </div>
+            </NavLink>
+          </li>
+
           <li className="navItem">
             <i
               class="bi bi-person-square"
