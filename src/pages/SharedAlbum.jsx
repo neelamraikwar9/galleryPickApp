@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"; 
 
 const SharedAlbums = () => {
+  const navigate = useNavigate();
   const [sharedAlbums, setSharedAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  console.log(sharedAlbums, "sharedAlbums"); 
 
   const token = localStorage.getItem("token");
 
@@ -56,7 +60,7 @@ const SharedAlbums = () => {
                 {album.description || "No description"}
               </p>
               <p style={{ margin: 0, fontSize: "13px", color: "#888" }}>
-                Shared by: <strong>{album.owner}</strong>
+                Shared by: <strong>{album.ownerId.name}</strong>
               </p>
 
               {/* Show what access level Beauty has */}
