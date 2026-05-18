@@ -184,7 +184,7 @@ const CreateAlbum = () => {
                     type="button"
                     onClick={() =>
                       setSharedUsers(
-                        sharedUsers.filter((u) => u !== index),
+                        sharedUsers.filter((index, u) => u !== index),
                       )
                     }
                     style={{
