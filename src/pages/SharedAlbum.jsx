@@ -8,7 +8,7 @@ const SharedAlbums = () => {
   const [sharedAlbums, setSharedAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(sharedAlbums, "sharedAlbums"); 
+  console.log(sharedAlbums, "sharedAlbums");
 
   const token = localStorage.getItem("token");
 
@@ -21,7 +21,7 @@ const SharedAlbums = () => {
             headers: { Authorization: `Bearer ${token}` },
           },
         );
-        console.log(res.data, "res"); 
+        console.log(res.data, "res");
         setSharedAlbums(res.data);
       } catch (error) {
         console.error(error);
@@ -35,6 +35,16 @@ const SharedAlbums = () => {
   }, []);
 
   if (loading) return <p>Loading shared albums...</p>;
+
+  // Helper: decode email from JWT token
+  const getUserEmail = (token) => {
+    try {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      return payload.email;
+    } catch {
+      return "";
+    }
+  };
 
   return (
     <main style={{ padding: "20px" }}>
@@ -91,20 +101,26 @@ const SharedAlbums = () => {
                 ))}
             </div>
           ))}
+          <button
+            onClick={() => navigate(`/shared-album/${album._id}`)}
+            style={{
+              marginTop: "10px",
+              padding: "6px 16px",
+              background: "#4ade80",
+              border: "none",
+              borderRadius: "20px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            VIEW
+          </button>
         </div>
       )}
     </main>
   );
-};
+};;
 
-// Helper: decode email from JWT token
-const getUserEmail = (token) => {
-  try {
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    return payload.email;
-  } catch {
-    return "";
-  }
-};
+
 
 export default SharedAlbums;
