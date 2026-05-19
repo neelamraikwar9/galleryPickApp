@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import './albums.css'; 
-import './sharedAlbm.css'; 
+import "./albums.css";
+import "./sharedAlbm.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const SharedAlbums = () => {
   const navigate = useNavigate();
   const [sharedAlbums, setSharedAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(); 
+  const [error, setError] = useState();
 
   console.log(sharedAlbums, "sharedAlbums");
 
@@ -70,34 +70,15 @@ const SharedAlbums = () => {
       <div className="albmmOutCont">
         {sharedAlbums.map((album) => (
           <div className="albmsCon">
-            <div
-              key={album._id}
-              className="albumCont"
-              style={{
-                border: "1px solid #ccc",
-              
-                width: "250px",
-                height: "200px",
-
-                background: "#272732",
-             
-              }}
-            >
-              <div style={{ border: "1px solid green", padding: "1rem" }}>
-                <h3 style={{ margin: "0 0 8px" }}>{album.name}</h3>
+            <div key={album._id} className="albumCont shardAlbOutCont">
+              <div className="shardAlbCont">
+                <h3 className="albumName">{album.name}</h3>
                 <hr />
-                
 
-                <p
-                  style={{
-                    margin: "0 0 6px",
-                    fontSize: "13px",
-                    color: "#d8d3d3",
-                  }}
-                >
+                <p className="pStyle">
                   Description: {album.description || "No description"}
                 </p>
-                <p style={{ margin: 0, fontSize: "13px", color: "#d8d3d3" }}>
+                <p className="pStyle">
                   Shared by: <strong>{album.ownerId.name}</strong>
                 </p>
                 <div>
@@ -107,31 +88,18 @@ const SharedAlbums = () => {
                     .map((u) => (
                       <span
                         key={u.email}
-                        style={{ fontSize: "13px", color: "#d8d3d3" }}
+                        className="pStyle"
                       >
                         Status: {u.accessLevel}
                       </span>
                     ))}
                 </div>
                 <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    border: "1px solid green",
-                  }}
+                  className="vBtnCont"
                 >
                   <button
                     onClick={() => navigate(`/sharedAlbums/${album._id}`)}
-                    style={{
-                      marginTop: "10px",
-                      padding: "4px 10px",
-                      
-                      border: "none",
-                      borderRadius: "5px",
-                      fontWeight: 600,
-                      cursor: "pointer",
-                    }}
+                    className="vBtnStyl"
                   >
                     VIEW
                   </button>
@@ -143,8 +111,6 @@ const SharedAlbums = () => {
       </div>
     </main>
   );
-}
-
-
+};
 
 export default SharedAlbums;
