@@ -8,6 +8,7 @@ const SharedAlbums = () => {
   const navigate = useNavigate();
   const [sharedAlbums, setSharedAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(); 
 
   console.log(sharedAlbums, "sharedAlbums");
 
@@ -71,64 +72,68 @@ const SharedAlbums = () => {
             <div
               key={album._id}
               className="albumCont"
-              // style={{
-              //   border: "1px solid #ccc",
-              //   borderRadius: "10px",
-              //   padding: "16px",
-              //   width: "250px",
-              //   background: "#1e1e2e",
-              //   color: "#fff",
-              // }}
+              style={{
+                border: "1px solid #ccc",
+                //   borderRadius: "10px",
+                //   padding: "16px",
+                width: "250px",
+                height: "200px",
+
+                background: "#1e1e2e",
+                //   color: "#fff",
+              }}
             >
-              <div>
+              <div style={{ border: "1px solid green", padding: "1rem" }}>
                 <h3 style={{ margin: "0 0 8px" }}>{album.name}</h3>
-                <p style={{ margin: "0 0 6px", color: "#aaa" }}>
-                  {album.description || "No description"}
+                <hr />
+                <p
+                  style={{
+                    margin: "0 0 6px",
+                    fontSize: "13px",
+                    color: "#d8d3d3",
+                  }}
+                >
+                  Description: {album.description || "No description"}
                 </p>
-                <p style={{ margin: 0, fontSize: "13px", color: "#888" }}>
+                <p style={{ margin: 0, fontSize: "13px", color: "#d8d3d3" }}>
                   Shared by: <strong>{album.ownerId.name}</strong>
                 </p>
-
-                <button
-                  onClick={() => navigate(`/sharedAlbums/${album._id}`)}
-                  // style={{
-                  //   marginTop: "10px",
-                  //   padding: "6px 16px",
-                  //   background: "#4ade80",
-                  //   border: "none",
-                  //   borderRadius: "20px",
-                  //   fontWeight: 600,
-                  //   cursor: "pointer",
-                  // }}
+                <div>
+                  {/* Show what access level Beauty has */}
+                  {album.sharedUsers
+                    .filter((u) => u.email === getUserEmail(token))
+                    .map((u) => (
+                      <span
+                        key={u.email}
+                        style={{ fontSize: "13px", color: "#d8d3d3" }}
+                      >
+                        Status: {u.accessLevel}
+                      </span>
+                    ))}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    border: "1px solid green",
+                  }}
                 >
-                  VIEW
-                </button>
-
-                {/* Show what access level Beauty has */}
-                {album.sharedUsers
-                  .filter((u) => u.email === getUserEmail(token))
-                  .map((u) => (
-                    <span
-                      key={u.email}
-                      style={{
-                        display: "inline-block",
-                        marginTop: "8px",
-                        padding: "3px 10px",
-                        borderRadius: "20px",
-                        fontSize: "12px",
-                        background:
-                          u.accessLevel === "admin"
-                            ? "#f87171"
-                            : u.accessLevel === "edit"
-                              ? "#facc15"
-                              : "#4ade80",
-                        color: "#000",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {u.accessLevel.toUpperCase()}
-                    </span>
-                  ))}
+                  <button
+                    onClick={() => navigate(`/sharedAlbums/${album._id}`)}
+                    style={{
+                      marginTop: "10px",
+                      padding: "4px 10px",
+                      // background: "#4ade80",
+                      border: "none",
+                      borderRadius: "5px",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                    }}
+                  >
+                    VIEW
+                  </button>
+                </div>
               </div>
             </div>
           </div>
