@@ -68,7 +68,7 @@ const Albums = () => {
     <main>
       <div>
         <h1 className="welTxt marginBtm">
-          Albums
+          Albums📱
         </h1>
       </div>
       <div className="noImgAlbMsg noAlMsg">

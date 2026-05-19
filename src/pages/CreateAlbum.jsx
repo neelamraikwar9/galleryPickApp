@@ -114,7 +114,7 @@ const CreateAlbum = () => {
       // style={{ border: "1px solid green" }}
       >
         {/* <div className="imgUploadCon"> */}
-        <h2 className="addAlbmTxt">Add Album</h2>
+        <h2 className="addAlbmTxt">Add Album📲</h2>
 
         <form onSubmit={handleAlbumSbmt} className="formContainer">
           <div className="fieldCon">

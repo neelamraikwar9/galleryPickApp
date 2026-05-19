@@ -34,7 +34,7 @@ const SharedAlbums = () => {
     fetchSharedAlbums();
   }, []);
 
-  if (loading) return <p>Loading shared albums...</p>;
+  // if (loading) return <p>Loading shared albums...</p>;
 
   // Helper: decode email from JWT token
   const getUserEmail = (token) => {
@@ -48,9 +48,11 @@ const SharedAlbums = () => {
 
   return (
     <main style={{ padding: "20px" }}>
-      <h2>📂 Shared With Me</h2>
+      <h2>{sharedAlbums.length === 1 ? "Album" : "Albums"} Shared With Me📂</h2>
 
-      {sharedAlbums.length === 0 ? (
+      {loading ? (
+        <p>Loading shared albums...</p>
+      ) : sharedAlbums.length === 0 ? (
         <p>No albums have been shared with you yet.</p>
       ) : (
         <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>

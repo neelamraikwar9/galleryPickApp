@@ -175,7 +175,7 @@ const GalleryPick = () => {
       <div
       
       >
-        <h2 className="welTxt">All Images</h2>
+        <h2 className="welTxt">All Images📸</h2>
 
        
         <div>

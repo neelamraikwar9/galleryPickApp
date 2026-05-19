@@ -113,7 +113,7 @@ const Favourites = () => {
       <div 
       className="favHedTxt"
       >
-        <h1 className="welTxt">Favorite Images</h1>
+        <h1 className="welTxt">Favorite Images💖</h1>
       </div>
       <div className="noImgAlbMsg favImgMsg">
         {loading ? (
