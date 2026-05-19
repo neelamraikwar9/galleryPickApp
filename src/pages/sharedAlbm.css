@@ -3,18 +3,20 @@
 }
 
 .marginR {
-    margin-right: 2rem;
+    margin-right: 3rem;
 }
 
-.shardAlbCont {
-    border: 1px solid #ccc;
+.shardAlbOutCont {
+    /* border: 1px solid #ccc; */
     width: 250px;
-    height: 200px;
+    height: 210px;
+    border-radius: 1rem;
     background: #272732;
 }
 
 .shardAlbCont {
-    border: 1px solid green;
+    /* border: 1px solid green; */
+   
     padding: 1rem;
 }
 
@@ -25,14 +27,14 @@
 .pStyle {
     margin: 0 0 6px;
     font-size: 13px;
-    color: #d8d3d3;
+    /* color: #d8d3d3; */
 }
 
 .vBtnCont {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .vBtnStyl {
