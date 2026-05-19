@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './albums.css'; 
+import './sharedAlbm.css'; 
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"; 
@@ -51,14 +52,14 @@ const SharedAlbums = () => {
   return (
     <main>
       <div>
-        <h1 className="welTxt marginBtm">
+        <h1 className="welTxt marginBtm shAlHdTxt">
           {sharedAlbums.length === 1 ? "Album" : "Albums"} Shared With Me📂
         </h1>
       </div>
 
       <div className="noImgAlbMsg noAlMsg">
         {loading ? (
-          <p className="loadingMsg">Loading shared albums...</p>
+          <p className="loadingMsg marginR">Loading shared albums...</p>
         ) : error ? (
           <p style={{ color: "red" }}>{error}</p>
         ) : sharedAlbums.length === 0 ? (
@@ -74,18 +75,19 @@ const SharedAlbums = () => {
               className="albumCont"
               style={{
                 border: "1px solid #ccc",
-                //   borderRadius: "10px",
-                //   padding: "16px",
+              
                 width: "250px",
                 height: "200px",
 
-                background: "#1e1e2e",
-                //   color: "#fff",
+                background: "#272732",
+             
               }}
             >
               <div style={{ border: "1px solid green", padding: "1rem" }}>
                 <h3 style={{ margin: "0 0 8px" }}>{album.name}</h3>
                 <hr />
+                
+
                 <p
                   style={{
                     margin: "0 0 6px",
@@ -124,7 +126,7 @@ const SharedAlbums = () => {
                     style={{
                       marginTop: "10px",
                       padding: "4px 10px",
-                      // background: "#4ade80",
+                      
                       border: "none",
                       borderRadius: "5px",
                       fontWeight: 600,
