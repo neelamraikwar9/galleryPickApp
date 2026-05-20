@@ -37,7 +37,7 @@ const SharedAlbums = () => {
     fetchSharedAlbums();
   }, []);
 
-  // if (loading) return <p>Loading shared albums...</p>;
+  
 
   // Helper: decode email from JWT token
   const getUserEmail = (token) => {

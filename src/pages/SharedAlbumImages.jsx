@@ -8,6 +8,7 @@ const SharedAlbumImages = () => {
   const navigate = useNavigate();
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(); 
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -29,13 +30,10 @@ const SharedAlbumImages = () => {
     fetchImages();
   }, [albumId]);
 
-  if (loading)
-    return <p style={{ color: "#fff", padding: "20px" }}>Loading images...</p>;
+   
 
   return (
-    <main
-      style={{ padding: "20px", background: "#0f0f1a", minHeight: "100vh" }}
-    >
+    <main>
       <button
         onClick={() => navigate(-1)}
         style={{
@@ -51,33 +49,38 @@ const SharedAlbumImages = () => {
         ← Back
       </button>
 
-      <h2 style={{ color: "#fff" }}>📷 Album Images</h2>
+      <div>
+        <h1 className="welTxt  shAlHdTxt">Album Images📷</h1>
+      </div>
 
-      {images.length === 0 ? (
-        <p style={{ color: "#aaa" }}>No images in this album.</p>
-      ) : (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-            gap: "12px",
-          }}
-        >
+      <div className="noImgAlbMsg favImgMsg">
+        {loading ? (
+          <p>Loading album images...</p>
+        ) : error ? (
+          <p style={{ color: "red" }}>{error}</p>
+        ) : images.length === 0 ? (
+          <p>No images in this album.</p>
+        ) : null}
+      </div>
+
+      <div className="albmmOutCont">
+        <div className="favImgContainer">
           {images.map((img) => (
-            <img
-              key={img._id}
-              src={img.imgUrl}
-              alt={img.name}
-              style={{
-                width: "100%",
-                height: "160px",
-                objectFit: "cover",
-                borderRadius: "10px",
-              }}
-            />
+            <div key={img._id} className="imgContainer favImgHeight">
+              <img
+                src={img.imgUrl}
+                alt={img.name}
+                style={{
+                  width: "100%",
+                  height: "160px",
+                  objectFit: "cover",
+                  borderRadius: "10px",
+                }}
+              />
+            </div>
           ))}
         </div>
-      )}
+      </div>
     </main>
   );
 };
