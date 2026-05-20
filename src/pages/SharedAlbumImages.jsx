@@ -37,15 +37,8 @@ const SharedAlbumImages = () => {
     <main>
       <button
         onClick={() => navigate(-1)}
-        style={{
-          marginBottom: "16px",
-          padding: "8px 16px",
-          background: "transparent",
-          border: "1px solid #555",
-          borderRadius: "8px",
-          color: "#fff",
-          cursor: "pointer",
-        }}
+        className="backBtn"
+       
       >
         ← Back
       </button>
@@ -67,7 +60,7 @@ const SharedAlbumImages = () => {
       <div className="albmmOutCont">
         <div className="favImgContainer">
           {images.map((img) => (
-            <div key={img._id} className="imgContainer">
+            <div key={img._id} className="imgContainer sharedImgCon">
               <img
                 src={img.imgUrl}
                 alt={img.name}
