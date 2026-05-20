@@ -1,15 +1,15 @@
-import './sharedAlbmImgs.css'; 
+import "./sharedAlbmImgs.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const SharedAlbumImages = () => {
-  const { albumId } = useParams(); // ✅ gets the albumId from URL
+  const { albumId } = useParams();
   const navigate = useNavigate();
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(); 
+  const [error, setError] = useState();
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const SharedAlbumImages = () => {
           `https://gallery-pick-apis-lfxz.vercel.app/images/${albumId}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
-        console.log(res.data, "images response"); // check this in console
+        console.log(res.data, "images response");
         setImages(res.data);
       } catch (error) {
         console.error(error);
@@ -31,15 +31,9 @@ const SharedAlbumImages = () => {
     fetchImages();
   }, [albumId]);
 
-   
-
   return (
     <main>
-      <button
-        onClick={() => navigate(-1)}
-        className="backBtn"
-       
-      >
+      <button onClick={() => navigate(-1)} className="backBtn">
         ← Back
       </button>
 
@@ -61,11 +55,7 @@ const SharedAlbumImages = () => {
         <div className="favImgContainer">
           {images.map((img) => (
             <div key={img._id} className="imgContainer sharedImgCon">
-              <img
-                src={img.imgUrl}
-                alt={img.name}
-                className= "sharedImgs"
-              />
+              <img src={img.imgUrl} alt={img.name} className="sharedImgs" />
             </div>
           ))}
         </div>

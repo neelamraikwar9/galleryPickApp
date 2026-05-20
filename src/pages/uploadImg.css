@@ -1,42 +1,28 @@
 .imgUploadCon {
     /* border: 1px solid #750404;  */
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    /* width: 100rem;  */
-    
-    
-    
-
-    /* justify-content: center; */
 }
 
 .formContainer {
-    display: flex; 
-    border: 1px solid rgb(233, 255, 233); 
+    display: flex;
+    border: 1px solid rgb(233, 255, 233);
     flex-direction: column;
     align-items: center;
     border-radius: 1rem;
 }
 
-    /* .imgCon {
-        display: flex; 
-        align-items: center;
-        border: 1px solid rgb(56, 225, 56);
-        
-    } */
-
-
 .imgCon {
     /* border: 1px solid rgb(225, 107, 56); */
-    display: flex; 
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .imgInp {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     /* border: 1px solid rgb(102, 37, 9); */
 }
@@ -47,17 +33,17 @@
 }
 
 .outImgUplCon {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     /* border: 1px solid blue; */
     width: 60rem;
-} 
+}
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .imgUploadCon {
-        width: 20rem; 
+        width: 20rem;
         padding: 1.1rem;
     }
 
@@ -65,6 +51,3 @@
         width: 20rem;
     }
 }
-
-
-

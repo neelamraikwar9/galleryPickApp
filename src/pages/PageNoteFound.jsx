@@ -8,7 +8,7 @@ function PageNoteFound() {
     <h2>404 Page Note Found</h2>
     <button onClick={() => navigate('/signin')}>Login</button>
     </div>
-  )
+  ) 
 }
 
 export default PageNoteFound

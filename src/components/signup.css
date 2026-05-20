@@ -16,9 +16,9 @@
     background-color: oklch(32.368% 0.0022 146.303)
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
     .signUpInContainer {
-        width: 20rem; 
+        width: 20rem;
     }
 }
 

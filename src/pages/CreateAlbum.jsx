@@ -14,7 +14,6 @@ const CreateAlbum = () => {
   const [owner, setOwner] = useState("");
   const [email, setEmail] = useState("");
   const [accessLevel, setAccessLevel] = useState("view");
- 
 
   //state to hold multiple shared users.
   const [sharedUsers, setSharedUsers] = useState([]);
@@ -26,14 +25,14 @@ const CreateAlbum = () => {
       return;
     }
 
-    // ✅ ADD: Validate email format
+    //Added Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error("Please enter a valid email");
       return;
     }
 
-    // ✅ ADD: Prevent duplicate emails
+    //Added to Prevent duplicate emails
     if (sharedUsers.find((u) => u.email === email.toLowerCase())) {
       toast.error("This user is already added");
       return;
@@ -46,7 +45,7 @@ const CreateAlbum = () => {
 
     setEmail("");
     setAccessLevel("view");
-  };;
+  };
 
   useEffect(() => {
     const getAllUsers = async () => {
@@ -108,12 +107,8 @@ const CreateAlbum = () => {
   };
 
   return (
-    // <main className="outImgUplCon">
     <main className="albumOuterContainer">
-      <div
-      // style={{ border: "1px solid green" }}
-      >
-        {/* <div className="imgUploadCon"> */}
+      <div>
         <h2 className="addAlbmTxt">Add Album📲</h2>
 
         <form onSubmit={handleAlbumSbmt} className="formContainer">
@@ -174,7 +169,6 @@ const CreateAlbum = () => {
               </button>
             </div>
 
-            {/* Show current list */}
             <h4>Shared Users:</h4>
             <ul>
               {sharedUsers.map((user, index) => (
@@ -183,9 +177,7 @@ const CreateAlbum = () => {
                   <button
                     type="button"
                     onClick={() =>
-                      setSharedUsers(
-                        sharedUsers.filter((_, u) => u !== index),
-                      )
+                      setSharedUsers(sharedUsers.filter((_, u) => u !== index))
                     }
                     style={{
                       color: "red",
@@ -206,7 +198,6 @@ const CreateAlbum = () => {
           </div>
         </form>
       </div>
-      {/* </div> */}
     </main>
   );
 };

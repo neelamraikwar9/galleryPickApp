@@ -1,7 +1,4 @@
 .navItems {
-    /* display: flex;  */
-    /* flex-wrap: wrap; */
-    /* flex-direction: column; */
     /* border: 1px solid grey; */
     padding: 0
 }
@@ -14,8 +11,8 @@
 }
 
 .logo {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 .navLogo {
@@ -24,21 +21,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 15rem
-        /* margin-bottom: 20rem; */
+    width: 15rem;
 
 }
 
-/* .logo {
-width: 70; 
-height: 70; 
-margin-left: 45px;
-} */
 
 .navItemtxt {
     font-size: large;
     text-decoration: none;
-    color: #46d0ab; 
+    color: #46d0ab;
 }
 
 .navItemtxt:hover {
@@ -46,12 +37,12 @@ margin-left: 45px;
 }
 
 .navItemtxt.active {
-  color: yellowgreen;
-  font-weight: 600;
+    color: yellowgreen;
+    font-weight: 600;
 }
 
 .navItemtxt.active {
-    color: rgb(71, 246, 2); 
+    color: rgb(71, 246, 2);
     font-weight: 600px;
 }
 
@@ -61,8 +52,8 @@ margin-left: 45px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 15rem; 
-    height: auto; 
+    width: 15rem;
+    height: auto;
     background-color: rgb(55, 62, 60);
 }
 
@@ -84,7 +75,6 @@ margin-left: 45px;
     background: none;
     border: none;
     cursor: pointer;
-    /* padding: 8px; */
 }
 
 .hamburger span {
@@ -96,31 +86,28 @@ margin-left: 45px;
     transition: all 0.3s ease;
 }
 
-/* ── Mobile ── */
-@media (max-width: 600px) {
 
+@media (max-width: 600px) {
     .navContainer {
         width: 94%;
         min-height: auto;
         flex-direction: column;
         flex-wrap: wrap;
-        /* align-items: center; */
-        /* justify-content: space-between; */
-        padding: 10px ;
+        padding: 10px;
     }
 
     .navLogo {
-        width: 100%; 
+        width: 100%;
     }
 
 
 
-    /* Show hamburger on mobile */
+    /* Shows hamburger on mobile device*/
     .hamburger {
         display: flex;
     }
 
-    /* Hide nav links by default on mobile */
+    /* Hides nav links by default on mobile */
     .navItems {
         display: none;
         flex-direction: column;
@@ -129,7 +116,7 @@ margin-left: 45px;
         padding: 10px 0;
     }
 
-    /* Show nav links when open */
+    /* Shows nav links when open */
     .navItems.open {
         display: flex;
     }

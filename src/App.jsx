@@ -28,7 +28,6 @@ function App() {
       <div>
         <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
         <Routes>
-          {" "}
           <Route path="/" element={<Navigate to="/signin" />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
@@ -42,10 +41,7 @@ function App() {
             <Route path="/createAlbum" element={<CreateAlbum />}></Route>
             <Route path="/albums" element={<Albums />}></Route>
             <Route path="/favourite" element={<Favourites />}></Route>
-            <Route
-              path="/sharedAlbums"
-              element={<SharedAlbums />}
-            ></Route>
+            <Route path="/sharedAlbums" element={<SharedAlbums />}></Route>
             <Route
               path="/sharedAlbums/:albumId"
               element={<SharedAlbumImages />}

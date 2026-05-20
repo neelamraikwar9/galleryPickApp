@@ -23,7 +23,7 @@ const GalleryPick = () => {
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
 
-  // Check if token exists AND is not expired
+  // Checks if token exists AND is not expired
   const token = localStorage.getItem("token");
   const isExpired = token
     ? JSON.parse(atob(token.split(".")[1])).exp * 1000 < Date.now()
@@ -35,8 +35,6 @@ const GalleryPick = () => {
       navigate("/signin", { replace: true });
     }
   }, []);
-
-  // if (!token || isExpired) return null;
 
   const toggleFavorite = async (imageId) => {
     if (!token) {
@@ -81,14 +79,14 @@ const GalleryPick = () => {
     const getAllImages = async () => {
       try {
         // const res = await axios.get("http://localhost:4000/images", {
-          const res = await axios.get(
-            "https://gallery-pick-apis-lfxz.vercel.app/images",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+        const res = await axios.get(
+          "https://gallery-pick-apis-lfxz.vercel.app/images",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
-          );
+          },
+        );
         console.log(res, "res");
 
         if (res.data) {
@@ -112,14 +110,14 @@ const GalleryPick = () => {
 
       try {
         // const res = await axios.get("http://localhost:4000/images/favorites", {
-          const res = await axios.get(
-            "https://gallery-pick-apis-lfxz.vercel.app/images/favorites",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+        const res = await axios.get(
+          "https://gallery-pick-apis-lfxz.vercel.app/images/favorites",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
-          );
+          },
+        );
         console.log(res, "res");
 
         const favIds = res.data.favorites.map((img) => img._id);
@@ -140,14 +138,14 @@ const GalleryPick = () => {
 
     try {
       // await axios.delete(`http://localhost:4000/images/${imgId}`, {
-        await axios.delete(
-          `https://gallery-pick-apis-lfxz.vercel.app/images/${imgId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+      await axios.delete(
+        `https://gallery-pick-apis-lfxz.vercel.app/images/${imgId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-        );
+        },
+      );
       setImages((prev) => prev.filter((img) => img._id !== imgId));
       console.log(images, "dlfkjdkfj");
 
@@ -164,20 +162,17 @@ const GalleryPick = () => {
 
   return (
     <main>
-      <div className="container welCon"> 
+      <div className="container welCon">
         <h1 className="welTxt">
           <span style={{ color: "#6FCF97" }}>🌸Welcome</span>{" "}
           <span style={{ color: "#64d2f7" }}>{user?.name}!🌸</span>
         </h1>
       </div>
-      <hr/>
+      <hr />
 
-      <div
-      
-      >
+      <div>
         <h2 className="welTxt">All Images📸</h2>
 
-       
         <div>
           {loading ? (
             <p className="loadingMsg">Images are Loading...</p>
@@ -194,22 +189,14 @@ const GalleryPick = () => {
           ) : null}
         </div>
 
-        {/* <div style={{ display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:"1.5rem",  }}> */}
-        <div
-        className="allImgesCont"
-        >
+        <div className="allImgesCont">
           {images.map((img) => (
             <div
               key={img._id}
               className="imgContainer"
               style={{ height: "15rem" }}
             >
-              <img
-                src={img.imgUrl}
-                alt="image"
-                className="allImagesStyl"
-               
-              />
+              <img src={img.imgUrl} alt="image" className="allImagesStyl" />
               <button
                 className="heartBtn"
                 onClick={() => toggleFavorite(img._id)}
@@ -237,8 +224,6 @@ const GalleryPick = () => {
           ))}
         </div>
       </div>
-      {/* </div> */}
-      {/* </div> */}
     </main>
   );
 };

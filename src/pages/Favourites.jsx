@@ -1,7 +1,6 @@
 import React from "react";
 import "./favourites.css";
-// import './galleryPick.css';
-import './galleryPick.css'
+import "./galleryPick.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -110,9 +109,7 @@ const Favourites = () => {
 
   return (
     <main>
-      <div 
-      className="favHedTxt"
-      >
+      <div className="favHedTxt">
         <h1 className="welTxt">Favorite Images💖</h1>
       </div>
       <div className="noImgAlbMsg favImgMsg">

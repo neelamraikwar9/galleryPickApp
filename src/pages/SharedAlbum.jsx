@@ -37,9 +37,7 @@ const SharedAlbums = () => {
     fetchSharedAlbums();
   }, []);
 
-  
-
-  // Helper: decode email from JWT token
+  // decoding email from JWT token
   const getUserEmail = (token) => {
     try {
       const payload = JSON.parse(atob(token.split(".")[1]));
@@ -82,7 +80,7 @@ const SharedAlbums = () => {
                   Shared by: <strong>{album.ownerId.name}</strong>
                 </p>
                 <div>
-                  {/* Show what access level Beauty has */}
+                  {/* Showing access level of Beauty*/}
                   {album.sharedUsers
                     .filter((u) => u.email === getUserEmail(token))
                     .map((u) => (

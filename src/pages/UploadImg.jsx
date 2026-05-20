@@ -1,10 +1,9 @@
-  import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../App.css";
 import "./uploadImg.css";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-
 
 const UploadImg = () => {
   const [msg, setMsg] = useState("");
@@ -18,21 +17,16 @@ const UploadImg = () => {
   const [tags, setTags] = useState("");
   const [person, setPerson] = useState("");
   const [comment, setComment] = useState("");
-
-  // const [isloading, setIsLoading] = useState("");
   const fileInputRef = useRef(null);
 
   console.log(image, album, name, person, comment, "dataaa... ");
 
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
-  const token = localStorage.getItem('token');
-  // useEffect(() => {
-  //   if(token) getAllAlbums(); 
-  // }, [token]); 
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const getAllAlbums = async () => { 
+    const getAllAlbums = async () => {
       try {
         // const res = await axios.get("http://localhost:4000/albums", {
         const res = await axios.get(
@@ -71,10 +65,10 @@ const UploadImg = () => {
       return;
     }
 
-    const token = localStorage.getItem('token'); 
-    if(!token){
-      toast.error("You must logged in to upload images."); 
-      return; 
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("You must logged in to upload images.");
+      return;
     }
 
     const formData = new FormData();
@@ -98,7 +92,7 @@ const UploadImg = () => {
             Authorization: `Bearer ${token}`,
           },
         },
-      );   ;
+      );
 
       setUploadedImageUrl(response.data.images);
       toast.success("Image uploaded successfully.");
@@ -118,7 +112,6 @@ const UploadImg = () => {
 
   return (
     <main className="outImgUplCon">
-      {/* <div className="formOutCon"> */}{" "}
       <div className="albumOutCon">
         <div className="imgUploadCon">
           <h2>Add image📷</h2>
@@ -135,7 +128,6 @@ const UploadImg = () => {
               />
             </div>
 
-            {/* //fetch album with apis */}
             <div className="fieldCon">
               <label htmlFor="album">Select Album: </label>
               <select

@@ -9,8 +9,6 @@ import { toast } from "react-toastify";
 
 const Albums = () => {
   const [albms, setAlbms] = useState([]);
-  // const [isAlbm, setIsAlbm] = useState(true);
-  console.log(albms, "alnme");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
@@ -32,7 +30,7 @@ const Albums = () => {
         );
         console.log(res, "res");
         setAlbms(res.data);
-        setLoading(false); 
+        setLoading(false);
       } catch (error) {
         console.log("Failed to fetch albums: ", error);
       }
@@ -67,9 +65,7 @@ const Albums = () => {
   return (
     <main>
       <div>
-        <h1 className="welTxt marginBtm">
-          Albums📱
-        </h1>
+        <h1 className="welTxt marginBtm">Albums📱</h1>
       </div>
       <div className="noImgAlbMsg noAlMsg">
         {loading ? (
@@ -82,10 +78,7 @@ const Albums = () => {
           </p>
         ) : null}
       </div>
-      <div
-      className="albmmOutCont"
-       
-      >
+      <div className="albmmOutCont">
         {albms.map((albm) => (
           <div className="albmsCon">
             <div key={albm._id} className="albumCont">

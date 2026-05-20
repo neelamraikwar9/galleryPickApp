@@ -29,7 +29,6 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navContainer">
-        {/* <div className="logoCon"> */}
         <div
           className="logo"
           style={{ display: "flex", justifyContent: "center" }}
@@ -60,7 +59,7 @@ const Navbar = () => {
         >
           GalleryPick
         </h1>
-        {/* </div> */}
+        
 
         {/* //hamburger button;  */}
         <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
@@ -68,8 +67,8 @@ const Navbar = () => {
           <span></span>
           <span></span>
         </button>
+        
         {/* Nav Items */}
-
         <ul className={`navItems ${isOpen ? "open" : ""}`}>
           <li className="navItem">
             <NavLink

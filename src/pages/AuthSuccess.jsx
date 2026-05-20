@@ -1,4 +1,3 @@
-// import "./authSuccess.css"; 
 import "./authSuccess.css"; 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 
 const AuthSuccess = () => {
   const navigate = useNavigate();
-  const { setUser } = useAuth(); // getting setUser from context
+  const { setUser } = useAuth(); 
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -22,21 +21,18 @@ const AuthSuccess = () => {
 
     const fetchUser = async () => {
       try {
-        // 1. Save token
         localStorage.setItem("token", token);
 
-        // 2. Fetch full user data using that token
         // const response = await axios.get("http://localhost:4000/auth/me", {
         const response = await axios.get(
           "https://gallery-pick-apis-lfxz.vercel.app/auth/me",
           {
             headers: {
-              Authorization: `Bearer ${token}`, // ✅ send token immediately
+              Authorization: `Bearer ${token}`, 
             },
           },
         );
 
-        // 3. Save user to context so it's available everywhere
         setUser(response.data.user);
 
         toast.success("Signed in with Google!", { toastId: "google-success" });
@@ -52,9 +48,6 @@ const AuthSuccess = () => {
   }, [navigate, setUser]);
 
   return (
-    // <div className="signInMsg">
-    //   <p>📸Signing you in to Gallery Pick...</p>
-    // </div>
     <div className="ImgCon">
       <img
         src="/favicon.ico"

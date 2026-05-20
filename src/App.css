@@ -1,51 +1,10 @@
  #root {
    max-width: 1280px;
-   /* margin: 0 auto; */
-
-   /* text-align: center; */
  }
-
- /* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
 
  .mainContainer {
    display: flex;
    flex-direction: row;
-   /* justify-content: space-between; */
    height: 50%;
    /* border: 1px solid rgb(135, 238, 39); */
    width: 99.6%;
@@ -56,7 +15,6 @@
    display: flex;
    background-size: cover;
    background-position: center;
-   /* background-image: url("./img3.png"); */
    background-image: url("./assets/background.png");
    background-position: center;
    width: 99.6%;
@@ -65,58 +23,40 @@
    border-color: none;
  }
 
-.container {
-  border: 1px solid rgb(255, 51, 0);
-  /* width: 136% */
-}
-
- /* .formOutCon {
-  border: 1px solid gold; 
-  display: flex; 
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-
- } */
+ .container {
+   border: 1px solid rgb(255, 51, 0);
+ }
 
  .noImgAlbMsg {
-  display: flex; 
-  flex-direction: row;
-  justify-content: center;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
  }
 
  .noImgMsg {
-  color: #fa785b; 
+   color: #fa785b;
  }
 
  .albmsCon {
-  box-sizing: border-box;
-    width: 15.8rem;
-    height: 18rem;
-    position: relative;
-    display: inline-block;
+   box-sizing: border-box;
+   width: 15.8rem;
+   height: 18rem;
+   position: relative;
+   display: inline-block;
  }
- 
- @media (max-width: 768px){
-  .mainContainer{
-    flex-direction: column;
-    width: 100%;
-  }
 
-  .navCon {
-    width: 20%;
-    flex-direction: row;
-    height: auto;
-    border-color: aqua;
-    
+ @media (max-width: 768px) {
+   .mainContainer {
+     flex-direction: column;
+     width: 100%;
+   }
 
-  }
-  
-
-  }
-
- 
-    
+   .navCon {
+     width: 20%;
+     flex-direction: row;
+     height: auto;
+     border-color: aqua;
 
 
-    
+   }
+ }

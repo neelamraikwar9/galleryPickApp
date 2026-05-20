@@ -5,15 +5,16 @@
     border: 1px solid #555;
     border-radius: 8px;
     color: #fff;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .sharedImgCon {
-    border: none; 
+    border: none;
 }
-.sharedImgs{
-    width: 100%; 
+
+.sharedImgs {
+    width: 100%;
     height: 160px;
     object-fit: cover;
-    border-radius: 10px; 
+    border-radius: 10px;
 }

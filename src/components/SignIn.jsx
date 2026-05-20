@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import "./signIn.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useAuth } from "../context/AuthContext";
 
@@ -96,7 +95,7 @@ const SignIn = () => {
                 required
                 className="fieldGap"
                 placeholder="Your Password"
-                autoComplete="current-password" // fixed autoComplete suppressHydrationWarning.
+                autoComplete="current-password" 
               />
 
               <button type="button" onClick={handleEyeClick} className="eyeBtn">
