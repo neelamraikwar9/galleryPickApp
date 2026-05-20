@@ -50,11 +50,11 @@ const SharedAlbums = () => {
   };
 
   return (
-    <main>
+    <main className="sharedAlbmCont">
       <div>
-        <h1 className=" shAlHdTxt">
+        <h2 className=" shAlHdTxt">
           {sharedAlbums.length === 1 ? "Album" : "Albums"} Shared With Me📂
-        </h1>
+        </h2>
       </div>
 
       <div className="noImgAlbMsg noAlMsg">
