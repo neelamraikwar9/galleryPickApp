@@ -21,10 +21,11 @@
 
 .shardAlbOutCont {
     /* border: 1px solid #ccc; */
-    width: 250px;
+    width: 230px;
     height: 210px;
     border-radius: 1rem;
     background: #272732;
+    margin: 0 1rem; 
 }
 
 
