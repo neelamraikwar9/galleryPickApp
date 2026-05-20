@@ -63,7 +63,7 @@ const SharedAlbums = () => {
         ) : error ? (
           <p style={{ color: "red" }}>{error}</p>
         ) : sharedAlbums.length === 0 ? (
-          <p>No albums have been shared with you yet.</p>
+          <p className="noImgMsg">No albums have been shared with you yet.</p>
         ) : null}
       </div>
 
@@ -86,17 +86,12 @@ const SharedAlbums = () => {
                   {album.sharedUsers
                     .filter((u) => u.email === getUserEmail(token))
                     .map((u) => (
-                      <span
-                        key={u.email}
-                        className="pStyle"
-                      >
+                      <span key={u.email} className="pStyle">
                         Status: {u.accessLevel}
                       </span>
                     ))}
                 </div>
-                <div
-                  className="vBtnCont"
-                >
+                <div className="vBtnCont">
                   <button
                     onClick={() => navigate(`/sharedAlbums/${album._id}`)}
                     className="vBtnStyl"

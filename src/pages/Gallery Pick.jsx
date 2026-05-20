@@ -208,11 +208,7 @@ const GalleryPick = () => {
                 src={img.imgUrl}
                 alt="image"
                 className="allImagesStyl"
-                // style={{
-                //   width: "200px",
-                //   height: "200px",
-                //   objectFit: "cover",
-                // }}
+               
               />
               <button
                 className="heartBtn"

@@ -59,7 +59,7 @@ const SharedAlbumImages = () => {
         ) : error ? (
           <p style={{ color: "red" }}>{error}</p>
         ) : images.length === 0 ? (
-          <p>No images in this album.</p>
+          <p className="noImgMsg">No images in this album.</p>
         ) : null}
       </div>
 
