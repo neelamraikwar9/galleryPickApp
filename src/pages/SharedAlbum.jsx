@@ -52,7 +52,7 @@ const SharedAlbums = () => {
   return (
     <main>
       <div>
-        <h1 className="welTxt marginBtm shAlHdTxt">
+        <h1 className=" shAlHdTxt">
           {sharedAlbums.length === 1 ? "Album" : "Albums"} Shared With Me📂
         </h1>
       </div>
