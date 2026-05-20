@@ -58,7 +58,8 @@
 
 @media(max-width: 600px){
     .shAlHdTxt {
-        margin: 4rem 4rem; 
+        /* margin: 4rem 4rem;  */
+        margin: 0; 
         padding: 0;
         border: 1px solid green; 
     
