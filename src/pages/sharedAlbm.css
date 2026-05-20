@@ -1,16 +1,21 @@
 .sharedAlbmCont {
     width: 100%; 
-    border: 1px solid red; 
+    /* border: 1px solid red;  */
 }
 .shAlHdTxt {
     /* margin-left: 20rem; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
 }
 
 .marginR {
     margin-right: 5rem;
+}
+
+.sharedAlCont {
+    border: 1px solid green; 
+    margin: 1rem; 
 }
 
 .shardAlbOutCont {
@@ -58,15 +63,14 @@
 
 @media(max-width: 600px){
     .shAlHdTxt {
-        /* margin: 4rem 4rem;  */
-        margin: 0; 
+        margin-top: 1rem; 
         padding: 0;
-        border: 1px solid green; 
+        /* border: 1px solid green;  */
     
     }
 
     .sharedAlCont {
-        border: 1px solid blue; 
+        /* border: 1px solid blue;  */
         margin-top: 2rem;
     }
 }
