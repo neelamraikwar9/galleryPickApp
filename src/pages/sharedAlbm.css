@@ -1,5 +1,5 @@
 .sharedAlbmCont {
-    width: 100%; 
+    width: 160%; 
     border: 1px solid red; 
 }
 .shAlHdTxt {
@@ -20,6 +20,8 @@
     border-radius: 1rem;
     background: #272732;
 }
+
+
 
 .shardAlbCont {
     /* border: 1px solid green; */
@@ -56,7 +58,7 @@
 
 @media(max-width: 600px){
     .shAlHdTxt {
-        margin: 0; 
+        margin: 0 1rem; 
         padding: 0;
         border: 1px solid green; 
     }

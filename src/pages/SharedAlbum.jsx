@@ -52,7 +52,7 @@ const SharedAlbums = () => {
   return (
     <main className="sharedAlbmCont">
       <div>
-        <h2 className=" shAlHdTxt">
+        <h2 className="shAlHdTxt">
           {sharedAlbums.length === 1 ? "Album" : "Albums"} Shared With Me📂
         </h2>
       </div>
@@ -67,7 +67,7 @@ const SharedAlbums = () => {
         ) : null}
       </div>
 
-      <div className="albmmOutCont">
+      <div className="albmmOutCont sharedAlCont">
         {sharedAlbums.map((album) => (
           <div className="albmsCon">
             <div key={album._id} className="albumCont shardAlbOutCont">
