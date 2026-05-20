@@ -66,7 +66,7 @@ const SharedAlbumImages = () => {
       <div className="albmmOutCont">
         <div className="favImgContainer">
           {images.map((img) => (
-            <div key={img._id} className="imgContainer ">
+            <div key={img._id} className="imgContainer sharedImgCont">
               <img
                 src={img.imgUrl}
                 alt={img.name}
