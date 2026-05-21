@@ -5,8 +5,8 @@
  .mainContainer {
    display: flex;
    flex-direction: row;
-   height: 100%;
-   height: auto; 
+   height: 98%;
+   /* height: auto;  */
    border: 1px solid rgb(135, 238, 39);
    width: 99.6%;
    
