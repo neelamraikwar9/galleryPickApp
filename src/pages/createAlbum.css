@@ -60,5 +60,6 @@
 @media(max-width: 768px){
     .albumOuterContainer {
         width: 22rem; 
+        margin-bottom: 1rem;
     }
 }

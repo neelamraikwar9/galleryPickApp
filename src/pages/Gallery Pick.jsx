@@ -194,7 +194,7 @@ const GalleryPick = () => {
             <div
               key={img._id}
               className="imgContainer"
-              style={{ height: "15rem" }}
+              style={{ height: "12rem" }}
             >
               <img src={img.imgUrl} alt="image" className="allImagesStyl" />
               <button

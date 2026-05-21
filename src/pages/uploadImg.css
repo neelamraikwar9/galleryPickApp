@@ -43,6 +43,7 @@
 }
 
 @media (max-width: 768px) {
+
     .imgUploadCon {
         width: 20rem;
         padding: 1.1rem;
@@ -50,5 +51,9 @@
 
     .outImgUplCon {
         width: 20rem;
+    }
+
+    .formContainer {
+        width: 20rem; 
     }
 }
