@@ -141,8 +141,9 @@ const UploadImg = () => {
                 {albums.length === 0 ? (
                   <option value>Create an album first</option>
                 ) : (
-                  <option value="">Choose album... </option>
+                  <option value="">Slect an album... </option>
                 )}
+                
                 {albums?.map((albm) => (
                   <option key={albm._id} value={albm._id}>
                     {albm.name}
