@@ -114,7 +114,7 @@ const UploadImg = () => {
     <main className="outImgUplCon">
       <div className="albumOutCon">
         <div className="imgUploadCon">
-          <h2>Add image📷</h2>
+          <h2>Add an Image 📷</h2>
           <form onSubmit={handleUpload} className="formContainer">
             <div className="imgCon fieldCon">
               <label htmlFor="imgUrl">Select Image: </label>
