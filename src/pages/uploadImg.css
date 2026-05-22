@@ -60,6 +60,23 @@
     width: 60rem;
 }
 
+.selctImgCon {
+    border: 1px solid red;
+    width: 22rem;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    justify-content: space-around; 
+    margin-top: 2rem;
+}
+
+.selectImg {
+    border: 1px solid yellow; 
+    width: 6rem; 
+    padding: 1px;
+    margin: 0 1rem;
+}
+
 @media (max-width: 768px) {
 
     .imgUploadCon {

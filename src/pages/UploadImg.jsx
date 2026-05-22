@@ -116,27 +116,8 @@ const UploadImg = () => {
         <div className="imgUploadCon">
           <h2>Add an Image 📷</h2>
           <form onSubmit={handleUpload} className="formContainer">
-            <div
-              className=" fieldCon"
-              style={{
-                // border: "1px solid red",
-                width: "22rem",
-                display: "flex",
-                flexDirection: "row",
-                padding: "1rem ",
-                // justifyContent: "space-around",
-                marginTop: "2rem",
-              }}
-            >
-              <label
-                htmlFor="imgUrl"
-                style={{
-                  // border: "1px solid yellow",
-                  width: "6rem",
-                  padding: "1px",
-                  margin: "0 1rem",
-                }}
-              >
+            <div className=" fieldCon selctImgCon">
+              <label htmlFor="imgUrl" className="selectImg">
                 Select Image:
               </label>
               <input
