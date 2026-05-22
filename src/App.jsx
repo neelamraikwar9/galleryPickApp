@@ -1,0 +1,58 @@
+import "./App.css";
+import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import GalleryPick from "./pages/Gallery Pick";
+import { ToastContainer } from "react-toastify";
+import ProtectedLayout from "./components/ProtectedLayout";
+import UploadImg from "./pages/UploadImg";
+import CreateAlbum from "./pages/CreateAlbum";
+import PageNoteFound from "./pages/PageNoteFound";
+import Favourites from "./pages/Favourites";
+import RefreshHandler from "./RefreshHandler";
+import Albums from "./pages/Albums";
+import AuthSuccess from "./pages/AuthSuccess";
+import SharedAlbums from "./pages/SharedAlbum";
+import SharedAlbumImages from "./pages/SharedAlbumImages";
+
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to="/signin" />;
+  };
+
+  return (
+    <>
+      <div>
+        <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
+        <Routes>
+          <Route path="/" element={<Navigate to="/signin" />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/auth-success" element={<AuthSuccess />} />
+          <Route element={<ProtectedLayout />}>
+            <Route
+              path="/galleryPick"
+              element={<PrivateRoute element={<GalleryPick />} />}
+            />
+            <Route path="/uploadImg" element={<UploadImg />}></Route>
+            <Route path="/createAlbum" element={<CreateAlbum />}></Route>
+            <Route path="/albums" element={<Albums />}></Route>
+            <Route path="/favourite" element={<Favourites />}></Route>
+            <Route path="/sharedAlbums" element={<SharedAlbums />}></Route>
+            <Route
+              path="/sharedAlbums/:albumId"
+              element={<SharedAlbumImages />}
+            ></Route>
+          </Route>
+          <Route path="*" element={<PageNoteFound />}></Route>
+        </Routes>
+        <ToastContainer />
+      </div>
+    </>
+  );
+}
+
+export default App;

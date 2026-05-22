@@ -1,0 +1,36 @@
+.favImgContainer {
+    margin: 3rem;
+    /* border: 1px solid red; */
+}
+
+.favImgHeight {
+    height: 13rem;
+}
+
+.favImgStyl {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.favHedTxt {
+    /* border: 1px solid blue;  */
+    margin: 1rem 20rem;
+}
+
+.favImgMsg {
+    /* border: 1px solid red;  */
+    margin: 1rem 20rem;
+
+}
+
+
+@media (max-width: 600px) {
+    .favHedTxt {
+        margin: 0;
+    }
+
+    .favImgMsg {
+        margin: 0
+    }
+}

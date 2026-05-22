@@ -1,0 +1,38 @@
+.albumCont {
+    border: 1px solid rgb(250, 253, 250);
+    width: 15rem;
+    height: 10rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.albImg {
+    /* border:1px solid red;  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.marginBtm {
+    margin-bottom: 3rem;
+}
+
+.albmmOutCont {
+    margin: 0 3rem;
+    /* border: 1px solid red */
+}
+
+.noAlMsg {
+    margin: 0 15rem; 
+}
+
+
+@media(max-width: 600px){
+    .noAlMsg {
+        margin: 0 0; 
+    }
+}

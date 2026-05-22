@@ -1,0 +1,66 @@
+.addSharedCon {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(199, 200, 199);   
+    padding: 5px;
+    width: 20rem; 
+}
+
+.accCon {
+    padding-top: 5px;
+}
+
+.userBtnCon {
+    display: flex;
+    /* border: 1px solid green; */
+    justify-content: center;
+}
+
+.addUserBtn {
+    width: 80px;
+}
+
+.addAlbmTxt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.albmContainer {
+    border: 1px solid rgb(247, 249, 247);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.albumOutCon {
+    width: 50rem;
+    /* border: 1px solid rgb(0, 255, 30);  */
+    height: auto;
+}
+
+.addAlbBtn {
+    /* border: 1px solid orangered;  */
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.albumOuterContainer {
+    /* border: 1px solid yellow; */
+    display: flex;
+    justify-content: center; 
+    width: 64rem;
+}
+
+@media(max-width: 768px){
+    .albumOuterContainer {
+        width: 22rem; 
+        margin-bottom: 1rem;
+    }
+}

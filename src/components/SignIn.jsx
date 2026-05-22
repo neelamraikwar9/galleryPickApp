@@ -1,0 +1,144 @@
+import React from "react";
+import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { useAuth } from "../context/AuthContext";
+
+const SignIn = () => {
+  const { setUser } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
+  console.log(email, password, "Data");
+
+  const token = localStorage.getItem("token");
+  console.log(token, "token");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        // "http://localhost:4000/auth/login",
+        "https://gallery-pick-apis-lfxz.vercel.app/auth/login",
+
+        { email, password },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+
+      console.log(res, "res");
+      toast.success(res.data?.message);
+
+      const { message, jwtToken, name } = res.data;
+      localStorage.setItem("token", jwtToken);
+      localStorage.setItem("loggedInUser", name);
+
+      setUser({ name });
+
+      navigate("/galleryPick");
+    } catch (error) {
+      console.error("Login error: ", error);
+      if (error.response?.status === 401) {
+        toast.error("Invalid credentials.");
+      } else {
+        toast.error(error.response?.data?.message || "Login failed!");
+      }
+    }
+  };
+
+  const handleEyeClick = () => {
+    setVisible(!visible);
+  };
+
+  return (
+    <div className="logSignContainer container">
+      <div className="signUpInContainer">
+        <div>
+          <h1 className="logoTxt">Gallery Pick</h1>
+          <p className="phrase">
+            <i>Sign in to access your photos and memories</i>
+          </p>
+        </div>
+        <div className="formStyle">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email" className="label">
+                Email:{" "}
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="fieldGap"
+                placeholder="Your Email"
+              />
+            </div>
+            <br />
+
+            <div>
+              <label htmlFor="password" className="label">
+                Password:{" "}
+              </label>
+              <input
+                type={visible ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="fieldGap"
+                placeholder="Your Password"
+                autoComplete="current-password" 
+              />
+
+              <button type="button" onClick={handleEyeClick} className="eyeBtn">
+                {visible ? (
+                  <i className="bi bi-eye"></i>
+                ) : (
+                  <i className="bi bi-eye-slash"></i>
+                )}
+              </button>
+            </div>
+
+            <br />
+            <button className="signInBtn" type="submit">
+              Sign In
+            </button>
+          </form>
+          <div>
+            <p>---- Or Sign In with ----</p>
+            <button
+              className="btn"
+              type="button"
+              onClick={() =>
+                // (window.location.href = "http://localhost:4000/auth/google")
+                (window.location.href =
+                  "https://gallery-pick-apis-lfxz.vercel.app/auth/google")
+              }
+            >
+              <img
+                src="https://cdn-teams-slug.flaticon.com/google.jpg"
+                alt="Google"
+                className="googleImg"
+              />
+            </button>
+            <Link to="/signup">
+              <p>
+                <i>Don't have an account? Create a new Account!</i>
+              </p>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SignIn;

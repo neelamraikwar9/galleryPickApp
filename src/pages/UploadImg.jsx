@@ -1,0 +1,230 @@
+import React, { useState, useEffect, useRef } from "react";
+import "../App.css";
+import "./uploadImg.css";
+import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
+const UploadImg = () => {
+  const [msg, setMsg] = useState("");
+  const [uploadImg, setUploadImg] = useState("");
+  const [albums, setAlbums] = useState([]);
+  console.log(albums, "albums");
+
+  const [image, setImage] = useState(null);
+  const [album, setAlbum] = useState([]);
+  const [name, setName] = useState("");
+  const [tags, setTags] = useState("");
+  const [person, setPerson] = useState("");
+  const [comment, setComment] = useState("");
+  const fileInputRef = useRef(null);
+
+  console.log(image, album, name, person, comment, "dataaa... ");
+
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    const getAllAlbums = async () => {
+      try {
+        // const res = await axios.get("http://localhost:4000/albums", {
+        const res = await axios.get(
+          "https://gallery-pick-apis-lfxz.vercel.app/albums",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        console.log(res, "res");
+
+        if (res.data) {
+          setAlbums(res.data);
+        } else {
+          setAlbums("No albums yet");
+        }
+      } catch (error) {
+        console.error(error);
+        setMsg("Failed to load images");
+      }
+    };
+
+    getAllAlbums();
+  }, []);
+
+  const handleImgUpload = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+
+    if (!image && !album && !name && !person && !comment) {
+      toast.error("Please fill all the fields.");
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("You must logged in to upload images.");
+      return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("image", image);
+    formData.append("albumId", album);
+    formData.append("name", name);
+    formData.append("tags", tags);
+    formData.append("person", person);
+    formData.append("comments", comment);
+
+    try {
+      const response = await axios.post(
+        // "http://localhost:4000/upload",
+        "https://gallery-pick-apis-lfxz.vercel.app/upload",
+
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      setUploadedImageUrl(response.data.images);
+      toast.success("Image uploaded successfully.");
+
+      fileInputRef.current.value = "";
+      setImage(null);
+      setAlbum("");
+      setName("");
+      setTags("");
+      setPerson("");
+      setComment("");
+    } catch (error) {
+      console.log(error);
+      toast.error("Image upload failed.");
+    }
+  };
+
+  return (
+    <main className="outImgUplCon">
+      <div className="albumOutCon">
+        <div className="imgUploadCon">
+          <h2>Add an Image 📷</h2>
+          <form onSubmit={handleUpload} className="formContainer">
+            <div className=" fieldCon selctImgCon">
+              <label htmlFor="imgUrl" className="selectImg">
+                Select Image:
+              </label>
+              <input
+                type="file"
+                ref={fileInputRef}
+                id="imgUrl"
+                onChange={handleImgUpload}
+                required
+                className="imgInp"
+                style={{
+                  // border: "1px solid yellow",
+                  width: "13rem",
+                  marginTop: "3px",
+                }}
+              />
+            </div>
+
+            <div className="fieldCon">
+              <label htmlFor="album">Select Album: </label>
+              <select
+                name="albumId"
+                id="album"
+                value={album}
+                onChange={(e) => setAlbum(e.target.value)}
+                className="inptStl"
+                required
+              >
+                {/* <option value="">Choose album... </option> */}
+                {albums.length === 0 ? (
+                  <option value>Create an album first</option>
+                ) : (
+                  <option value="">Slect an album... </option>
+                )}
+
+                {albums?.map((albm) => (
+                  <option key={albm._id} value={albm._id}>
+                    {albm.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="fieldCon">
+              <label>Name: </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Vacation Photo"
+                className="inptStl"
+                required
+              />
+            </div>
+
+            <div className="fieldCon">
+              <label htmlFor="tags">Tags: </label>
+
+              <input
+                type="text"
+                id="tags"
+                value={tags}
+                placeholder="Beach, Sunset"
+                onChange={(e) => setTags(e.target.value)}
+                className="inptStl"
+                required
+              />
+            </div>
+
+            <div className="fieldCon">
+              <label htmlFor="person">Person: </label>
+              <input
+                type="text"
+                id="person"
+                value={person}
+                placeholder="River"
+                onChange={(e) => setPerson(e.target.value)}
+                className="inptStl"
+                // required
+              />
+            </div>
+
+            <div className="fieldCon">
+              <label htmlFor="comments">Comment: </label>
+              <textarea
+                type="text"
+                name="comments"
+                id="comments"
+                value={comment}
+                placeholder="Write your comment"
+                onChange={(e) => setComment(e.target.value)}
+                className="inptStl textariaStyl"
+              ></textarea>
+            </div>
+
+            <br />
+            <div className="fieldCon uplImgBtn">
+              <button type="submit" className="btnStyl">
+                Upload Image
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default UploadImg;

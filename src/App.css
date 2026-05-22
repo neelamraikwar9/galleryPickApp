@@ -1,0 +1,67 @@
+ #root {
+   max-width: 1280px;
+ }
+
+ .mainContainer {
+   display: flex;
+   flex-direction: row;
+   height: 90%;
+   /* height: auto;  */
+   /* border: 1px solid rgb(135, 238, 39); */
+   width: 99.6%;
+   
+ }
+
+ .logSignContainer {
+   display: flex;
+   background-size: cover;
+   background-position: center;
+   background-image: url("./assets/background.png");
+   background-position: center;
+   width: 99.6%;
+   height: 99.5vh;
+   margin: 0;
+   border-color: none;
+ }
+
+ .container {
+   border: 1px solid rgb(255, 51, 0);
+ }
+
+ .noImgAlbMsg {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }
+
+ .noImgMsg {
+   color: #fa785b;
+ }
+
+ .albmsCon {
+   box-sizing: border-box;
+   width: 15.8rem;
+   height: 18rem;
+   position: relative;
+   display: inline-block;
+ }
+
+ .btnStyl {
+  background-color: rgb(107, 179, 0); 
+ }
+
+ @media (max-width: 768px) {
+   .mainContainer {
+     flex-direction: column;
+     width: 100%;
+   }
+
+   .navCon {
+     width: 20%;
+     flex-direction: row;
+     height: auto;
+     border-color: aqua;
+
+
+   }
+ }

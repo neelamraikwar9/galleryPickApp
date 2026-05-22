@@ -1,0 +1,79 @@
+/* .container {
+border: 1px solid rgb(139, 241, 79);
+width: 136%
+} */
+
+
+
+.welCon {
+    padding-top: 2%;
+}
+
+.userName {
+    font-weight: 500;
+    font-size: 2rem;
+    text-shadow: 2;
+    text-align: center;
+}
+
+.welTxt {
+    text-align: center;
+}
+
+.allImgesCont {
+    margin: 1rem 3rem;
+    /* border: 1px solid red; */
+    height: 10rem; 
+}
+
+.imgContainer {
+    border: 1px solid greenyellow;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    margin: 1rem;
+    border-radius: 1%;
+}
+
+.heartBtn {
+    /* border: 1px solid blueviolet; */
+    position: absolute;
+    top: 3px;
+    right: 2rem;
+    background: none;
+    border: none;
+    cursor: point;
+    padding: 0;
+
+}
+
+.allImagesStyl {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+
+.userAccCon {
+    border: 1px solid green;
+    display: flex;
+    width: 40rem;
+    justify-content: end;
+    align-items: end;
+}
+
+.delBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noImgMsgOnGalPic {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 5rem;
+}
+
+.loadingMsg {
+    text-align: center;
+}
