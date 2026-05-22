@@ -22,8 +22,8 @@ width: 136%
 
 .allImgesCont {
     margin: 1rem 3rem;
-    /* border: 1px solid red; */
-    height: 20rem; 
+    border: 1px solid red;
+    height: 10rem; 
 }
 
 .imgContainer {
