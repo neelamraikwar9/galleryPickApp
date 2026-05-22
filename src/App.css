@@ -25,7 +25,7 @@
  }
 
  .container {
-   border: 1px solid rgb(255, 51, 0);
+   /* border: 1px solid rgb(255, 51, 0); */
  }
 
  .noImgAlbMsg {
@@ -48,6 +48,7 @@
 
  .btnStyl {
   background-color: rgb(107, 179, 0); 
+  border-radius: 3px;
  }
 
  @media (max-width: 768px) {

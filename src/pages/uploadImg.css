@@ -61,7 +61,7 @@
 }
 
 .selctImgCon {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 22rem;
     display: flex;
     flex-direction: row;
@@ -71,7 +71,7 @@
 }
 
 .selectImg {
-    border: 1px solid yellow; 
+    /* border: 1px solid yellow;  */
     width: 6rem; 
     padding: 1px;
     margin: 0 1rem;
