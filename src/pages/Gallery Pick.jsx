@@ -180,9 +180,16 @@ const GalleryPick = () => {
             <p style={{ color: "red" }}>{error}</p>
           ) : images.length === 0 ? (
             <div className="noImgMsgOnGalPic">
+<<<<<<< HEAD
               <p className="noImgMsg">No images yet.</p>
               <p style={{ color: "pink" }}>
                 Please create an album first, then add images to it.
+=======
+              <p className="noImgMsg">Not images yet!</p>
+              <p style={{ color: "pink" }}>
+                Add images make sure to select an album so create album first
+                then add images to the album.
+>>>>>>> cb6dbf9a5ad1bad55a4f438163592aa336a91e08
               </p>
             </div>
           ) : null}
