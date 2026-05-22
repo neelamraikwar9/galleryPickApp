@@ -1,8 +1,9 @@
 .addSharedCon {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(199, 200, 199);
+    border: 1px solid rgb(199, 200, 199);   
     padding: 5px;
+    width: 20rem; 
 }
 
 .accCon {
@@ -45,7 +46,7 @@
 
 .addAlbBtn {
     /* border: 1px solid orangered;  */
-    margin-top: 1rem;
+    margin: 1rem 0;
     display: flex;
     justify-content: center;
 }

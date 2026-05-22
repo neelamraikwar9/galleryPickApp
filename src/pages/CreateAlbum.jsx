@@ -120,17 +120,20 @@ const CreateAlbum = () => {
               value={albumName}
               placeholder="Enter Album Name"
               onChange={(e) => setAlbumName(e.target.value)}
+              className="inptStl"
             />
           </div>
 
           <div className="fieldCon">
             <label htmlFor="des">Description: </label>
-            <input
+            <textarea
               type="text"
               id="des"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-            />
+              className="inptStl"
+              placeholder="Write your description..."
+            ></textarea>
           </div>
 
           <div className="addSharedCon">
@@ -143,6 +146,7 @@ const CreateAlbum = () => {
                 placeholder="user@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="inptStl"
                 // required
               />
             </div>
@@ -153,6 +157,7 @@ const CreateAlbum = () => {
                 id="access"
                 value={accessLevel}
                 onChange={(e) => setAccessLevel(e.target.value)}
+                className="inptStl"
               >
                 <option value="view">View</option>
                 <option value="edit">Edit</option>
@@ -194,7 +199,9 @@ const CreateAlbum = () => {
             </ul>
           </div>
           <div className="addAlbBtn">
-            <button type="submit">Add Album</button>
+            <button type="submit" className="btnStyl">
+              Add Album
+            </button>
           </div>
         </form>
       </div>

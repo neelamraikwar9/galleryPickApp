@@ -46,6 +46,10 @@
    display: inline-block;
  }
 
+ .btnStyl {
+  background-color: rgb(107, 179, 0); 
+ }
+
  @media (max-width: 768px) {
    .mainContainer {
      flex-direction: column;

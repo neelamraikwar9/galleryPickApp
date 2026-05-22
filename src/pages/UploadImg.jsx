@@ -116,8 +116,29 @@ const UploadImg = () => {
         <div className="imgUploadCon">
           <h2>Add an Image 📷</h2>
           <form onSubmit={handleUpload} className="formContainer">
-            <div className="imgCon fieldCon">
-              <label htmlFor="imgUrl">Select Image: </label>
+            <div
+              className=" fieldCon"
+              style={{
+                // border: "1px solid red",
+                width: "22rem",
+                display: "flex",
+                flexDirection: "row",
+                padding: "1rem ",
+                // justifyContent: "space-around",
+                marginTop: "2rem",
+              }}
+            >
+              <label
+                htmlFor="imgUrl"
+                style={{
+                  // border: "1px solid yellow",
+                  width: "6rem",
+                  padding: "1px",
+                  margin: "0 1rem",
+                }}
+              >
+                Select Image:
+              </label>
               <input
                 type="file"
                 ref={fileInputRef}
@@ -125,6 +146,11 @@ const UploadImg = () => {
                 onChange={handleImgUpload}
                 required
                 className="imgInp"
+                style={{
+                  // border: "1px solid yellow",
+                  width: "13rem",
+                  marginTop: "3px",
+                }}
               />
             </div>
 
@@ -135,6 +161,7 @@ const UploadImg = () => {
                 id="album"
                 value={album}
                 onChange={(e) => setAlbum(e.target.value)}
+                className="inptStl"
                 required
               >
                 {/* <option value="">Choose album... </option> */}
@@ -143,7 +170,7 @@ const UploadImg = () => {
                 ) : (
                   <option value="">Slect an album... </option>
                 )}
-                
+
                 {albums?.map((albm) => (
                   <option key={albm._id} value={albm._id}>
                     {albm.name}
@@ -161,6 +188,7 @@ const UploadImg = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Vacation Photo"
+                className="inptStl"
                 required
               />
             </div>
@@ -172,8 +200,9 @@ const UploadImg = () => {
                 type="text"
                 id="tags"
                 value={tags}
-                placeholder="beach, sunset, 2025"
+                placeholder="Beach, Sunset"
                 onChange={(e) => setTags(e.target.value)}
+                className="inptStl"
                 required
               />
             </div>
@@ -186,25 +215,29 @@ const UploadImg = () => {
                 value={person}
                 placeholder="River"
                 onChange={(e) => setPerson(e.target.value)}
+                className="inptStl"
                 // required
               />
             </div>
 
             <div className="fieldCon">
               <label htmlFor="comments">Comment: </label>
-              <input
+              <textarea
                 type="text"
                 name="comments"
                 id="comments"
                 value={comment}
                 placeholder="Write your comment"
                 onChange={(e) => setComment(e.target.value)}
-              />
+                className="inptStl textariaStyl"
+              ></textarea>
             </div>
 
             <br />
-            <div className="fieldCon">
-              <button type="submit">Upload Image</button>
+            <div className="fieldCon uplImgBtn">
+              <button type="submit" className="btnStyl">
+                Upload Image
+              </button>
             </div>
           </form>
         </div>
