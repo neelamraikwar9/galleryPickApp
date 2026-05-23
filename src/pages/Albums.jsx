@@ -1,16 +1,19 @@
 import React from "react";
 import "./albums.css";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 
 const Albums = () => {
+  const navigate = useNavigate();
   const [albms, setAlbms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
+  // const [sharedAlbums, setSharedAlbums] = useState([]);  
 
   const token = localStorage.getItem("token");
 
@@ -103,9 +106,9 @@ const Albums = () => {
                       style={{ marginLeft: "3px" }}
                     ></i>
                   </button>
-                  <button className="viewBtn">View</button>
+                  <button className="viewBtn" onClick={() => navigate(`/albums/${albm._id}`)}>View</button>
                   <button className="deltBtn" value={albm._id} onClick={handleDeleteAlbm}>
-                    Delete<i class="bi bi-trash-fill"></i>
+                    Delete<i className="bi bi-trash-fill"></i>
                   </button>
                 </div>
               </div>
