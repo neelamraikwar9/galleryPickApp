@@ -39,6 +39,18 @@
     gap: 10px
 }
 
+.albmBtnsCont button {
+    border-radius: 1rem;
+}
+
+.viewBtn {
+    background-color:oklch(79.2% 0.209 151.711)
+}
+
+.deltBtn {
+    background-color: oklch(71.2% 0.194 13.428);
+}
+
 
 @media(max-width: 600px){
     .noAlMsg {

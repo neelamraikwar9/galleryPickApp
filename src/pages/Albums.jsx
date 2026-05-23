@@ -91,13 +91,20 @@ const Albums = () => {
                 {/* <div className="albImg"> */}
 
                 <p className="pStyle">Description: {albm.description}</p>
-                <p className="pStyle">Shared by: {albm.ownerId.name}</p>
+                <p className="pStyle">Created by: {albm.ownerId.name}</p>
                 <div className="albmBtnsCont">
-                  <button>
-                    Share<i class="bi bi-share-fill"></i>
+                  <button
+                  className="shareBtn"
+                    style={{ backgroundColor: "oklch(74.6% 0.16 232.661)" }}
+                  >
+                    Share
+                    <i
+                      class="bi bi-share-fill"
+                      style={{ marginLeft: "3px" }}
+                    ></i>
                   </button>
-                  <button>View</button>
-                  <button value={albm._id} onClick={handleDeleteAlbm}>
+                  <button className="viewBtn">View</button>
+                  <button className="deltBtn" value={albm._id} onClick={handleDeleteAlbm}>
                     Delete<i class="bi bi-trash-fill"></i>
                   </button>
                 </div>
