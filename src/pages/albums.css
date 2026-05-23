@@ -30,6 +30,15 @@
     margin: 0 15rem; 
 }
 
+.albmBtnsCont {
+    /* border: 1px solid greenyellow;  */
+    display: flex; 
+    flex-direction: row;
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    gap: 10px
+}
+
 
 @media(max-width: 600px){
     .noAlMsg {

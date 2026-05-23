@@ -73,21 +73,32 @@ const Albums = () => {
         ) : error ? (
           <p style={{ color: "red" }}>{error}</p>
         ) : albms.length === 0 ? (
-          <p className="noImgMsg">
-            Not any Album yet. Navigate to Create Album in the Navbar.
-          </p>
+          <div className="noImgMsgOnGalPic">
+            <p className="noImgMsg">No Album yet.</p>
+            <p style={{ color: "pink" }}>
+              Navigate to Create Album in the Navbar to create an Album.
+            </p>
+          </div>
         ) : null}
       </div>
-      <div className="albmmOutCont">
+      <div className="albmmOutCont sharedAlCont">
         {albms.map((albm) => (
-          <div className="albmsCon">
-            <div key={albm._id} className="albumCont">
-              <div>
-                <p>{albm.name}</p>
-                <div className="albImg">
-                  <i class="bi bi-image" style={{ fontSize: "3rem" }}></i>
+          <div key={albm._id} className="albmsCon ">
+            <div className="albumCont shardAlbOutCont">
+              <div className="shardAlbCont">
+                <h3 className="albumName">{albm.name}</h3>
+                <hr />
+                {/* <div className="albImg"> */}
+
+                <p className="pStyle">Description: {albm.description}</p>
+                <p className="pStyle">Shared by: {albm.ownerId.name}</p>
+                <div className="albmBtnsCont">
+                  <button>
+                    Share<i class="bi bi-share-fill"></i>
+                  </button>
+                  <button>View</button>
                   <button value={albm._id} onClick={handleDeleteAlbm}>
-                    Delete
+                    Delete<i class="bi bi-trash-fill"></i>
                   </button>
                 </div>
               </div>
