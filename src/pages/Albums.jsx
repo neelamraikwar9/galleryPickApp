@@ -6,6 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import ShareAlbumModal from "../components/ShareAlbumModel";
 
 
 const Albums = () => {
@@ -13,7 +14,7 @@ const Albums = () => {
   const [albms, setAlbms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  // const [sharedAlbums, setSharedAlbums] = useState([]);  
+  const [selectedAlbum, setSelectedAlbum] = useState(null);  
 
   const token = localStorage.getItem("token");
 
@@ -65,6 +66,8 @@ const Albums = () => {
       });
     }
   }
+
+   
   return (
     <main>
       <div>
@@ -97,8 +100,9 @@ const Albums = () => {
                 <p className="pStyle">Created by: {albm.ownerId.name}</p>
                 <div className="albmBtnsCont">
                   <button
-                  className="shareBtn"
+                    className="shareBtn"
                     style={{ backgroundColor: "oklch(74.6% 0.16 232.661)" }}
+                    onClick={() => setSelectedAlbum(albm)}
                   >
                     Share
                     <i
@@ -106,8 +110,17 @@ const Albums = () => {
                       style={{ marginLeft: "3px" }}
                     ></i>
                   </button>
-                  <button className="viewBtn" onClick={() => navigate(`/albums/${albm._id}`)}>View</button>
-                  <button className="deltBtn" value={albm._id} onClick={handleDeleteAlbm}>
+                  <button
+                    className="viewBtn"
+                    onClick={() => navigate(`/albums/${albm._id}`)}
+                  >
+                    View
+                  </button>
+                  <button
+                    className="deltBtn"
+                    value={albm._id}
+                    onClick={handleDeleteAlbm}
+                  >
                     Delete<i className="bi bi-trash-fill"></i>
                   </button>
                 </div>
@@ -116,6 +129,18 @@ const Albums = () => {
           </div>
         ))}
       </div>
+
+      {
+     /* ✅ 4. RENDER MODAL — only shows when an album is selected */
+   }
+   {
+     selectedAlbum && (
+       <ShareAlbumModal
+         album={selectedAlbum}
+         onClose={() => setSelectedAlbum(null)}
+       />
+     )
+   }
     </main>
   );
 };

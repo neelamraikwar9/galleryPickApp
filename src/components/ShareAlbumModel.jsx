@@ -103,7 +103,7 @@ const ShareAlbumModal = ({ album, onClose }) => {
           style={{
             width: "100%",
             padding: "9px",
-            background: "#6366f1",
+            background: "oklch(79.2% 0.209 151.711)",
             border: "none",
             borderRadius: "8px",
             color: "#fff",
