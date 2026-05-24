@@ -182,7 +182,7 @@ const CreateAlbum = () => {
                   <button
                     type="button"
                     onClick={() =>
-                      setSharedUsers(sharedUsers.filter((_, u) => u !== index))
+                      setSharedUsers(sharedUsers.filter((_, i) => i !== index))
                     }
                     style={{
                       color: "red",
