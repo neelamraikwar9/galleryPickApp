@@ -64,9 +64,22 @@ width: 136%
 
 .delBtn {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    /* color: oklch(71.2% 0.194 13.428); */
+    /* align-items: center; */
 }
+
+.imgBtn {
+    background: none; 
+    border: none;
+}
+
+.imgName {
+    margin: 0;
+    margin-right: 2rem;
+}
+
+
 
 .noImgMsgOnGalPic {
     display: flex;

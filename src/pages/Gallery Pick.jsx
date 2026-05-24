@@ -188,14 +188,29 @@ const GalleryPick = () => {
           ) : null}
         </div>
 
-        <div className="allImgesCont">
+        <div className="allImgesCont" style={{display: "flex", flexDirection: "row",  }}>
           {images.map((img) => (
             <div
               key={img._id}
-              className="imgContainer"
-              style={{ height: "12rem" }}
+              // className="imgContainer"
+
+              style={{
+                border: "1px solid green",
+                height: "20rem",
+                borderRadius: "14px",
+              }}
             >
-              <img src={img.imgUrl} alt="image" className="allImagesStyl" />
+              <img
+                src={img.imgUrl}
+                alt="image"
+                style={{
+                  border: "1px solid orange",
+                  width: "100%",
+                  height: "200px",
+                  borderRadius: "14px",
+                }}
+                className="allImagesStyl"
+              />
               <button
                 className="heartBtn"
                 onClick={() => toggleFavorite(img._id)}
@@ -214,11 +229,34 @@ const GalleryPick = () => {
                   }}
                 />
               </button>
+
               <div className="delBtn">
-                <button value={img._id} onClick={handleDeleteImgs}>
-                  Delete
+                <button className="imgBtn" style={{ marginTop: "3px" }}>
+                  <i
+                    class="bi bi-pencil-fill"
+                    style={{ marginRight: "2rem", marginTop: "2rem" }}
+                  ></i>
+                </button>
+                <p className="imgName">{img.name}</p>
+
+                <button
+                  className="imgBtn"
+                  value={img._id}
+                  onClick={handleDeleteImgs}
+                >
+                  <i
+                    class="bi bi-trash3-fill"
+                    style={{ color: "oklch(71.2% 0.194 13.428" }}
+                  ></i>
                 </button>
               </div>
+              <p className="imgName">Tags: {img.tags.join(", ")}</p>
+              <p style={{ marign: 0 }}>
+                Comments:{" "}
+                {img.comment === 0
+                  ? "no comments yet"
+                  : "Add comments by editing an image"}{" "}
+              </p>
             </div>
           ))}
         </div>

@@ -90,7 +90,7 @@ const Albums = () => {
       <div className="albmmOutCont sharedAlCont">
         {albms.map((albm) => (
           <div key={albm._id} className="albmsCon ">
-            <div className="albumCont shardAlbOutCont">
+            <div className="albumCont shardAlbOutCont"> 
               <div className="shardAlbCont">
                 <h3 className="albumName">{albm.name}</h3>
                 <hr />
@@ -106,7 +106,7 @@ const Albums = () => {
                   >
                     Share
                     <i
-                      class="bi bi-share-fill"
+                      className="bi bi-share-fill"
                       style={{ marginLeft: "3px" }}
                     ></i>
                   </button>
