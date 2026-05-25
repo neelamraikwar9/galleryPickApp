@@ -189,32 +189,13 @@ const GalleryPick = () => {
           ) : null}
         </div>
 
-        <div
-          className="allImgesCont"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
+        <div className="allImgesCont allGalImgCon">
           {images.map((img) => (
-            <div
-              key={img._id}
-              // className="imgContainer"
-
-              style={{
-                border: "1px solid green",
-                height: "20rem",
-                borderRadius: "14px",
-                position: "relative",
-              }}
-            >
+            <div key={img._id} className="gallImgsCard">
               <img
                 src={img.imgUrl}
                 alt="image"
-                style={{
-                  border: "1px solid orange",
-                  width: "100%",
-                  height: "200px",
-                  borderRadius: "14px",
-                }}
-                className="allImagesStyl"
+                className="allImagesStyl gallImgStyl"
               />
               <button
                 className="heartBtn"
@@ -235,37 +216,49 @@ const GalleryPick = () => {
                 />
               </button>
 
-              <div className="delBtn">
-                <button className="imgBtn" style={{ marginTop: "3px" }}>
+              <div className="imgsBtn">
+                <button className="imgBtn editBtn">
+                  Edit
                   <i
                     class="bi bi-pencil-fill"
-                    style={{ marginRight: "2rem", marginTop: "2rem" }}
+                    style={{
+                      // border: "1px solid red",
+                      marginLeft: "4px",
+                    }}
                   ></i>
                 </button>
                 <p className="imgName">{img.name}</p>
 
                 <button
-                  className="imgBtn"
+                  className="imgBtn delBtn"
                   value={img._id}
                   onClick={handleDeleteImgs}
                 >
+                  Delete
                   <i
                     class="bi bi-trash3-fill"
-                    style={{ color: "oklch(71.2% 0.194 13.428" }}
+                    style={{
+                      marginLeft: "2px",
+                    }}
                   ></i>
                 </button>
               </div>
-              <p className="imgName">Tags: {img.tags.join(", ")}</p>
-              <p style={{ marign: 0 }}>
-                Comments:{" "}
-                {img.comments.length === 0
-                  ? "No comments yet"
-                  : img.comments.map((c) => (
-                      <p key={c._id} style={{ margin: 0 }}>
-                        • {c.text}
-                      </p>
-                    ))}
-              </p>
+
+              <div className="tagCommCont">
+                <p>
+                  <strong>Tags:</strong> {img.tags.join(", ")}
+                </p>
+                <p style={{ marign: 0 }}>
+                  <strong>Comments:</strong>{" "}
+                  {img.comments.length === 0
+                    ? "No comments yet"
+                    : img.comments.map((c) => (
+                        <p key={c._id} style={{ margin: 0 }}>
+                          • {c.text}
+                        </p>
+                      ))}
+                </p>
+              </div>
             </div>
           ))}
         </div>

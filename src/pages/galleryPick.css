@@ -23,7 +23,7 @@ width: 136%
 .allImgesCont {
     margin: 1rem 3rem;
     /* border: 1px solid red; */
-    height: 10rem; 
+    height: 10rem;
 }
 
 .imgContainer {
@@ -39,7 +39,7 @@ width: 136%
     /* border: 1px solid blueviolet; */
     position: absolute;
     top: 3px;
-    right: 2rem;
+    right: 1rem;
     background: none;
     border: none;
     cursor: point;
@@ -62,21 +62,32 @@ width: 136%
     align-items: end;
 }
 
-.delBtn {
+.imgsBtn {
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
     /* color: oklch(71.2% 0.194 13.428); */
-    /* align-items: center; */
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 8px; */
 }
 
 .imgBtn {
-    background: none; 
-    border: none;
+    border: 1px solid rgb(121, 121, 247);
+    margin-top: 2px;
+    border-radius: 5px;
+    padding: "10rem"
 }
 
 .imgName {
-    margin: 0;
+
     margin-right: 2rem;
+    /* text-align: center; */
+    flex: 1;
+    /* add this — makes name take equal space */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+
 }
 
 
@@ -89,4 +100,53 @@ width: 136%
 
 .loadingMsg {
     text-align: center;
+}
+
+.allGalImgCon {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.gallImgsCard {
+    border: 1px solid rgb(135, 204, 174);
+
+    height: auto;
+    width: 18rem;
+    border-radius: 14px;
+    position: relative;
+    margin: 5px;
+}
+
+.gallImgStyl {
+    /* border: 1px solid orange; */
+    width: 100%;
+    height: 200px;
+    border-radius: 14px;
+}
+
+.editBtn {
+    margin-right: 3rem;
+    margin-left: 4px;
+    background-color: oklch(74.6% 0.16 232.661);
+}
+
+.editBtn:hover {
+  background-color: oklch(78.9% 0.154 211.53);
+}
+
+.delBtn {
+margin-right: 5px; 
+/* background-color: oklch(71.2% 0.194 13.428);  */
+background-color:oklch(64.5% 0.246 16.439)
+}
+
+.delBtn:hover {
+/* background-color: oklch(64.5% 0.246 16.439); */
+background-color: oklch(71.2% 0.194 13.428);;
+}
+
+.tagCommCont {
+    /* border: 1px solid orange;  */
+    margin: 0 1rem;
 }
