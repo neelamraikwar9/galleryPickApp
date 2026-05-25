@@ -26,9 +26,9 @@
    border-color: none;
  }
 
- .container {
+ /* .container { */
    /* border: 1px solid rgb(255, 51, 0); */
- }
+ /* } */
 
  .noImgAlbMsg {
    display: flex;

@@ -67,8 +67,8 @@ const SharedAlbums = () => {
 
       <div className="albmmOutCont sharedAlCont">
         {sharedAlbums.map((album) => (
-          <div className="albmsCon">
-            <div key={album._id} className="albumCont shardAlbOutCont">
+          <div key={album._id} className="albmsCon">
+            <div className="albumCont shardAlbOutCont">
               <div className="shardAlbCont">
                 <h3 className="albumName">{album.name}</h3>
                 <hr />

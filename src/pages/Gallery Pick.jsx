@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import ImageEditModel from "../components/ImageEditModel"; 
 
 const GalleryPick = () => {
   const { user, logout } = useAuth();
@@ -19,6 +20,7 @@ const GalleryPick = () => {
   const [isValid, setIsValid] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
+  const [selectEdit, setSelectEdit] = useState(null); 
 
   console.log(loggedInUser, "loggedInUser");
 
@@ -217,7 +219,7 @@ const GalleryPick = () => {
               </button>
 
               <div className="imgsBtn">
-                <button className="imgBtn editBtn">
+                <button className="imgBtn editBtn" onClick={() => setSelectEdit(img._id)}>
                   Edit
                   <i
                     class="bi bi-pencil-fill"
@@ -263,6 +265,10 @@ const GalleryPick = () => {
           ))}
         </div>
       </div>
+
+      {selectEdit && (
+        <ImageEditModel edit={selectEdit} onClose={() => setSelectEdit(null)}/>
+      )}
     </main>
   );
 };
