@@ -14,6 +14,7 @@ const GalleryPick = () => {
   const navigate = useNavigate();
   const [loggedInUser, setLoggedInUser] = useState("");
   const [images, setImages] = useState([]);
+  console.log(images, "images");
   const [msg, setMsg] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -188,7 +189,10 @@ const GalleryPick = () => {
           ) : null}
         </div>
 
-        <div className="allImgesCont" style={{display: "flex", flexDirection: "row",  }}>
+        <div
+          className="allImgesCont"
+          style={{ display: "flex", flexDirection: "row" }}
+        >
           {images.map((img) => (
             <div
               key={img._id}
@@ -198,6 +202,7 @@ const GalleryPick = () => {
                 border: "1px solid green",
                 height: "20rem",
                 borderRadius: "14px",
+                position: "relative",
               }}
             >
               <img
@@ -224,7 +229,7 @@ const GalleryPick = () => {
                   style={{
                     fontSize: "20px",
                     cursor: "pointer",
-                    position: "absolute",
+                    position: "relative",
                     color: favoriteIds.includes(img._id) ? "red" : "white",
                   }}
                 />
@@ -253,9 +258,13 @@ const GalleryPick = () => {
               <p className="imgName">Tags: {img.tags.join(", ")}</p>
               <p style={{ marign: 0 }}>
                 Comments:{" "}
-                {img.comment === 0
-                  ? "no comments yet"
-                  : "Add comments by editing an image"}{" "}
+                {img.comments.length === 0
+                  ? "No comments yet"
+                  : img.comments.map((c) => (
+                      <p key={c._id} style={{ margin: 0 }}>
+                        • {c.text}
+                      </p>
+                    ))}
               </p>
             </div>
           ))}
