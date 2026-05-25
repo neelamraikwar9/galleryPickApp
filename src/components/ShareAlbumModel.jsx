@@ -1,3 +1,4 @@
+import "./modelFiles.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -39,29 +40,8 @@ const ShareAlbumModal = ({ album, onClose }) => {
   };
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        background: "rgba(0,0,0,0.6)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        zIndex: 1000,
-      }}
-    >
-      <div
-        style={{
-          background: "#1e1e2e",
-          padding: "24px",
-          borderRadius: "12px",
-          width: "350px",
-          color: "#fff",
-        }}
-      >
+    <div className="modelContainer">
+      <div className="modelFormCont">
         <h3>Share "{album.name}"</h3>
 
         <input
@@ -69,75 +49,34 @@ const ShareAlbumModal = ({ album, onClose }) => {
           placeholder="user@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "8px",
-            marginBottom: "8px",
-            borderRadius: "8px",
-            border: "1px solid #444",
-            background: "#2a2a3e",
-            color: "#fff",
-          }}
+          className="inputStyl"
         />
 
         <select
           value={accessLevel}
           onChange={(e) => setAccessLevel(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "8px",
-            marginBottom: "8px",
-            borderRadius: "8px",
-            border: "1px solid #444",
-            background: "#2a2a3e",
-            color: "#fff",
-          }}
+          className="selectStyl"
         >
           <option value="view">View</option>
           <option value="edit">Edit</option>
           <option value="admin">Admin</option>
         </select>
 
-        <button
-          onClick={handleShare}
-          style={{
-            width: "100%",
-            padding: "9px",
-            background: "oklch(79.2% 0.209 151.711)",
-            border: "none",
-            borderRadius: "8px",
-            color: "#fff",
-            cursor: "pointer",
-          }}
-        >
+        <button onClick={handleShare} className="modelBtn">
           Share
         </button>
 
         {/* Shared users list with remove button */}
-        <ul style={{ padding: 0, listStyle: "none", marginTop: "12px" }}>
+        <ul className="ulStyle">
           {sharedUsers.map((u) => (
-            <li
-              key={u.email}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: "6px",
-                marginBottom: "4px",
-                background: "rgba(255,255,255,0.05)",
-                borderRadius: "8px",
-              }}
-            >
+            <li key={u.email} className="liStyle">
               <span>
                 {u.email} — {u.accessLevel}
               </span>
               <button
                 onClick={() => handleUnshare(u.email)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "red",
-                  cursor: "pointer",
-                }}
+                className="crossBtn"
+                style={{}}
               >
                 ✕
               </button>
@@ -145,19 +84,7 @@ const ShareAlbumModal = ({ album, onClose }) => {
           ))}
         </ul>
 
-        <button
-          onClick={onClose}
-          style={{
-            width: "100%",
-            padding: "8px",
-            marginTop: "8px",
-            background: "transparent",
-            border: "1px solid #555",
-            borderRadius: "8px",
-            color: "#aaa",
-            cursor: "pointer",
-          }}
-        >
+        <button onClick={onClose} className="closeBtn">
           Close
         </button>
       </div>

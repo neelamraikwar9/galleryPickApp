@@ -34,3 +34,15 @@
         margin: 0
     }
 }
+
+.heartBtnOnFavImg {
+    position: absolute;
+        top: 4px;
+        right: 2rem;
+        background: none;
+        border: none;
+        cursor: point;
+        padding: 0;
+}
+                          
+            

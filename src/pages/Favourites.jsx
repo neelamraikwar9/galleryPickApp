@@ -127,7 +127,7 @@ const Favourites = () => {
           <div key={img._id} className="imgContainer favImgHeight">
             <img src={img.imgUrl} alt="image" className="favImgStyl" />
             <button
-              className="heartBtn"
+              className="heartBtnOnFavImg"
               onClick={() => toggleFavorite(img._id)}
             >
               <i
