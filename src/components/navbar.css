@@ -53,8 +53,11 @@
     flex-wrap: wrap;
     flex-direction: column;
     width: 15rem;
-    height: auto;
+    /* height: auto; */
+    min-height: 100vh;
+    height: 100%;
     background-color: rgb(55, 62, 60);
+
 }
 
 

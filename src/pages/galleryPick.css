@@ -23,7 +23,7 @@ width: 136%
 .allImgesCont {
     margin: 1rem 3rem;
     /* border: 1px solid red; */
-    height: 10rem;
+    /* height: 10rem; */
 }
 
 .imgContainer {
@@ -112,7 +112,7 @@ width: 136%
     border: 1px solid rgb(135, 204, 174);
 
     height: auto;
-    width: 18rem;
+    width: 17rem;
     border-radius: 14px;
     position: relative;
     margin: 5px;
