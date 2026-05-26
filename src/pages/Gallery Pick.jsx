@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import ImageEditModel from "../components/ImageEditModel"; 
+import AddCommentModel from "../components/AddCommentModel";
 
 const GalleryPick = () => {
   const { user, logout } = useAuth();
@@ -20,10 +21,10 @@ const GalleryPick = () => {
   const [isValid, setIsValid] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  // const [selectEdit, setSelectEdit] = useState(null); 
+  // const [selectedCommentImage, setSelectedCommentImage] = useState(null);
 
   const [selectedImage, setSelectedImage] = useState(null);
-
+const [selectedCommentImage, setSelectedCommentImage] = useState(null);
   console.log(loggedInUser, "loggedInUser");
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
@@ -163,7 +164,22 @@ const GalleryPick = () => {
     }
   }
 
+
+  const fetchImages = async () => {
+    const res = await axios.get(
+      "https://gallery-pick-apis-lfxz.vercel.app/images",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+    setImages(res.data); 
+  };
+
+
   if (!token || isExpired) return null;
+
+
+
 
   return (
     <main>
@@ -255,7 +271,7 @@ const GalleryPick = () => {
                 <p>
                   <strong>Tags:</strong> {img.tags.join(", ")}
                 </p>
-                <div style={{ marign: 0 }}>
+                <div>
                   <strong>Comments:</strong>{" "}
                   {img.comments.length === 0
                     ? "No comments yet"
@@ -266,6 +282,15 @@ const GalleryPick = () => {
                       ))}
                 </div>
               </div>
+              <br />
+              <div className="commBtnCont">
+                <button
+                  className="imgBtn commBtn"
+                  onClick={() => setSelectedCommentImage(img)}
+                >
+                  Add Comment
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -275,6 +300,15 @@ const GalleryPick = () => {
         <ImageEditModel
           image={selectedImage}
           onClose={() => setSelectedImage(null)}
+          onUpdate={fetchImages}
+        />
+      )}
+
+      {selectedCommentImage && (
+        <AddCommentModel
+          image={selectedCommentImage}
+          onClose={() => setSelectedCommentImage(null)}
+          onUpdate={fetchImages}
         />
       )}
     </main>

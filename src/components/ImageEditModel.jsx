@@ -1,44 +1,67 @@
-import './modelFiles.css'; 
-import React, { useState, useEffect } from "react"; 
-import axios from 'axios'; 
+import "./modelFiles.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { toast } from "react-toastify";
-import { useAuth } from "../context/AuthContext"; 
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-const ImageEditModel = ({ image, onClose}) => {
-  const { token } = useAuth(); 
+const ImageEditModel = ({ image, onClose, onUpdate }) => {
+  const { token } = useAuth();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [tags, setTags] = useState("");
   const [person, setPerson] = useState("");
-  const [editData, setEditData] = useState([]); 
-//   const [comment, setComment] = useState("");
+  const [editData, setEditData] = useState([]);
+  //   const [comment, setComment] = useState("");
 
-useEffect(() => {
-  if (image) {
-    setName(image.name || "");
-    setTags(image.tags ? image.tags.join(", ") : "");
-    setPerson(image.person || "");
-  }
-}, [image]);
+  useEffect(() => {
+    console.log("image object:", image); // ← add this
+  }, [image]);
 
+  useEffect(() => {
+    if (image) {
+      setName(image.name || "");
+      setTags(image.tags ? image.tags.join(", ") : "");
+      setPerson(image.person || "");
+    }
+  }, [image]);
 
   // useEffect(() => {
-    const handleUpdateImg = async () => {
-        try{
-        const res = await axios.put(
-          `https://gallery-pick-apis-lfxz.vercel.app/images/${image}`, { name, tags: tags.split(", ").map((t) => t.trim()), person}, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-          }
-        );
-        console.log(res, "res");  
-        setEditData(res.data); 
-        toast.success(`Image edited successfully ${name}`);
-      // Here I have to set with the initial state; 
-    } catch(error){
-      toast.error("Failed to edit image"); 
+  const handleUpdateImg = async () => {
+    try {
+      const res = await axios.put(
+        `https://gallery-pick-apis-lfxz.vercel.app/images/${image._id}`,
+        {
+          name,
+          tags: tags
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean),
+          person,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      console.log(res, "res");
+      setEditData(res.data.image);
+      toast.success(`Image updated successfully`);
+      setName("");
+      setTags("");
+      setPerson("");
+
+      await onUpdate();
+
+      onClose();
+
+      // navigate("/galleryPick");
+      // setTimeout(() => navigate("/galleryPick"), 1500);
+    } catch (error) {
+      toast.error("Failed to edit image");
     }
-    }
+  };
   // })
 
   return (
@@ -108,4 +131,4 @@ useEffect(() => {
   );
 };
 
-export default ImageEditModel; 
+export default ImageEditModel;

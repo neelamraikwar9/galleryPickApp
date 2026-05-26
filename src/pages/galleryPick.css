@@ -72,10 +72,26 @@ width: 136%
 }
 
 .imgBtn {
-    border: 1px solid rgb(121, 121, 247);
+    /* border: 1px solid rgb(121, 121, 247); */
+    border: none; 
     margin-top: 2px;
     border-radius: 5px;
-    padding: "10rem"
+    padding: 5px; 
+}
+
+.commBtnCont {
+    /* border: 1px solid yellow;  */
+    display: flex; 
+    justify-content: center;
+     
+}
+
+.commBtn {
+background-color: rgb(83, 197, 57);
+}
+
+.commBtn:hover{
+    background-color: rgb(113, 220, 89);
 }
 
 .imgName {
