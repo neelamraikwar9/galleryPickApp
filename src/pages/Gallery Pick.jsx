@@ -20,7 +20,9 @@ const GalleryPick = () => {
   const [isValid, setIsValid] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [selectEdit, setSelectEdit] = useState(null); 
+  // const [selectEdit, setSelectEdit] = useState(null); 
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   console.log(loggedInUser, "loggedInUser");
 
@@ -219,7 +221,10 @@ const GalleryPick = () => {
               </button>
 
               <div className="imgsBtn">
-                <button className="imgBtn editBtn" onClick={() => setSelectEdit(img._id)}>
+                <button
+                  className="imgBtn editBtn"
+                  onClick={() => setSelectedImage(img)}
+                >
                   Edit
                   <i
                     class="bi bi-pencil-fill"
@@ -238,7 +243,7 @@ const GalleryPick = () => {
                 >
                   Delete
                   <i
-                    class="bi bi-trash3-fill"
+                    className="bi bi-trash3-fill"
                     style={{
                       marginLeft: "2px",
                     }}
@@ -250,7 +255,7 @@ const GalleryPick = () => {
                 <p>
                   <strong>Tags:</strong> {img.tags.join(", ")}
                 </p>
-                <p style={{ marign: 0 }}>
+                <div style={{ marign: 0 }}>
                   <strong>Comments:</strong>{" "}
                   {img.comments.length === 0
                     ? "No comments yet"
@@ -259,15 +264,18 @@ const GalleryPick = () => {
                           • {c.text}
                         </p>
                       ))}
-                </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {selectEdit && (
-        <ImageEditModel image={selectEdit} onClose={() => setSelectEdit(null)}/>
+      {selectedImage && (
+        <ImageEditModel
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </main>
   );

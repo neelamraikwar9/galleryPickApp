@@ -25,7 +25,7 @@ useEffect(() => {
     const handleUpdateImg = async () => {
         try{
         const res = await axios.put(
-          `https://gallery-pick-apis-lfxz.vercel.app/images/${image._id}`, {name, tags: tags.split(", ").map((t) => t.trim()), person}, {
+          `https://gallery-pick-apis-lfxz.vercel.app/images/${image}`, { name, tags: tags.split(", ").map((t) => t.trim()), person}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
