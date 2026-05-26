@@ -267,7 +267,7 @@ const GalleryPick = () => {
       </div>
 
       {selectEdit && (
-        <ImageEditModel edit={selectEdit} onClose={() => setSelectEdit(null)}/>
+        <ImageEditModel image={selectEdit} onClose={() => setSelectEdit(null)}/>
       )}
     </main>
   );
