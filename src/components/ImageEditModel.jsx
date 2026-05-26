@@ -3,19 +3,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const ImageEditModel = ({ image, onClose, onUpdate }) => {
   const { token } = useAuth();
-  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [tags, setTags] = useState("");
   const [person, setPerson] = useState("");
   const [editData, setEditData] = useState([]);
-  //   const [comment, setComment] = useState("");
 
   useEffect(() => {
-    console.log("image object:", image); // ← add this
+    console.log("image object:", image);
   }, [image]);
 
   useEffect(() => {
@@ -26,7 +23,6 @@ const ImageEditModel = ({ image, onClose, onUpdate }) => {
     }
   }, [image]);
 
-  // useEffect(() => {
   const handleUpdateImg = async () => {
     try {
       const res = await axios.put(
@@ -55,14 +51,10 @@ const ImageEditModel = ({ image, onClose, onUpdate }) => {
       await onUpdate();
 
       onClose();
-
-      // navigate("/galleryPick");
-      // setTimeout(() => navigate("/galleryPick"), 1500);
     } catch (error) {
       toast.error("Failed to edit image");
     }
   };
-  // })
 
   return (
     <div className="modelContainer">
@@ -107,17 +99,6 @@ const ImageEditModel = ({ image, onClose, onUpdate }) => {
           />
         </div>
         <br />
-
-        {/* <div>
-            <label htmlFor=""></label>
-            <textarea
-              type="text"
-              placeholder="Our awesome nature with the beautiful animals."
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              className="inputStyl"
-            ></textarea>
-          </div> */}
 
         <button className="modelBtn" onClick={handleUpdateImg}>
           Update

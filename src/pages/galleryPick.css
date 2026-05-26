@@ -88,6 +88,7 @@ width: 136%
 
 .commBtn {
 background-color: rgb(83, 197, 57);
+margin-bottom: 5px;
 }
 
 .commBtn:hover{

@@ -3,7 +3,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
 
-
 const AddCommentModel = ({ image, onClose, onUpdate }) => {
   const { token } = useAuth();
   const [commentText, setCommentText] = useState("");
@@ -22,8 +21,8 @@ const AddCommentModel = ({ image, onClose, onUpdate }) => {
 
       toast.success("Comment added!");
       setCommentText("");
-      await onUpdate(); // ✅ refetch images in parent
-      onClose(); // ✅ close modal
+      await onUpdate(); // refetches images in parent
+      onClose(); //close modal
     } catch (error) {
       console.error(error.response?.data || error.message);
       toast.error("Failed to add comment");

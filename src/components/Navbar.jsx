@@ -59,7 +59,6 @@ const Navbar = () => {
         >
           GalleryPick
         </h1>
-        
 
         {/* //hamburger button;  */}
         <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
@@ -67,7 +66,7 @@ const Navbar = () => {
           <span></span>
           <span></span>
         </button>
-        
+
         {/* Nav Items */}
         <ul className={`navItems ${isOpen ? "open" : ""}`}>
           <li className="navItem">
@@ -200,6 +199,7 @@ const Navbar = () => {
           </li>
 
           <li className="navItem">
+            <h4 className="myAcc">My Account</h4>
             <i
               class="bi bi-person-square"
               style={{
