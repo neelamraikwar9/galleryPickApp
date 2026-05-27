@@ -95,7 +95,7 @@ const SignIn = () => {
                 required
                 className="fieldGap"
                 placeholder="Your Password"
-                autoComplete="current-password" 
+                autoComplete="current-password"
               />
 
               <button type="button" onClick={handleEyeClick} className="eyeBtn">

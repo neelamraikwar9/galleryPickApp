@@ -1,0 +1,45 @@
+.pgNotFoundCon {
+    /* border: 1px solid red */
+}
+
+.notFoundCont {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80rem;
+}
+
+.pgnotfnd {
+    font-size: 7rem;
+    margin: 0;
+}
+
+.error {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.nfBtn {
+    background-color: oklch(79.2% 0.209 151.711);
+    padding: 1rem;
+    width: 7rem;
+    border-radius: 10px;
+}
+
+
+@media(max-width: 480px) {
+    .notFoundCont {
+        width: 22rem;
+
+    }
+
+    .pgnotfnd {
+        margin-left: 1rem;
+    }
+
+    .nfBtn {
+        margin-top: 4rem;
+    }
+}

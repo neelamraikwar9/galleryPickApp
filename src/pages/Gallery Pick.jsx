@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import ImageEditModel from "../components/ImageEditModel"; 
+import ImageEditModel from "../components/ImageEditModel";
 import AddCommentModel from "../components/AddCommentModel";
 
 const GalleryPick = () => {
@@ -24,7 +24,7 @@ const GalleryPick = () => {
   // const [selectedCommentImage, setSelectedCommentImage] = useState(null);
 
   const [selectedImage, setSelectedImage] = useState(null);
-const [selectedCommentImage, setSelectedCommentImage] = useState(null);
+  const [selectedCommentImage, setSelectedCommentImage] = useState(null);
   console.log(loggedInUser, "loggedInUser");
 
   const [favoriteIds, setFavoriteIds] = useState([]); //will store favourite image ids.
@@ -164,7 +164,6 @@ const [selectedCommentImage, setSelectedCommentImage] = useState(null);
     }
   }
 
-
   const fetchImages = async () => {
     const res = await axios.get(
       "https://gallery-pick-apis-lfxz.vercel.app/images",
@@ -172,14 +171,10 @@ const [selectedCommentImage, setSelectedCommentImage] = useState(null);
         headers: { Authorization: `Bearer ${token}` },
       },
     );
-    setImages(res.data); 
+    setImages(res.data);
   };
 
-
   if (!token || isExpired) return null;
-
-
-
 
   return (
     <main>

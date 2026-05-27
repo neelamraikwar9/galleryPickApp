@@ -76,7 +76,6 @@ const ShareAlbumModal = ({ album, onClose }) => {
               <button
                 onClick={() => handleUnshare(u.email)}
                 className="crossBtn"
-               
               >
                 ✕
               </button>

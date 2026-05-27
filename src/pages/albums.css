@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .albImg {
@@ -27,15 +26,13 @@
 }
 
 .noAlMsg {
-    margin: 0 15rem; 
+    margin: 0 15rem;
 }
 
 .albmBtnsCont {
     /* border: 1px solid greenyellow;  */
-    display: flex; 
+    display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
-    /* justify-content: space-between; */
     gap: 5px
 }
 
@@ -44,7 +41,7 @@
 }
 
 .viewBtn {
-    background-color:oklch(79.2% 0.209 151.711); 
+    background-color: oklch(79.2% 0.209 151.711);
 }
 
 .deltBtn {
@@ -52,8 +49,8 @@
 }
 
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
     .noAlMsg {
-        margin: 0 0; 
+        margin: 0 0;
     }
 }

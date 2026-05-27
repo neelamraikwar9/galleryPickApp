@@ -1,14 +1,20 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import "./pageNoteFound.css";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function PageNoteFound() {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
   return (
-    <div> 
-    <h2>404 Page Note Found</h2>
-    <button onClick={() => navigate('/signin')}>Login</button>
-    </div>
-  ) 
+    <main className="mainContainer pgNotFoundCon">
+      <div className="notFoundCont" style={{}}>
+        <h1 className="error">404 error</h1>
+        <h1 className="pgnotfnd">Page Note Found</h1>
+        <button onClick={() => navigate("/signin")} className="nfBtn">
+          Login
+        </button>
+      </div>
+    </main>
+  );
 }
 
-export default PageNoteFound
+export default PageNoteFound;

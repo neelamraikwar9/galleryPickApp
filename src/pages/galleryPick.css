@@ -4,7 +4,6 @@ width: 136%
 } */
 
 
-
 .welCon {
     padding-top: 2%;
 }
@@ -23,7 +22,6 @@ width: 136%
 .allImgesCont {
     margin: 1rem 3rem;
     /* border: 1px solid red; */
-    /* height: 10rem; */
 }
 
 .imgContainer {
@@ -64,47 +62,39 @@ width: 136%
 
 .imgsBtn {
     display: flex;
-    /* justify-content: end; */
-    /* color: oklch(71.2% 0.194 13.428); */
     align-items: center;
     justify-content: space-between;
-    /* padding: 0 8px; */
 }
 
 .imgBtn {
     /* border: 1px solid rgb(121, 121, 247); */
-    border: none; 
+    border: none;
     margin-top: 2px;
     border-radius: 5px;
-    padding: 5px; 
+    padding: 5px;
 }
 
 .commBtnCont {
     /* border: 1px solid yellow;  */
-    display: flex; 
+    display: flex;
     justify-content: center;
-     
+
 }
 
 .commBtn {
-background-color: rgb(83, 197, 57);
-margin-bottom: 5px;
+    background-color: rgb(83, 197, 57);
+    margin-bottom: 5px;
 }
 
-.commBtn:hover{
+.commBtn:hover {
     background-color: rgb(113, 220, 89);
 }
 
 .imgName {
-
     margin-right: 2rem;
-    /* text-align: center; */
     flex: 1;
-    /* add this — makes name take equal space */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* white-space: nowrap; */
-
 }
 
 
@@ -126,8 +116,7 @@ margin-bottom: 5px;
 }
 
 .gallImgsCard {
-    border: 1px solid rgb(135, 204, 174);
-
+    border: 1px solid rgb(128, 129, 128);
     height: auto;
     width: 17rem;
     border-radius: 14px;
@@ -149,18 +138,16 @@ margin-bottom: 5px;
 }
 
 .editBtn:hover {
-  background-color: oklch(78.9% 0.154 211.53);
+    background-color: oklch(78.9% 0.154 211.53);
 }
 
 .delBtn {
-margin-right: 5px; 
-/* background-color: oklch(71.2% 0.194 13.428);  */
-background-color:oklch(64.5% 0.246 16.439)
+    margin-right: 5px;
+    background-color: oklch(64.5% 0.246 16.439)
 }
 
 .delBtn:hover {
-/* background-color: oklch(64.5% 0.246 16.439); */
-background-color: oklch(71.2% 0.194 13.428);;
+    background-color: oklch(71.2% 0.194 13.428);
 }
 
 .tagCommCont {

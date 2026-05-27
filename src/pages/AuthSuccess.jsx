@@ -1,4 +1,4 @@
-import "./authSuccess.css"; 
+import "./authSuccess.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 
 const AuthSuccess = () => {
   const navigate = useNavigate();
-  const { setUser } = useAuth(); 
+  const { setUser } = useAuth();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -28,7 +28,7 @@ const AuthSuccess = () => {
           "https://gallery-pick-apis-lfxz.vercel.app/auth/me",
           {
             headers: {
-              Authorization: `Bearer ${token}`, 
+              Authorization: `Bearer ${token}`,
             },
           },
         );

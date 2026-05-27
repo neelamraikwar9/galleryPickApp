@@ -8,13 +8,12 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import ShareAlbumModal from "../components/ShareAlbumModel";
 
-
 const Albums = () => {
   const navigate = useNavigate();
   const [albms, setAlbms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [selectedAlbum, setSelectedAlbum] = useState(null);  
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
 
   const token = localStorage.getItem("token");
 
@@ -67,7 +66,6 @@ const Albums = () => {
     }
   }
 
-   
   return (
     <main>
       <div>
@@ -90,7 +88,7 @@ const Albums = () => {
       <div className="albmmOutCont sharedAlCont">
         {albms.map((albm) => (
           <div key={albm._id} className="albmsCon ">
-            <div className="albumCont shardAlbOutCont"> 
+            <div className="albumCont shardAlbOutCont">
               <div className="shardAlbCont">
                 <h3 className="albumName">{albm.name}</h3>
                 <hr />
@@ -130,17 +128,13 @@ const Albums = () => {
         ))}
       </div>
 
-      {
-     /* ✅ 4. RENDER MODAL — only shows when an album is selected */
-   }
-   {
-     selectedAlbum && (
-       <ShareAlbumModal
-         album={selectedAlbum}
-         onClose={() => setSelectedAlbum(null)}
-       />
-     )
-   }
+      {/* ✅ 4. RENDER MODAL — only shows when an album is selected */}
+      {selectedAlbum && (
+        <ShareAlbumModal
+          album={selectedAlbum}
+          onClose={() => setSelectedAlbum(null)}
+        />
+      )}
     </main>
   );
 };

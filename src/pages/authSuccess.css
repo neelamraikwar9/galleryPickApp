@@ -1,10 +1,10 @@
 .spinner {
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    height: 100vh; 
-    justify-content: center; 
-    color: white; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    color: white;
     background: #0f0f0f,
 }
 
@@ -13,5 +13,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-} 
+
+}
