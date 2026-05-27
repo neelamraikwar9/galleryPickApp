@@ -80,7 +80,6 @@ const SharedAlbums = () => {
                   Shared by: <strong>{album.ownerId.name}</strong>
                 </p>
                 <div>
-                  {/* Showing access level of Beauty*/}
                   {album.sharedUsers
                     .filter((u) => u.email === getUserEmail(token))
                     .map((u) => (

@@ -10,7 +10,6 @@ const UploadImg = () => {
   const [uploadImg, setUploadImg] = useState("");
   const [albums, setAlbums] = useState([]);
   console.log(albums, "albums");
-
   const [image, setImage] = useState(null);
   const [album, setAlbum] = useState([]);
   const [name, setName] = useState("");
@@ -145,7 +144,6 @@ const UploadImg = () => {
                 className="inptStl"
                 required
               >
-                {/* <option value="">Choose album... </option> */}
                 {albums.length === 0 ? (
                   <option value>Create an album first</option>
                 ) : (

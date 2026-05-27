@@ -5,13 +5,10 @@
  .mainContainer {
    display: flex;
    flex-direction: row;
-   /* height: 90%; */
-    overflow: visible;
-    min-height: 100vh;
-   /* height: auto;  */
+   overflow: visible;
+   min-height: 100vh;
    /* border: 1px solid rgb(135, 238, 39); */
    width: 99.6%;
-   
  }
 
  .logSignContainer {
@@ -27,7 +24,7 @@
  }
 
  /* .container { */
-   /* border: 1px solid rgb(255, 51, 0); */
+ /* border: 1px solid rgb(255, 51, 0); */
  /* } */
 
  .noImgAlbMsg {
@@ -49,8 +46,8 @@
  }
 
  .btnStyl {
-  background-color: rgb(107, 179, 0); 
-  border-radius: 3px;
+   background-color: rgb(107, 179, 0);
+   border-radius: 3px;
  }
 
  @media (max-width: 768px) {
@@ -63,8 +60,6 @@
      width: 20%;
      flex-direction: row;
      height: auto;
-     border-color: aqua;
-
-
+     /* border-color: aqua; */
    }
  }
