@@ -49,7 +49,7 @@ npm run dev
 ## Demo Video
 
 Watch a Walkthrough 
-[Video]()  
+[Video](https://www.loom.com/share/78f431097bc245a69d6c8dcbe4d5faec)  
 
 
 ---
